@@ -123,7 +123,7 @@ export function AboutHero() {
                       <div>
                         <p className="font-medium">LinkedIn</p>
                         <a 
-                          href="https://linkedin.com/in/aryan-kumawat"
+                          href="https://www.linkedin.com/in/aryan-kumawat-/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm text-muted-foreground hover:text-foreground transition-colors"
