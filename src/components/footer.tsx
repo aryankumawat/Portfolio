@@ -98,7 +98,7 @@ export function Footer() {
             <div className="space-y-3">
               <Button asChild variant="outline" size="sm" className="w-full">
                 <a 
-                  href="https://linkedin.com/in/aryan-kumawat"
+                  href="https://www.linkedin.com/in/aryan-kumawat-/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"

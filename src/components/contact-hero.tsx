@@ -28,7 +28,7 @@ const contactMethods = [
     icon: Linkedin,
     label: "LinkedIn",
     value: "Aryan Kumawat | LinkedIn",
-    href: "https://linkedin.com/in/aryan-kumawat",
+    href: "https://www.linkedin.com/in/aryan-kumawat-/",
     description: "Connect professionally and view my experience",
     color: "from-indigo-500 to-indigo-600",
   },
@@ -195,7 +195,7 @@ export function ContactHero() {
                 </Button>
                 <Button asChild variant="outline" className="w-full">
                   <a 
-                    href="https://linkedin.com/in/aryan-kumawat"
+                    href="https://www.linkedin.com/in/aryan-kumawat-/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
