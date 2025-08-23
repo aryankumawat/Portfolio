@@ -36,7 +36,6 @@ const education = [
     duration: "2020 - 2022",
     description: "Completed IBDP with focus on STEM subjects and economics. Achieved excellent results across all subjects.",
     achievements: [
-      "Final Score: 39/45 (Top 10% globally)",
       "Subject Excellence in Physics, Mathematics AA, Computer Science, Economics, English, Hindi",
       "Extended Essay in Computer Science",
       "Theory of Knowledge (TOK) distinction",
