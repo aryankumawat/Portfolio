@@ -40,7 +40,6 @@ const awards = [
 const certificates = [
   "Multiple Letters/Certificates of Appreciation (Rising Hopes, DSP Dalhousie, Smile Foundation, Akross Solutions, Chairman Municipal Council Sikar, MLA)",
   "Subject Excellence in Physics, Mathematics AA, Computer Science, Economics, English, Hindi",
-  "IBDP Final Score: 39/45 (Top 10% globally)",
   "Theory of Knowledge (TOK) distinction",
   "CAS (Creativity, Activity, Service) completion with leadership projects",
 ];
