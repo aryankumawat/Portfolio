@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent } from "./ui/card";
+import { GlassCard } from "./GlassCard";
 import { Badge } from "./ui/badge";
 import { Briefcase, Users, Target, TrendingUp } from "lucide-react";
 
@@ -46,7 +46,7 @@ export function ExperienceHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-heading font-bold mb-6"
+            className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white"
           >
             Professional Experience
           </motion.h1>
@@ -54,7 +54,7 @@ export function ExperienceHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="text-xl text-gray-400 max-w-3xl mx-auto"
           >
             A diverse portfolio of roles spanning consulting, technology, education, 
             and community impact. Each position has contributed to my growth as a 
@@ -76,24 +76,22 @@ export function ExperienceHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
             >
-              <Card className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-r from-electric to-electric-light">
-                      <stat.icon className="h-6 w-6 text-white" />
-                    </div>
+              <GlassCard className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="flex justify-center mb-4">
+                  <div className="p-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600">
+                    <stat.icon className="h-6 w-6 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-foreground mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="font-semibold text-sm mb-1">
-                    {stat.label}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {stat.description}
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
+                <div className="text-3xl font-bold text-white mb-2">
+                  {stat.value}
+                </div>
+                <div className="font-semibold text-sm mb-1 text-white">
+                  {stat.label}
+                </div>
+                <div className="text-xs text-gray-400">
+                  {stat.description}
+                </div>
+              </GlassCard>
             </motion.div>
           ))}
         </motion.div>
@@ -105,49 +103,47 @@ export function ExperienceHero() {
           transition={{ duration: 0.8, delay: 1 }}
           className="max-w-4xl mx-auto"
         >
-          <Card>
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-heading font-semibold mb-6 text-center">
-                What I Bring to the Table
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-lg text-electric">Leadership & Management</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="text-electric mt-1">•</span>
-                      Proven track record of leading teams and organizations
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-electric mt-1">•</span>
-                      Strategic planning and project management expertise
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-electric mt-1">•</span>
-                      Mentoring and developing team members
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-lg text-electric">Technical & Domain</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="text-electric mt-1">•</span>
-                      Data science and machine learning applications
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-electric mt-1">•</span>
-                      Financial modeling and analysis
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-electric mt-1">•</span>
-                      Software development and cybersecurity
-                    </li>
-                  </ul>
-                </div>
+          <GlassCard>
+            <h3 className="text-2xl font-heading font-semibold mb-6 text-center text-white">
+              What I Bring to the Table
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <h4 className="font-semibold text-lg text-purple-400">Leadership & Management</h4>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-1">•</span>
+                    Proven track record of leading teams and organizations
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-1">•</span>
+                    Strategic planning and project management expertise
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-1">•</span>
+                    Mentoring and developing team members
+                  </li>
+                </ul>
               </div>
-            </CardContent>
-          </Card>
+              <div className="space-y-4">
+                <h4 className="font-semibold text-lg text-blue-400">Technical & Domain</h4>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-1">•</span>
+                    Data science and machine learning applications
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-1">•</span>
+                    Financial modeling and analysis
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-1">•</span>
+                    Software development and cybersecurity
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </GlassCard>
         </motion.div>
       </div>
     </section>

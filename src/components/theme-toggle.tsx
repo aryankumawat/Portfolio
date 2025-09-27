@@ -12,13 +12,12 @@ import {
 
 const themeIcons = {
   ultraviolet: Moon,
-  'neon-cyan': Zap,
   'deep-space': Sun,
 };
 
 export function ThemeToggle() {
   const { theme, setTheme, availableThemes } = useTheme();
-  const CurrentIcon = themeIcons[theme];
+  const CurrentIcon = themeIcons[theme as keyof typeof themeIcons];
 
   return (
     <DropdownMenu>
