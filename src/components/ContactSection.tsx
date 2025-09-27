@@ -98,7 +98,7 @@ export function ContactSection() {
                         <Linkedin className="h-5 w-5 text-slate-300 group-hover:text-white transition-colors" />
                       </Link>
                       <Link
-                        href="https://instagram.com/aryankumawat"
+                        href="https://www.instagram.com/_aryankumawat_/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-3 glass-sm rounded-lg hover:bg-white/10 transition-all duration-300 group"
