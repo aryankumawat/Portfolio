@@ -2,15 +2,9 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Download, Mail, Sparkles, Zap, Code } from "lucide-react";
+import { ArrowRight, Download, Mail, Search } from "lucide-react";
 import { Button } from "./ui/button";
-import { Particles } from "./particles";
-
-const roles = [
-  { name: "Data Science", icon: Sparkles, color: "from-accent-violet to-accent-purple" },
-  { name: "Finance", icon: Zap, color: "from-accent-blue to-accent-cyan" },
-  { name: "Software Development", icon: Code, color: "from-accent-cyan to-accent-emerald" },
-];
+import { Reveal } from "./Reveal";
 
 export function Hero() {
   const { scrollYProgress } = useScroll();
@@ -18,140 +12,57 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-bg-primary">
-        <div className="absolute inset-0 bg-gradient-radial opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-violet/5 via-transparent to-accent-cyan/5" />
-      </div>
-      
-      {/* Particle System */}
-      <Particles />
-      
-      {/* Floating gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-accent-violet/20 to-accent-purple/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-accent-blue/20 to-accent-cyan/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-            scale: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-accent-cyan/10 to-accent-emerald/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
+    <main className="relative bg-hero noise min-h-screen">
+      {/* Soft glow ring */}
+      <div aria-hidden className="pointer-events-none absolute -z-10 inset-0">
+        <div 
+          className="absolute left-1/2 top-[35%] -translate-x-1/2 size-[70vmax] rounded-full blur-3xl opacity-30"
+          style={{
+            background: "conic-gradient(from 140deg, #7C3AED, #2563EB, #22D3EE, #7C3AED)"
           }}
         />
       </div>
 
       <motion.div 
         style={{ y, opacity }}
-        className="container-padding relative z-10 text-center"
+        className="mx-auto max-w-6xl px-6 pt-28 pb-24 text-center relative z-10"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto"
-        >
-          {/* Greeting */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-text-muted mb-4 font-mono"
-          >
-            Hello, I'm
-          </motion.p>
-
-          {/* Name with animated gradient */}
+        <Reveal>
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-6"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-5xl md:text-7xl font-extrabold leading-tight gradient-text-hero"
           >
-            <span className="gradient-text bg-gradient-primary bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient-shift">
-              Aryan Kumawat
-            </span>
+            Turn ideas into{" "}
+            <span className="whitespace-nowrap">live experiences</span>
           </motion.h1>
+        </Reveal>
 
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-3xl text-text-secondary mb-8 max-w-4xl mx-auto leading-relaxed"
-          >
-            Data & Finance at USYD — building{" "}
-            <span className="gradient-text-secondary">AI-driven</span>, real-world solutions.
-          </motion.p>
+        <Reveal delay={0.2}>
+          <p className="mt-6 text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
+            CS-engineered portfolio • AI-first • smooth, fast, and glassy ✨
+          </p>
+        </Reveal>
 
-          {/* Roles with icons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap justify-center items-center gap-6 mb-12"
-          >
-            {roles.map((role, index) => (
-              <motion.div
-                key={role.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 1 + index * 0.1,
-                }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="group"
-              >
-                <div className={`px-6 py-3 bg-gradient-to-r ${role.color} rounded-full text-white font-medium text-sm flex items-center gap-2 shadow-glow hover:shadow-glow transition-all duration-300`}>
-                  <role.icon className="h-4 w-4" />
-                  {role.name}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Glass pill CTA */}
+        <Reveal delay={0.4}>
+          <div className="mt-10 flex items-center justify-center">
+            <div className="glass hairline rounded-full px-4 py-2 md:px-6 md:py-3 w-full max-w-xl flex items-center gap-3 group hover:scale-105 transition-transform duration-300">
+              <Search className="h-4 w-4 text-slate-300/80" />
+              <span className="text-slate-300/80 flex-1 text-left">Search projects or posts…</span>
+              <kbd className="ml-auto text-slate-300/70 text-sm bg-slate-800/50 px-2 py-1 rounded">⌘K</kbd>
+            </div>
+          </div>
+        </Reveal>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-          >
+        {/* CTA Buttons */}
+        <Reveal delay={0.6}>
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               asChild 
               size="lg" 
-              className="group bg-gradient-primary hover:opacity-90 text-white border-0 px-8 py-4 text-lg font-semibold shadow-glow hover:shadow-glow transition-all duration-300"
+              className="group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <Link href="/resume">
                 Download Resume
@@ -163,36 +74,33 @@ export function Hero() {
               asChild 
               size="lg" 
               variant="outline" 
-              className="group glass border-border-primary hover:bg-bg-glass px-8 py-4 text-lg font-semibold"
+              className="group glass border-white/20 hover:bg-white/5 px-8 py-4 text-lg font-semibold"
             >
               <Link href="/contact">
                 Get in Touch
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </Button>
-          </motion.div>
+          </div>
+        </Reveal>
 
-          {/* Quick contact */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-text-muted"
-          >
+        {/* Quick contact */}
+        <Reveal delay={0.8}>
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-slate-400">
             <Link
               href="mailto:akum9196@uni.sydney.edu.au"
-              className="flex items-center gap-2 hover:text-text-primary transition-colors group"
+              className="flex items-center gap-2 hover:text-slate-300 transition-colors group"
             >
               <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
               akum9196@uni.sydney.edu.au
             </Link>
-            <span className="hidden sm:inline text-text-subtle">•</span>
+            <span className="hidden sm:inline text-slate-500">•</span>
             <span className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-accent-cyan rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
               Sydney, Australia
             </span>
-          </motion.div>
-        </motion.div>
+          </div>
+        </Reveal>
       </motion.div>
 
       {/* Scroll indicator */}
@@ -205,15 +113,15 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-text-muted/30 rounded-full flex justify-center group cursor-pointer"
+          className="w-6 h-10 border-2 border-slate-400/30 rounded-full flex justify-center group cursor-pointer"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-gradient-primary rounded-full mt-2"
+            className="w-1 h-3 bg-gradient-to-b from-purple-500 to-blue-500 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
-    </section>
+    </main>
   );
 }

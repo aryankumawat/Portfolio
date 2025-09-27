@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const themeIcons = {
-  aurora: Sparkles,
   ultraviolet: Moon,
   'neon-cyan': Zap,
   'deep-space': Sun,

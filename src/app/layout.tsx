@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { Header } from "@/components/header";
+import { GlassNav } from "@/components/GlassNav";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
@@ -76,13 +76,13 @@ export default function RootLayout({
     <html 
       lang="en" 
       suppressHydrationWarning
-      className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} theme-aurora`}
+      className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} theme-ultraviolet`}
     >
-      <body className="font-sans antialiased bg-bg-primary text-text-primary">
-        <ThemeProvider defaultTheme="aurora" storageKey="aryan-theme">
+      <body className="font-sans antialiased">
+        <ThemeProvider defaultTheme="ultraviolet" storageKey="aryan-theme">
           <SmoothScrollProvider>
-            <Header />
-            <main className="pt-16">
+            <GlassNav />
+            <main>
               {children}
             </main>
             <Footer />
