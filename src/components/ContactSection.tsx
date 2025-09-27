@@ -44,7 +44,7 @@ export function ContactSection() {
                   {/* Contact Details */}
                   <div className="space-y-4">
                     <Link
-                      href="mailto:akum9196@uni.sydney.edu.au"
+                      href="mailto:kumawataryan23@gmail.com"
                       className="flex items-center gap-4 p-4 glass-sm rounded-lg hover:bg-white/10 transition-all duration-300 group"
                     >
                       <div className="p-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 group-hover:scale-110 transition-transform">
@@ -52,7 +52,7 @@ export function ContactSection() {
                       </div>
                       <div>
                         <p className="text-slate-300 font-medium">Email</p>
-                        <p className="text-slate-400 text-sm">akum9196@uni.sydney.edu.au</p>
+                        <p className="text-slate-400 text-sm">kumawataryan23@gmail.com</p>
                       </div>
                     </Link>
 

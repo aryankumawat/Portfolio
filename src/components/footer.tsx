@@ -70,10 +70,10 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-electric" />
                 <a 
-                  href="mailto:akum9196@uni.sydney.edu.au"
+                  href="mailto:kumawataryan23@gmail.com"
                   className="hover:text-foreground transition-colors"
                 >
-                  akum9196@uni.sydney.edu.au
+                  kumawataryan23@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">

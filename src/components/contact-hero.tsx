@@ -19,8 +19,8 @@ const contactMethods = [
   {
     icon: Mail,
     label: "Email",
-    value: "akum9196@uni.sydney.edu.au",
-    href: "mailto:akum9196@uni.sydney.edu.au",
+    value: "kumawataryan23@gmail.com",
+    href: "mailto:kumawataryan23@gmail.com",
     description: "Best for detailed inquiries and collaboration opportunities",
     color: "from-blue-500 to-blue-600",
   },
@@ -204,7 +204,7 @@ export function ContactHero() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="w-full">
-                  <a href="mailto:akum9196@uni.sydney.edu.au">
+                  <a href="mailto:kumawataryan23@gmail.com">
                     <Mail className="h-4 w-4 mr-2" />
                     Send Email
                   </a>

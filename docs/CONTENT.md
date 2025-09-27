@@ -189,7 +189,7 @@ Update `src/data/profile.json` for personal information:
     "name": "Aryan Kumawat",
     "title": "Data Science & Finance Student",
     "location": "Sydney, Australia",
-    "email": "akum9196@uni.sydney.edu.au",
+    "email": "kumawataryan23@gmail.com",
     "bio": "Brief bio description",
     "avatar": "/images/avatar.jpg"
   },

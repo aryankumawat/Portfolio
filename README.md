@@ -230,7 +230,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Contact
 
-- **Email**: akum9196@uni.sydney.edu.au
+- **Email**: kumawataryan23@gmail.com
 - **LinkedIn**: [Aryan Kumawat | LinkedIn](https://www.linkedin.com/in/aryan-kumawat-/)
 - **Location**: Sydney, Australia
 

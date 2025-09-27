@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>', // You'll need to verify this domain
-      to: ['akum9196@uni.sydney.edu.au'], // Your email
+      to: ['kumawataryan23@gmail.com'], // Your email
       subject: `Portfolio Contact: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

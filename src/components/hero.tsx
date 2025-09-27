@@ -165,11 +165,11 @@ export function Hero() {
               className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-slate-400"
             >
               <Link
-                href="mailto:akum9196@uni.sydney.edu.au"
+                href="mailto:kumawataryan23@gmail.com"
                 className="flex items-center gap-2 hover:text-slate-300 transition-colors group"
               >
                 <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
-                akum9196@uni.sydney.edu.au
+                kumawataryan23@gmail.com
               </Link>
               <span className="hidden sm:inline text-slate-500">•</span>
               <span className="flex items-center gap-2">

@@ -87,10 +87,10 @@ export function AboutHero() {
                       <div>
                         <p className="font-medium">Email</p>
                         <a 
-                          href="mailto:akum9196@uni.sydney.edu.au"
+                          href="mailto:kumawataryan23@gmail.com"
                           className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                         >
-                          akum9196@uni.sydney.edu.au
+                          kumawataryan23@gmail.com
                         </a>
                       </div>
                     </div>
