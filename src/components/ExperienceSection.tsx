@@ -5,6 +5,7 @@ import { Reveal } from "./Reveal";
 import { GlassCard } from "./GlassCard";
 import { Badge } from "./ui/badge";
 import { Calendar, MapPin, Building, Award, Users, Target } from "lucide-react";
+import Link from "next/link";
 
 const experiences = [
   {
@@ -179,21 +180,23 @@ export function ExperienceSection() {
         {/* View Full Experience Button */}
         <Reveal delay={1.0}>
           <div className="text-center mt-16">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <GlassCard className="inline-block group cursor-pointer">
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
-                    View Complete Experience
-                  </h3>
-                  <p className="text-slate-400 text-sm">
-                    Explore my full professional journey, internships, and achievements
-                  </p>
-                </div>
-              </GlassCard>
-            </motion.div>
+            <Link href="/experience">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <GlassCard className="inline-block group cursor-pointer">
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                      View Complete Experience
+                    </h3>
+                    <p className="text-slate-400 text-sm">
+                      Explore my full professional journey, internships, and achievements
+                    </p>
+                  </div>
+                </GlassCard>
+              </motion.div>
+            </Link>
           </div>
         </Reveal>
       </div>

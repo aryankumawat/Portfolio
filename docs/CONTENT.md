@@ -194,7 +194,7 @@ Update `src/data/profile.json` for personal information:
     "avatar": "/images/avatar.jpg"
   },
   "social": {
-    "linkedin": "https://linkedin.com/in/aryankumawat",
+    "linkedin": "https://www.linkedin.com/in/aryan-kumawat-/",
     "github": "https://github.com/aryankumawat",
     "twitter": "https://twitter.com/aryankumawat"
   },

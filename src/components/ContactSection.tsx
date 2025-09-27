@@ -90,7 +90,7 @@ export function ContactSection() {
                         <Github className="h-5 w-5 text-slate-300 group-hover:text-white transition-colors" />
                       </Link>
                       <Link
-                        href="https://linkedin.com/in/aryankumawat"
+                        href="https://www.linkedin.com/in/aryan-kumawat-/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-3 glass-sm rounded-lg hover:bg-white/10 transition-all duration-300 group"

@@ -49,20 +49,6 @@ export function CursorGlow() {
           transform: isHovering ? 'scale(1.5)' : 'scale(1)',
         }}
       />
-      
-      {/* Cursor Dot */}
-      <div
-        className="fixed pointer-events-none z-50 transition-all duration-150 ease-out"
-        style={{
-          left: mousePosition.x - 2,
-          top: mousePosition.y - 2,
-          width: 4,
-          height: 4,
-          background: isHovering ? '#8b5cf6' : '#06b6d4',
-          borderRadius: '50%',
-          transform: isHovering ? 'scale(1.5)' : 'scale(1)',
-        }}
-      />
     </>
   );
 }
