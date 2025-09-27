@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun, Monitor } from "lucide-react";
+import { Palette, Sparkles, Zap, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/contexts/theme-context";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,31 +10,50 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+const themeIcons = {
+  aurora: Sparkles,
+  ultraviolet: Moon,
+  'neon-cyan': Zap,
+  'deep-space': Sun,
+};
+
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme, availableThemes } = useTheme();
+  const CurrentIcon = themeIcons[theme];
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-9 w-9">
-          <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-9 w-9 hover:bg-bg-glass"
+        >
+          <CurrentIcon className="h-4 w-4" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          <Sun className="mr-2 h-4 w-4" />
-          <span>Light</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          <Moon className="mr-2 h-4 w-4" />
-          <span>Dark</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          <Monitor className="mr-2 h-4 w-4" />
-          <span>System</span>
-        </DropdownMenuItem>
+      <DropdownMenuContent align="end" className="glass border-border-primary">
+        {Object.entries(availableThemes).map(([key, config]) => {
+          const Icon = themeIcons[key as keyof typeof themeIcons];
+          return (
+            <DropdownMenuItem
+              key={key}
+              onClick={() => setTheme(key as any)}
+              className={`flex items-center gap-2 ${
+                theme === key ? 'bg-bg-glass' : ''
+              }`}
+            >
+              <Icon className="h-4 w-4" />
+              <div className="flex flex-col">
+                <span className="font-medium">{config.name}</span>
+                <span className="text-xs text-text-muted">
+                  {config.description}
+                </span>
+              </div>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );

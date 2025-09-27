@@ -1,12 +1,29 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
+import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Aryan Kumawat - Data Science & Finance Portfolio",
@@ -43,20 +60,33 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#0B1020",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider defaultTheme="dark" storageKey="aryan-theme">
-          <Header />
-          <main className="pt-16">
-            {children}
-          </main>
-          <Footer />
+    <html 
+      lang="en" 
+      suppressHydrationWarning
+      className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} theme-aurora`}
+    >
+      <body className="font-sans antialiased bg-bg-primary text-text-primary">
+        <ThemeProvider defaultTheme="aurora" storageKey="aryan-theme">
+          <SmoothScrollProvider>
+            <Header />
+            <main className="pt-16">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScrollProvider>
         </ThemeProvider>
         <Analytics />
       </body>
