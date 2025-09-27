@@ -120,61 +120,21 @@ export function ContactSection() {
                   Send a Message
                 </h3>
                 
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border border-white/20 bg-white/5 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        className="w-full px-4 py-3 border border-white/20 bg-white/5 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 border border-white/20 bg-white/5 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                      placeholder="What's this about?"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      rows={5}
-                      className="w-full px-4 py-3 border border-white/20 bg-white/5 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
-                      placeholder="Tell me about your project, opportunity, or just say hello..."
-                    />
-                  </div>
-
+                <div className="text-center">
+                  <p className="text-slate-300/80 mb-6">
+                    Ready to collaborate? Click the button below to send me an email directly.
+                  </p>
                   <Button
-                    type="submit"
+                    asChild
                     size="lg"
-                    className="w-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:via-violet-500 hover:to-indigo-500 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group"
+                    className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:via-violet-500 hover:to-indigo-500 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group"
                   >
-                    <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                    Send Message
+                    <a href="mailto:kumawataryan23@gmail.com?subject=Portfolio%20Contact&body=Hi%20Aryan,%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect.%0A%0A[Your%20message%20here]%0A%0ABest%20regards,">
+                      <Mail className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+                      Send Email Directly
+                    </a>
                   </Button>
-                </form>
+                </div>
 
                 <p className="text-xs text-slate-400 text-center mt-4">
                   I'll get back to you within 24 hours. Looking forward to hearing from you!

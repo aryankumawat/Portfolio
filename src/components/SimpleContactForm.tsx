@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import { GlassCard } from "./GlassCard";
 import { Reveal } from "./Reveal";
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import emailjs from '@emailjs/browser';
 import { 
   Send, 
   CheckCircle, 
@@ -33,7 +31,7 @@ interface FormErrors {
   message?: string;
 }
 
-export function ContactForm() {
+export function SimpleContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -84,24 +82,26 @@ export function ContactForm() {
     setSubmitStatus("idle");
 
     try {
-      // EmailJS configuration
-      const serviceId = 'service_portfolio'; // You'll need to create this in EmailJS
-      const templateId = 'template_contact'; // You'll need to create this in EmailJS
-      const publicKey = 'YOUR_EMAILJS_PUBLIC_KEY'; // You'll get this from EmailJS
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Portfolio Contact: ${formData.subject}`);
+      const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company || 'Not provided'}
 
-      // Prepare template parameters
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || 'Not provided',
-        subject: formData.subject,
-        message: formData.message,
-        to_email: 'kumawataryan23@gmail.com',
-      };
+Message:
+${formData.message}
 
-      // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-
+---
+This message was sent from your portfolio contact form.
+      `);
+      
+      const mailtoLink = `mailto:kumawataryan23@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -112,7 +112,7 @@ export function ContactForm() {
       });
       setErrors({});
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error opening email client:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -147,7 +147,7 @@ export function ContactForm() {
                     Send Me a Message
                   </h2>
                   <p className="text-slate-300/90">
-                    I'll get back to you within 24 hours. Looking forward to hearing from you!
+                    Fill out the form below and it will open your email client with the message ready to send.
                   </p>
                 </div>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -261,20 +261,11 @@ export function ContactForm() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
+                  className="w-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:via-violet-500 hover:to-indigo-500 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                      Sending Message...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="h-4 w-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
+                  <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                  {isSubmitting ? "Opening Email..." : "Send Message"}
                 </Button>
 
                 {/* Status Messages */}
@@ -287,10 +278,10 @@ export function ContactForm() {
                     <CheckCircle className="h-5 w-5 text-green-600" />
                     <div>
                       <p className="font-medium text-green-800 dark:text-green-200">
-                        Message sent successfully!
+                        Email client opened!
                       </p>
                       <p className="text-sm text-green-600 dark:text-green-300">
-                        I'll get back to you within 24 hours.
+                        Your message is ready to send. Just click send in your email client.
                       </p>
                     </div>
                   </motion.div>
@@ -317,8 +308,7 @@ export function ContactForm() {
                 {/* Form Note */}
                 <div className="text-center">
                   <p className="text-xs text-slate-400">
-                    By submitting this form, you agree to receive communications from me. 
-                    I respect your privacy and will never share your information.
+                    This form will open your default email client with the message ready to send.
                   </p>
                 </div>
               </form>

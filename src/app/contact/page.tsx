@@ -1,11 +1,11 @@
 import { ContactHero } from "@/components/contact-hero";
-import { ContactForm } from "@/components/contact-form";
+import { SimpleContactForm } from "@/components/SimpleContactForm";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-hero noise">
       <ContactHero />
-      <ContactForm />
+      <SimpleContactForm />
     </div>
   );
 }
