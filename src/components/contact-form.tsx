@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { GlassCard } from "./GlassCard";
+import { Reveal } from "./Reveal";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { 
@@ -82,21 +83,30 @@ export function ContactForm() {
     setSubmitStatus("idle");
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // In a real implementation, you would send the data to your API
-      console.log("Form submitted:", formData);
-      
-      setSubmitStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        subject: "",
-        message: "",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      setErrors({});
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          subject: "",
+          message: "",
+        });
+        setErrors({});
+      } else {
+        console.error("API error:", result.error);
+        setSubmitStatus("error");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");
@@ -114,38 +124,33 @@ export function ContactForm() {
   };
 
   const getInputClassName = (field: keyof FormData) => {
-    return `w-full px-3 py-2 border rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-electric focus:border-transparent ${
+    return `w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
       errors[field] 
-        ? "border-red-500 bg-red-50 dark:bg-red-950/20" 
-        : "border-border bg-background hover:border-muted-foreground/50"
+        ? "border-red-500 bg-red-50/10" 
+        : "border-white/20 bg-white/5 hover:border-white/30 text-white placeholder-slate-400"
     }`;
   };
 
   return (
-    <section className="section-padding bg-muted/30">
-      <div className="container-padding">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto"
-        >
-          <Card>
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-heading font-bold mb-2">
-                Send Me a Message
-              </CardTitle>
-              <p className="text-muted-foreground">
-                I'll get back to you within 24 hours. Looking forward to hearing from you!
-              </p>
-            </CardHeader>
-            <CardContent>
+    <section className="py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <div className="max-w-2xl mx-auto">
+            <GlassCard>
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold mb-4 gradient-text">
+                    Send Me a Message
+                  </h2>
+                  <p className="text-slate-300/90">
+                    I'll get back to you within 24 hours. Looking forward to hearing from you!
+                  </p>
+                </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name and Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium mb-2 text-slate-300">
                       <User className="h-4 w-4 inline mr-2" />
                       Full Name *
                     </label>
@@ -166,7 +171,7 @@ export function ContactForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-slate-300">
                       <Mail className="h-4 w-4 inline mr-2" />
                       Email Address *
                     </label>
@@ -190,7 +195,7 @@ export function ContactForm() {
                 {/* Company and Subject Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium mb-2 text-slate-300">
                       <Building className="h-4 w-4 inline mr-2" />
                       Company/Organization
                     </label>
@@ -205,7 +210,7 @@ export function ContactForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium mb-2 text-slate-300">
                       <MessageSquare className="h-4 w-4 inline mr-2" />
                       Subject *
                     </label>
@@ -228,7 +233,7 @@ export function ContactForm() {
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-slate-300">
                     <MessageSquare className="h-4 w-4 inline mr-2" />
                     Message *
                   </label>
@@ -251,9 +256,8 @@ export function ContactForm() {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  variant="gradient"
                   size="lg"
-                  className="w-full"
+                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -308,15 +312,16 @@ export function ContactForm() {
 
                 {/* Form Note */}
                 <div className="text-center">
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-slate-400">
                     By submitting this form, you agree to receive communications from me. 
                     I respect your privacy and will never share your information.
                   </p>
                 </div>
               </form>
-            </CardContent>
-          </Card>
-        </motion.div>
+              </div>
+            </GlassCard>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

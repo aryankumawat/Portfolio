@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Command } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -103,18 +103,8 @@ export function GlassNav() {
             })}
           </nav>
 
-          {/* Right side - Command palette, Theme toggle and CTA */}
+          {/* Right side - Theme toggle and CTA */}
           <div className="flex items-center space-x-4">
-            {/* Command Palette Button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="hidden sm:inline-flex items-center gap-2 text-slate-300 hover:text-white glass-sm"
-            >
-              <Command className="h-4 w-4" />
-              <span className="text-xs">⌘K</span>
-            </Button>
-
             <ThemeToggle />
             
             <Button

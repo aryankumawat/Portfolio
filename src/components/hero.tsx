@@ -50,8 +50,7 @@ export function Hero() {
           <div className="mt-10 flex items-center justify-center">
             <div className="glass hairline rounded-full px-4 py-2 md:px-6 md:py-3 w-full max-w-xl flex items-center gap-3 group hover:scale-105 transition-transform duration-300">
               <Search className="h-4 w-4 text-slate-300/80" />
-              <span className="text-slate-300/80 flex-1 text-left">Search projects or posts…</span>
-              <kbd className="ml-auto text-slate-300/70 text-sm bg-slate-800/50 px-2 py-1 rounded">⌘K</kbd>
+              <span className="text-slate-300/80 flex-1 text-left">Explore my projects and experience</span>
             </div>
           </div>
         </Reveal>

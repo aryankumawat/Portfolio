@@ -96,9 +96,7 @@ export function ThemeProvider({
     const root = document.documentElement;
     
     // Remove existing theme classes
-    Object.keys(themes).forEach(t => {
-      root.classList.remove(`theme-${t}`);
-    });
+    root.classList.remove('theme-ultraviolet', 'theme-deep-space', 'theme-neon-cyan');
     
     // Apply new theme
     root.classList.add(`theme-${theme}`);
