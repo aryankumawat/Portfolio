@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GlassCard } from "@/components/GlassCard";
+import { Reveal } from "@/components/Reveal";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, User, Tag } from "lucide-react";
 
@@ -50,44 +51,47 @@ export default function BlogPage() {
   const regularPosts = blogPosts.filter(post => !post.featured);
 
   return (
-    <section className="section-padding">
-      <div className="container-padding">
-        <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-            Blog & Insights
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Sharing knowledge and experiences in data science, finance, 
-            technology, and career development.
-          </p>
-        </div>
+    <div className="min-h-screen bg-hero noise">
+      <section className="pt-32 pb-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text">
+                Blog & Insights
+              </h1>
+              <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
+                Sharing knowledge and experiences in data science, finance, 
+                technology, and career development.
+              </p>
+            </div>
+          </Reveal>
 
-        {/* Featured Posts */}
-        <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          <h2 className="text-3xl font-heading font-bold mb-8 text-center">
-            Featured Articles
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Featured Posts */}
+          <Reveal delay={0.2}>
+            <h2 className="text-3xl font-bold mb-8 text-center gradient-text">
+              Featured Articles
+            </h2>
+          </Reveal>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {featuredPosts.map((post, index) => (
-              <div
-                key={post.title}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${0.4 + index * 0.2}s` }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
+              <Reveal key={post.title} delay={0.4 + index * 0.2}>
+                <GlassCard className="h-full group">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
                       <Badge variant="outline" className="text-xs">
                         {post.category}
                       </Badge>
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="default" className="text-xs bg-gradient-to-r from-purple-600 to-blue-600">
                         Featured
                       </Badge>
                     </div>
-                    <CardTitle className="text-xl mb-3">
+                    
+                    <h3 className="text-xl font-semibold text-white group-hover:text-purple-300 transition-colors">
                       {post.title}
-                    </CardTitle>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                    </h3>
+                    
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">
                       <div className="flex items-center gap-1">
                         <User className="h-4 w-4" />
                         {post.author}
@@ -101,58 +105,57 @@ export default function BlogPage() {
                         {post.readTime}
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    
+                    <p className="text-slate-300/80 leading-relaxed">
                       {post.excerpt}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    
+                    <div className="flex flex-wrap gap-2">
                       {post.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="secondary" className="text-xs">
+                        <Badge key={tagIndex} variant="outline" className="text-xs">
                           {tag}
                         </Badge>
                       ))}
                     </div>
-                    <div className="text-sm text-electric font-medium">
+                    
+                    <div className="text-sm text-purple-400 font-medium">
                       Read more →
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                </GlassCard>
+              </Reveal>
             ))}
           </div>
-        </div>
 
-        {/* Regular Posts */}
-        <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          <h3 className="text-2xl font-heading font-bold mb-8 text-center">
-            Latest Articles
-          </h3>
+          {/* Regular Posts */}
+          <Reveal delay={0.8}>
+            <h3 className="text-2xl font-bold mb-8 text-center gradient-text">
+              Latest Articles
+            </h3>
+          </Reveal>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {regularPosts.map((post, index) => (
-              <div
-                key={post.title}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${1 + index * 0.1}s` }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between mb-2">
+              <Reveal key={post.title} delay={1 + index * 0.1}>
+                <GlassCard className="h-full group">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
                       <Badge variant="outline" className="text-xs">
                         {post.category}
                       </Badge>
                     </div>
-                    <CardTitle className="text-lg">
+                    
+                    <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
                       {post.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <p className="text-sm text-muted-foreground mb-4">
+                    </h3>
+                    
+                    <p className="text-sm text-slate-300/80">
                       {post.excerpt}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    
+                    <div className="flex flex-wrap gap-2">
                       {post.tags.slice(0, 3).map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="secondary" className="text-xs">
+                        <Badge key={tagIndex} variant="outline" className="text-xs">
                           {tag}
                         </Badge>
                       ))}
@@ -162,25 +165,28 @@ export default function BlogPage() {
                         </Badge>
                       )}
                     </div>
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    
+                    <div className="flex items-center justify-between text-sm text-slate-400">
                       <span>{new Date(post.date).toLocaleDateString()}</span>
-                      <span className="text-electric font-medium">Read more →</span>
+                      <span className="text-purple-400 font-medium">Read more →</span>
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                </GlassCard>
+              </Reveal>
             ))}
           </div>
-        </div>
 
-        {/* Coming Soon */}
-        <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '1.4s' }}>
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-electric to-electric-light text-white rounded-full text-sm font-medium">
-            <span>📝</span>
-            <span>More articles coming soon!</span>
-          </div>
+          {/* Coming Soon */}
+          <Reveal delay={1.4}>
+            <div className="text-center mt-16">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full text-sm font-medium">
+                <span>📝</span>
+                <span>More articles coming soon!</span>
+              </div>
+            </div>
+          </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

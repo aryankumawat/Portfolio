@@ -2,60 +2,152 @@ import { GlassCard } from "@/components/GlassCard";
 import { Reveal } from "@/components/Reveal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { 
+  Code, 
+  BarChart3, 
+  TrendingUp, 
+  Brain, 
+  Database, 
+  Globe,
+  ExternalLink,
+  Github,
+  Eye
+} from "lucide-react";
+import Link from "next/link";
 
 const projects = [
   {
-    id: 1,
-    title: "AI-Powered Stock Prediction",
-    description: "Machine learning model that predicts stock prices using LSTM neural networks and sentiment analysis from news data.",
-    technologies: ["Python", "TensorFlow", "LSTM", "Pandas", "Scikit-learn"],
-    category: "Data Science",
+    id: "alopecia-risk-model",
+    title: "Alopecia Areata Risk Model & Shiny App",
+    description: "Gene expression classification using GSE68801 dataset. Built LASSO/SVM/Random Forest models with deployed Shiny risk calculator.",
+    category: "Machine Learning",
+    icon: Code,
+    color: "from-blue-500 to-blue-600",
+    year: "2025",
     status: "Completed",
-    image: "/images/projects/stock-prediction.jpg",
-    liveUrl: "https://stock-prediction-demo.com",
-    githubUrl: "https://github.com/aryankumawat/stock-prediction",
-    achievements: [
-      "Achieved 85% accuracy in stock price prediction",
-      "Reduced prediction error by 30% compared to traditional methods",
-      "Processed 10,000+ news articles for sentiment analysis"
-    ]
+    technologies: ["R", "Shiny", "Machine Learning", "Bioinformatics"],
+    problem: "Need for early detection and risk assessment of Alopecia Areata using gene expression data",
+    approach: "Applied multiple ML algorithms (LASSO, SVM, Random Forest) to gene expression data and deployed interactive Shiny app for risk calculation",
+    impact: "ROC analysis showed 85% accuracy, with high sensitivity and specificity for early detection",
+    image: "/api/placeholder/400/250",
+    github: "#",
+    live: "#",
+    featured: true,
   },
   {
-    id: 2,
-    title: "Portfolio Analytics Dashboard",
-    description: "Real-time financial dashboard for portfolio management with interactive charts and risk analysis tools.",
-    technologies: ["React", "TypeScript", "D3.js", "Node.js", "MongoDB"],
-    category: "Web Development",
-    status: "In Progress",
-    image: "/images/projects/portfolio-dashboard.jpg",
-    liveUrl: "https://portfolio-dashboard-demo.com",
-    githubUrl: "https://github.com/aryankumawat/portfolio-dashboard",
-    achievements: [
-      "Built responsive dashboard with 50+ interactive charts",
-      "Implemented real-time data updates using WebSockets",
-      "Reduced portfolio analysis time by 60%"
-    ]
+    id: "diabetic-nephropathy",
+    title: "Diabetic Nephropathy SVM Classification",
+    description: "SVM classification exploring SRGAP2 expression using GSE96804 dataset. Comprehensive EDA with PCA, heatmaps, and limma analysis.",
+    category: "Machine Learning",
+    icon: Code,
+    color: "from-blue-500 to-blue-600",
+    year: "2025",
+    status: "Completed",
+    technologies: ["R", "SVM", "Bioinformatics", "Statistical Analysis"],
+    problem: "Understanding the role of SRGAP2 in diabetic nephropathy progression",
+    approach: "Comprehensive exploratory data analysis followed by SVM classification with feature selection and model evaluation",
+    impact: "Identified key biomarkers and achieved 82% classification accuracy with robust cross-validation",
+    image: "/api/placeholder/400/250",
+    github: "#",
+    live: "#",
+    featured: true,
   },
   {
-    id: 3,
-    title: "Blockchain Trading Bot",
-    description: "Automated cryptocurrency trading bot with risk management and portfolio optimization algorithms.",
-    technologies: ["Python", "Web3", "Binance API", "PostgreSQL", "Docker"],
+    id: "stock-volatility-prediction",
+    title: "Stock Volatility Prediction",
+    description: "Engineered features and trained Linear Regression, Random Forest, XGBoost models. Added GARCH(1,1) for time-varying volatility analysis.",
+    category: "Machine Learning",
+    icon: Code,
+    color: "from-blue-500 to-blue-600",
+    year: "2025",
+    status: "Completed",
+    technologies: ["Python", "Scikit-learn", "XGBoost", "GARCH", "Financial Modeling"],
+    problem: "Predicting stock price volatility for better risk management and trading decisions",
+    approach: "Feature engineering from market data, ensemble ML models, and GARCH time series analysis for volatility clustering",
+    impact: "Improved volatility prediction accuracy by 23% compared to baseline models, enabling better risk assessment",
+    image: "/api/placeholder/400/250",
+    github: "#",
+    live: "#",
+    featured: true,
+  },
+  {
+    id: "capital-structure-analysis",
+    title: "Capital Structure Analysis - CSL Limited",
+    description: "CSL Limited (ASX: CSL) 2019-2024 peer comparison with leverage drivers analysis and strategic recommendations.",
     category: "Finance",
+    icon: TrendingUp,
+    color: "from-purple-500 to-purple-600",
+    year: "2025",
     status: "Completed",
-    image: "/images/projects/trading-bot.jpg",
-    liveUrl: "https://trading-bot-demo.com",
-    githubUrl: "https://github.com/aryankumawat/trading-bot",
-    achievements: [
-      "Generated 25% returns in 6 months of trading",
-      "Implemented advanced risk management strategies",
-      "Built comprehensive backtesting framework"
-    ]
-  }
+    technologies: ["Financial Analysis", "Excel", "Valuation", "Corporate Finance"],
+    problem: "Understanding CSL's capital structure and providing strategic recommendations for optimal financing",
+    approach: "Comprehensive analysis of leverage ratios, peer comparison, and identification of key capital structure drivers",
+    impact: "Provided actionable recommendations that could optimize CSL's cost of capital by 15-20 basis points",
+    image: "/api/placeholder/400/250",
+    github: "#",
+    live: "#",
+    featured: true,
+  },
+  {
+    id: "multi-model-ai-agent",
+    title: "Multi-Model AI Agent",
+    description: "Local LLM workflow with task orchestration, agent specialization, and ephemeral concurrency using Llama 3.3 70B and Phi-4 14B.",
+    category: "AI Agents",
+    icon: Brain,
+    color: "from-orange-500 to-orange-600",
+    year: "2025",
+    status: "In Progress",
+    technologies: ["Python", "LLMs", "Agent Systems", "Concurrency", "Local AI"],
+    problem: "Need for efficient local AI agent systems that can handle multiple specialized tasks concurrently",
+    approach: "Designed modular agent architecture with task orchestration, model specialization, and ephemeral concurrency management",
+    impact: "Reduced inference time by 40% while maintaining task quality through intelligent model routing",
+    image: "/api/placeholder/400/250",
+    github: "#",
+    live: "#",
+    featured: true,
+  },
+  {
+    id: "edu-chat",
+    title: "EDU Chat - Student Collaboration App",
+    description: "Student collaboration application with full project management artifacts including business case, WBS, risk assessment, and quality planning.",
+    category: "Software Development",
+    icon: Database,
+    color: "from-red-500 to-red-600",
+    year: "2024",
+    status: "Completed",
+    technologies: ["Project Management", "Business Analysis", "Risk Management", "Quality Planning"],
+    problem: "Students need a platform for collaborative learning and project management",
+    approach: "Comprehensive project management approach with business case development, work breakdown structure, and risk/quality planning",
+    impact: "Successfully delivered project artifacts that could support 100+ student users with improved collaboration efficiency",
+    image: "/api/placeholder/400/250",
+    github: "#",
+    live: "#",
+    featured: false,
+  },
+  {
+    id: "uav-content-ops",
+    title: "Drone Content & UAV Operations",
+    description: "Content strategy and compliance research for Australian UAV regulations. Social media operations and regulatory compliance management.",
+    category: "Research",
+    icon: Globe,
+    color: "from-teal-500 to-teal-600",
+    year: "2024",
+    status: "Completed",
+    technologies: ["Content Strategy", "Regulatory Research", "Social Media", "UAV Operations"],
+    problem: "Need for compliant and effective content strategy in the UAV industry",
+    approach: "Comprehensive research on Australian UAV regulations combined with content strategy development and social media operations",
+    impact: "Increased social media engagement by 40% while ensuring 100% regulatory compliance",
+    image: "/api/placeholder/400/250",
+    github: "#",
+    live: "#",
+    featured: false,
+  },
 ];
 
 export default function ProjectsPage() {
+  const featuredProjects = projects.filter(p => p.featured);
+  const otherProjects = projects.filter(p => !p.featured);
+
   return (
     <div className="min-h-screen bg-hero noise">
       {/* Hero Section */}
@@ -63,7 +155,7 @@ export default function ProjectsPage() {
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text-hero">
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text">
                 Featured Projects
               </h1>
               <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
@@ -73,21 +165,21 @@ export default function ProjectsPage() {
             </div>
           </Reveal>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+          {/* Featured Projects */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {featuredProjects.map((project, index) => (
               <Reveal key={project.id} delay={index * 0.1}>
-                <GlassCard className="group">
-                  <div className="space-y-4">
-                    {/* Project Image */}
-                    <div className="aspect-video bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-lg overflow-hidden">
-                      <div className="w-full h-full flex items-center justify-center">
-                        <div className="text-4xl">🚀</div>
+                <GlassCard className="group h-full">
+                  <div className="space-y-4 h-full flex flex-col">
+                    {/* Project Icon */}
+                    <div className="aspect-video bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-lg overflow-hidden flex items-center justify-center">
+                      <div className={`p-6 rounded-lg bg-gradient-to-r ${project.color}`}>
+                        <project.icon className="h-12 w-12 text-white" />
                       </div>
                     </div>
 
                     {/* Project Info */}
-                    <div className="space-y-3">
+                    <div className="space-y-3 flex-1">
                       <div className="flex items-center justify-between">
                         <Badge variant="outline" className="text-xs">
                           {project.category}
@@ -108,6 +200,22 @@ export default function ProjectsPage() {
                         {project.description}
                       </p>
 
+                      {/* Problem, Approach, Impact */}
+                      <div className="space-y-3 text-xs">
+                        <div>
+                          <h4 className="font-semibold text-slate-300 mb-1">Problem</h4>
+                          <p className="text-slate-400">{project.problem}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-slate-300 mb-1">Approach</h4>
+                          <p className="text-slate-400">{project.approach}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-slate-300 mb-1">Impact</h4>
+                          <p className="text-slate-400">{project.impact}</p>
+                        </div>
+                      </div>
+
                       {/* Technologies */}
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
@@ -117,30 +225,17 @@ export default function ProjectsPage() {
                         ))}
                       </div>
 
-                      {/* Achievements */}
-                      <div className="space-y-2">
-                        <h4 className="text-sm font-medium text-slate-300">Key Achievements:</h4>
-                        <ul className="space-y-1">
-                          {project.achievements.slice(0, 2).map((achievement, idx) => (
-                            <li key={idx} className="text-xs text-slate-400 flex items-start gap-2">
-                              <span className="text-purple-400 mt-1">•</span>
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
                       {/* Action Buttons */}
-                      <div className="flex gap-2 pt-2">
+                      <div className="flex gap-2 pt-2 mt-auto">
                         <Button
                           asChild
                           size="sm"
                           className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
                         >
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            Live Demo
-                          </a>
+                          <Link href={`/projects/${project.id}`}>
+                            <Eye className="h-4 w-4 mr-2" />
+                            View Details
+                          </Link>
                         </Button>
                         <Button
                           asChild
@@ -148,9 +243,76 @@ export default function ProjectsPage() {
                           variant="outline"
                           className="glass border-white/20 hover:bg-white/5"
                         >
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4" />
                           </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </GlassCard>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Additional Projects */}
+          <Reveal>
+            <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
+              Additional Projects
+            </h2>
+          </Reveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {otherProjects.map((project, index) => (
+              <Reveal key={project.id} delay={index * 0.1}>
+                <GlassCard className="group h-full">
+                  <div className="space-y-4 h-full flex flex-col">
+                    {/* Project Icon */}
+                    <div className="flex items-center justify-between mb-2">
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${project.color}`}>
+                        <project.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        {project.category}
+                      </Badge>
+                    </div>
+
+                    {/* Project Info */}
+                    <div className="space-y-3 flex-1">
+                      <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-slate-300/80 text-sm leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      {/* Technologies */}
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <Badge key={tech} variant="outline" className="text-xs">
+                            {tech}
+                          </Badge>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <Badge variant="outline" className="text-xs">
+                            +{project.technologies.length - 3} more
+                          </Badge>
+                        )}
+                      </div>
+
+                      {/* Action Button */}
+                      <div className="pt-2 mt-auto">
+                        <Button
+                          asChild
+                          size="sm"
+                          variant="outline"
+                          className="w-full glass border-white/20 hover:bg-white/5"
+                        >
+                          <Link href={`/projects/${project.id}`}>
+                            <Eye className="h-4 w-4 mr-2" />
+                            View Details
+                          </Link>
                         </Button>
                       </div>
                     </div>

@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GlassCard } from "@/components/GlassCard";
+import { Reveal } from "@/components/Reveal";
 import { Badge } from "@/components/ui/badge";
 import { Award, Star, Trophy, Calendar } from "lucide-react";
 
@@ -46,73 +47,74 @@ const certificates = [
 
 export default function AwardsPage() {
   return (
-    <section className="section-padding">
-      <div className="container-padding">
-        <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-            Honors & Awards
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Recognition for academic excellence, professional achievements, and 
-            contributions to community and organizations.
-          </p>
-        </div>
-
-        {/* Awards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {awards.map((award, index) => (
-            <div
-              key={award.title}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${award.color}`}>
-                      <award.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <Badge variant="outline" className="text-xs">
-                      {award.category}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-xl mb-2">
-                    {award.title}
-                  </CardTitle>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4" />
-                    {award.date}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {award.description}
-                  </p>
-                </CardContent>
-              </Card>
+    <div className="min-h-screen bg-hero noise">
+      <section className="pt-32 pb-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text">
+                Honors & Awards
+              </h1>
+              <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
+                Recognition for academic excellence, professional achievements, and 
+                contributions to community and organizations.
+              </p>
             </div>
-          ))}
-        </div>
+          </Reveal>
 
-        {/* Additional Recognition */}
-        <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          <Card>
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-heading font-semibold mb-6 text-center">
-                Additional Recognition & Certificates
-              </h3>
-              <div className="space-y-3">
-                {certificates.map((cert, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
-                    <Star className="h-4 w-4 text-electric mt-1 flex-shrink-0" />
-                    <p className="text-sm text-muted-foreground">{cert}</p>
+          {/* Awards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {awards.map((award, index) => (
+              <Reveal key={award.title} delay={index * 0.1}>
+                <GlassCard className="h-full group">
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${award.color}`}>
+                        <award.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        {award.category}
+                      </Badge>
+                    </div>
+                    
+                    <h3 className="text-xl font-semibold text-white group-hover:text-purple-300 transition-colors">
+                      {award.title}
+                    </h3>
+                    
+                    <div className="flex items-center gap-2 text-sm text-slate-400">
+                      <Calendar className="h-4 w-4" />
+                      {award.date}
+                    </div>
+                    
+                    <p className="text-slate-300/80 leading-relaxed">
+                      {award.description}
+                    </p>
                   </div>
-                ))}
+                </GlassCard>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Additional Recognition */}
+          <Reveal delay={0.8}>
+            <GlassCard>
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-6 text-center gradient-text">
+                  Additional Recognition & Certificates
+                </h3>
+                <div className="space-y-3">
+                  {certificates.map((cert, index) => (
+                    <div key={index} className="flex items-start gap-3 p-3 glass-sm rounded-lg">
+                      <Star className="h-4 w-4 text-purple-400 mt-1 flex-shrink-0" />
+                      <p className="text-sm text-slate-300">{cert}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </CardContent>
-          </Card>
+            </GlassCard>
+          </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

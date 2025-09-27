@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GlassCard } from "@/components/GlassCard";
+import { Reveal } from "@/components/Reveal";
 import { Badge } from "@/components/ui/badge";
 import { Users, Heart, Globe, Target, Calendar, MapPin } from "lucide-react";
 
@@ -97,63 +98,60 @@ export default function VolunteeringPage() {
   const otherVolunteering = volunteering.filter(v => !v.featured);
 
   return (
-    <section className="section-padding">
-      <div className="container-padding">
-        <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-            Community Impact & Volunteering
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Dedicated to making a positive difference in communities through 
-            education, healthcare support, and social development initiatives.
-          </p>
-        </div>
+    <div className="min-h-screen bg-hero noise">
+      <section className="pt-32 pb-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text">
+                Community Impact & Volunteering
+              </h1>
+              <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
+                Dedicated to making a positive difference in communities through 
+                education, healthcare support, and social development initiatives.
+              </p>
+            </div>
+          </Reveal>
 
-        {/* Impact Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {impactStats.map((stat, index) => (
-            <div
-              key={stat.label}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${0.4 + index * 0.1}s` }}
-            >
-              <Card className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex justify-center mb-4">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${stat.color}`}>
-                      <Target className="h-6 w-6 text-white" />
+          {/* Impact Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {impactStats.map((stat, index) => (
+              <Reveal key={stat.label} delay={0.4 + index * 0.1}>
+                <GlassCard className="text-center group">
+                  <div className="p-6">
+                    <div className="flex justify-center mb-4">
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${stat.color}`}>
+                        <Target className="h-6 w-6 text-white" />
+                      </div>
+                    </div>
+                    <div className="text-3xl font-bold text-white mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="font-semibold text-sm mb-1 text-slate-300">
+                      {stat.label}
+                    </div>
+                    <div className="text-xs text-slate-400">
+                      {stat.description}
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-foreground mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="font-semibold text-sm mb-1">
-                    {stat.label}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {stat.description}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </div>
+                </GlassCard>
+              </Reveal>
+            ))}
+          </div>
 
-        {/* Featured Volunteering */}
-        <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <h2 className="text-3xl font-heading font-bold mb-8 text-center">
-            Key Initiatives
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Featured Volunteering */}
+          <Reveal delay={0.6}>
+            <h2 className="text-3xl font-bold mb-8 text-center gradient-text">
+              Key Initiatives
+            </h2>
+          </Reveal>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {featuredVolunteering.map((item, index) => (
-              <div
-                key={item.title}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${0.8 + index * 0.2}s` }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
+              <Reveal key={item.title} delay={0.8 + index * 0.2}>
+                <GlassCard className="h-full group">
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between">
                       <div className={`p-3 rounded-lg bg-gradient-to-r ${item.color}`}>
                         <item.icon className="h-6 w-6 text-white" />
                       </div>
@@ -161,10 +159,12 @@ export default function VolunteeringPage() {
                         {item.role}
                       </Badge>
                     </div>
-                    <CardTitle className="text-xl mb-2">
+                    
+                    <h3 className="text-xl font-semibold text-white group-hover:text-purple-300 transition-colors">
                       {item.title}
-                    </CardTitle>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-2">
+                    </h3>
+                    
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400 mb-2">
                       <div className="flex items-center gap-1">
                         <MapPin className="h-4 w-4" />
                         {item.organization}
@@ -174,40 +174,38 @@ export default function VolunteeringPage() {
                         {item.duration}
                       </div>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    
+                    <p className="text-sm text-slate-400">
                       {item.location}
                     </p>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    
+                    <p className="text-slate-300/80 leading-relaxed">
                       {item.description}
                     </p>
-                    <div className="p-3 bg-muted/50 rounded-lg">
-                      <h4 className="font-semibold text-sm text-foreground mb-1">Impact:</h4>
-                      <p className="text-sm text-muted-foreground">{item.impact}</p>
+                    
+                    <div className="p-3 glass-sm rounded-lg">
+                      <h4 className="font-semibold text-sm text-slate-300 mb-1">Impact:</h4>
+                      <p className="text-sm text-slate-400">{item.impact}</p>
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                </GlassCard>
+              </Reveal>
             ))}
           </div>
-        </div>
 
-        {/* Other Volunteering */}
-        <div className="animate-fade-in" style={{ animationDelay: '1.2s' }}>
-          <h3 className="text-2xl font-heading font-bold mb-8 text-center">
-            Additional Community Work
-          </h3>
+          {/* Other Volunteering */}
+          <Reveal delay={1.2}>
+            <h3 className="text-2xl font-bold mb-8 text-center gradient-text">
+              Additional Community Work
+            </h3>
+          </Reveal>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {otherVolunteering.map((item, index) => (
-              <div
-                key={item.title}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${1.4 + index * 0.1}s` }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between mb-2">
+              <Reveal key={item.title} delay={1.4 + index * 0.1}>
+                <GlassCard className="h-full group">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
                       <div className={`p-2 rounded-lg bg-gradient-to-r ${item.color}`}>
                         <item.icon className="h-4 w-4 text-white" />
                       </div>
@@ -215,37 +213,40 @@ export default function VolunteeringPage() {
                         {item.role}
                       </Badge>
                     </div>
-                    <CardTitle className="text-lg">
+                    
+                    <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
                       {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <p className="text-sm text-muted-foreground mb-4">
+                    </h3>
+                    
+                    <p className="text-sm text-slate-300/80">
                       {item.description}
                     </p>
+                    
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="outline" className="text-xs">
                         {item.organization}
                       </Badge>
                       <Badge variant="outline" className="text-xs">
                         {item.duration}
                       </Badge>
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                </GlassCard>
+              </Reveal>
             ))}
           </div>
-        </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '1.6s' }}>
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-electric to-electric-light text-white rounded-full text-sm font-medium">
-            <span>❤️</span>
-            <span>Committed to making a positive impact in communities</span>
-          </div>
+          {/* Call to Action */}
+          <Reveal delay={1.6}>
+            <div className="text-center mt-16">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full text-sm font-medium">
+                <span>❤️</span>
+                <span>Committed to making a positive impact in communities</span>
+              </div>
+            </div>
+          </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

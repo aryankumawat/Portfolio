@@ -32,7 +32,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-extrabold leading-tight gradient-text-hero"
+            className="text-5xl md:text-7xl font-extrabold leading-tight gradient-text"
           >
             Turn ideas into{" "}
             <span className="whitespace-nowrap">live experiences</span>
