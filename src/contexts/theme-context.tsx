@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-type Theme = "ultraviolet" | "deep-space" | "neon-cyan";
+type Theme = "ultraviolet" | "deep-space";
 
 interface ThemeConfig {
   name: string;
@@ -18,36 +18,25 @@ interface ThemeConfig {
 const themes: Record<Theme, ThemeConfig> = {
   ultraviolet: {
     name: 'Ultraviolet',
-    description: 'Deep purple focus with cosmic vibes',
+    description: 'Purple gradients with tech vibes',
     colors: {
       primary: '#8B5CF6',
       secondary: '#A855F7',
       accent: '#7C3AED',
-      background: '#0A0A0F',
+      background: '#000000',
     },
     gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 50%, #7C3AED 100%)',
   },
   'deep-space': {
     name: 'Deep Space',
-    description: 'Dark navy with purple accents for maximum depth',
+    description: 'Cosmic space with shooting stars',
     colors: {
-      primary: '#6D28D9',
+      primary: '#4C1D95',
       secondary: '#7C3AED',
       accent: '#2563EB',
-      background: '#0A0B0F',
+      background: '#000000',
     },
-    gradient: 'linear-gradient(135deg, #6D28D9 0%, #7C3AED 50%, #2563EB 100%)',
-  },
-  'neon-cyan': {
-    name: 'Neon Cyan',
-    description: 'Electric blue and cyan with high contrast',
-    colors: {
-      primary: '#0EA5E9',
-      secondary: '#22D3EE',
-      accent: '#10B981',
-      background: '#0C0F1A',
-    },
-    gradient: 'linear-gradient(135deg, #0EA5E9 0%, #22D3EE 50%, #10B981 100%)',
+    gradient: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #2563EB 100%)',
   },
 };
 

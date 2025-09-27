@@ -150,7 +150,7 @@ export function SpaceBackground() {
             scale: [1, 1.3, 1],
           } : {}}
           transition={{
-            duration: 2 + Math.random() * 3,
+            duration: 4 + Math.random() * 6,
             repeat: Infinity,
             ease: "easeInOut",
           }}
