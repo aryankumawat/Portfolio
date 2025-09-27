@@ -53,7 +53,7 @@ export function GlassNav() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "glass border-b border-white/10"
+          ? "backdrop-blur-xl bg-black/80 border-b border-purple-500/20"
           : "bg-transparent"
       )}
     >
@@ -65,7 +65,7 @@ export function GlassNav() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300 neon-glow-button"
             >
               AK
             </motion.div>
@@ -86,7 +86,7 @@ export function GlassNav() {
                     "text-sm font-medium transition-colors relative group",
                     isActive
                       ? "text-white"
-                      : "text-slate-300 hover:text-white"
+                      : "text-gray-400 hover:text-white"
                   )}
                 >
                   {item.name}
@@ -140,7 +140,7 @@ export function GlassNav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden glass border-b border-white/10"
+            className="md:hidden backdrop-blur-xl bg-black/80 border-b border-purple-500/20"
           >
             <nav className="mx-auto max-w-6xl px-6 py-4 space-y-2">
               {navigation.map((item) => {
@@ -152,8 +152,8 @@ export function GlassNav() {
                     className={cn(
                       "block px-4 py-2 text-sm font-medium rounded-md transition-colors",
                       isActive
-                        ? "text-white bg-white/5"
-                        : "text-slate-300 hover:text-white hover:bg-white/5"
+                        ? "text-white bg-purple-500/10"
+                        : "text-gray-400 hover:text-white hover:bg-purple-500/5"
                     )}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -161,7 +161,7 @@ export function GlassNav() {
                   </Link>
                 );
               })}
-              <div className="pt-4 border-t border-white/10">
+              <div className="pt-4 border-t border-purple-500/20">
                 <Button 
                   asChild 
                   className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
