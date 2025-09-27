@@ -3,7 +3,7 @@ import { ExperienceTimeline } from "@/components/experience-timeline";
 
 export default function ExperiencePage() {
   return (
-    <div className="min-h-screen bg-hero noise">
+    <div className="min-h-screen bg-black">
       <ExperienceHero />
       <ExperienceTimeline />
     </div>

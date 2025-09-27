@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-hero noise">
+    <div className="min-h-screen bg-black">
       <AboutHero />
       <SkillsSection />
       <EducationSection />

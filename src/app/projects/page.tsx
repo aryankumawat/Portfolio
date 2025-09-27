@@ -149,7 +149,7 @@ export default function ProjectsPage() {
   const otherProjects = projects.filter(p => !p.featured);
 
   return (
-    <div className="min-h-screen bg-hero noise">
+    <div className="min-h-screen bg-black">
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="mx-auto max-w-6xl px-6">
@@ -186,7 +186,11 @@ export default function ProjectsPage() {
                         </Badge>
                         <Badge 
                           variant={project.status === "Completed" ? "default" : "secondary"}
-                          className="text-xs"
+                          className={`text-xs ${
+                            project.status === "Completed" 
+                              ? "bg-green-600/20 text-green-400 border-green-500/30 hover:bg-green-600/30 shadow-lg shadow-green-500/20" 
+                              : "bg-orange-600/20 text-orange-400 border-orange-500/30 hover:bg-orange-600/30 shadow-lg shadow-orange-500/20"
+                          }`}
                         >
                           {project.status}
                         </Badge>

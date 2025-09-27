@@ -1,4 +1,4 @@
-export type Theme = 'aurora' | 'ultraviolet' | 'neon-cyan' | 'deep-space';
+export type Theme = 'ultraviolet' | 'deep-space';
 
 export interface ThemeConfig {
   name: string;
@@ -13,53 +13,31 @@ export interface ThemeConfig {
 }
 
 export const themes: Record<Theme, ThemeConfig> = {
-  aurora: {
-    name: 'Aurora',
-    description: 'Violet to cyan gradients with deep space background',
-    colors: {
-      primary: '#7C3AED',
-      secondary: '#8B5CF6',
-      accent: '#22D3EE',
-      background: '#0B1020',
-    },
-    gradient: 'linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #22D3EE 100%)',
-  },
   ultraviolet: {
     name: 'Ultraviolet',
-    description: 'Deep purple focus with cosmic vibes',
+    description: 'Purple gradients with tech vibes',
     colors: {
       primary: '#8B5CF6',
       secondary: '#A855F7',
       accent: '#7C3AED',
-      background: '#0A0A0F',
+      background: '#000000',
     },
     gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 50%, #7C3AED 100%)',
   },
-  'neon-cyan': {
-    name: 'Neon Cyan',
-    description: 'Electric blue and cyan with high contrast',
-    colors: {
-      primary: '#0EA5E9',
-      secondary: '#22D3EE',
-      accent: '#10B981',
-      background: '#0C0F1A',
-    },
-    gradient: 'linear-gradient(135deg, #0EA5E9 0%, #22D3EE 50%, #10B981 100%)',
-  },
   'deep-space': {
     name: 'Deep Space',
-    description: 'Dark navy with purple accents for maximum depth',
+    description: 'Cosmic space with shooting stars',
     colors: {
-      primary: '#6D28D9',
+      primary: '#4C1D95',
       secondary: '#7C3AED',
-      accent: '#1E40AF',
-      background: '#0A0B0F',
+      accent: '#2563EB',
+      background: '#000000',
     },
-    gradient: 'linear-gradient(135deg, #6D28D9 0%, #7C3AED 50%, #1E40AF 100%)',
+    gradient: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #2563EB 100%)',
   },
 };
 
-export const defaultTheme: Theme = 'aurora';
+export const defaultTheme: Theme = 'ultraviolet';
 
 export function applyTheme(theme: Theme) {
   const root = document.documentElement;

@@ -62,7 +62,7 @@
     --radius: 0.5rem;
   }
 
-  /* Apple/Netflix-Inspired Theme Presets */
+  /* Two-Theme System */
   .theme-ultraviolet {
     --bg: #000000;
     --purple-deep: #6D28D9;
@@ -87,19 +87,6 @@
     --gradient-primary: linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #A259FF 100%);
     --gradient-hero: linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #2563EB 100%);
     --gradient-button: linear-gradient(135deg, #4C1D95 0%, #2563EB 100%);
-  }
-
-  .theme-neon-cyan {
-    --bg: #000000;
-    --purple-deep: #6D28D9;
-    --purple-violet: #8B5CF6;
-    --purple-accent: #A259FF;
-    --blue-deep: #0F172A;
-    --blue-bright: #0EA5E9;
-    --blue-light: #22D3EE;
-    --gradient-primary: linear-gradient(135deg, #6D28D9 0%, #8B5CF6 50%, #0EA5E9 100%);
-    --gradient-hero: linear-gradient(135deg, #6D28D9 0%, #8B5CF6 50%, #0EA5E9 100%);
-    --gradient-button: linear-gradient(135deg, #6D28D9 0%, #0EA5E9 100%);
   }
 }
 

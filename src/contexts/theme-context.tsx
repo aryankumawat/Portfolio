@@ -96,7 +96,7 @@ export function ThemeProvider({
     const root = document.documentElement;
     
     // Remove existing theme classes
-    root.classList.remove('theme-ultraviolet', 'theme-deep-space', 'theme-neon-cyan');
+    root.classList.remove('theme-ultraviolet', 'theme-deep-space'); // Only two themes now
     
     // Apply new theme
     root.classList.add(`theme-${theme}`);
