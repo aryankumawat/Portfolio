@@ -109,7 +109,7 @@ export function GlassNav() {
               size="sm"
               className="hidden sm:inline-flex bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
             >
-              <Link href="/resume">Download Resume</Link>
+              <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">Download Resume</a>
             </Button>
 
             {/* Mobile menu button */}
@@ -163,7 +163,7 @@ export function GlassNav() {
                   asChild 
                   className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
                 >
-                  <Link href="/resume">Download Resume</Link>
+                  <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">Download Resume</a>
                 </Button>
               </div>
             </nav>

@@ -104,7 +104,7 @@ export function ResumeHero() {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild variant="gradient" size="lg" className="flex-1">
-                  <a href="/resume/aryan_kumawat.pdf" download>
+                  <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">
                     <Download className="h-5 w-5 mr-2" />
                     Download PDF
                   </a>

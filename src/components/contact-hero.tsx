@@ -188,10 +188,10 @@ export function ContactHero() {
               </h3>
               <div className="space-y-3">
                 <Button asChild variant="gradient" className="w-full">
-                  <Link href="/resume">
+                  <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">
                     <Send className="h-4 w-4 mr-2" />
                     Download Resume
-                  </Link>
+                  </a>
                 </Button>
                 <Button asChild variant="outline" className="w-full">
                   <a 

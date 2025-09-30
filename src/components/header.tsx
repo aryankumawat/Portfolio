@@ -119,7 +119,7 @@ export function Header() {
               size="sm"
               className="hidden sm:inline-flex bg-gradient-primary hover:opacity-90 text-white border-0"
             >
-              <Link href="/resume">Download Resume</Link>
+              <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">Download Resume</a>
             </Button>
 
             {/* Mobile menu button */}
@@ -173,7 +173,7 @@ export function Header() {
                   asChild 
                   className="w-full bg-gradient-primary hover:opacity-90 text-white border-0"
                 >
-                  <Link href="/resume">Download Resume</Link>
+                  <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">Download Resume</a>
                 </Button>
               </div>
             </nav>

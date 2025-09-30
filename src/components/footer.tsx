@@ -108,9 +108,9 @@ export function Footer() {
                 </a>
               </Button>
               <Button asChild size="sm" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0 neon-glow-button">
-                <Link href="/resume" className="flex items-center gap-2">
+                <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf" className="flex items-center gap-2">
                   Download Resume
-                </Link>
+                </a>
               </Button>
             </div>
           </div>

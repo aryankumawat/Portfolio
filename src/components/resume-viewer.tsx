@@ -38,7 +38,7 @@ export function ResumeViewer() {
                   </div>
                 </div>
                 <Button asChild variant="gradient" size="sm">
-                  <a href="/resume/aryan_kumawat.pdf" download>
+                  <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">
                     <Download className="h-4 w-4 mr-2" />
                     Download PDF
                   </a>
@@ -61,13 +61,13 @@ export function ResumeViewer() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild variant="gradient">
-                      <a href="/resume/aryan_kumawat.pdf" download>
+                      <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">
                         <Download className="h-4 w-4 mr-2" />
                         Download Resume
                       </a>
                     </Button>
                     <Button asChild variant="outline">
-                      <a href="/resume/aryan_kumawat.pdf" target="_blank" rel="noopener noreferrer">
+                      <a href="/resume/Aryan_Web_CV.pdf" target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Open in New Tab
                       </a>
@@ -148,7 +148,7 @@ export function ResumeViewer() {
                     including all work experience, projects, skills, and achievements.
                   </p>
                   <Button asChild variant="gradient">
-                    <a href="/resume/aryan_kumawat.pdf" download>
+                    <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf">
                       <Download className="h-4 w-4 mr-2" />
                       Download Complete Resume
                     </a>
