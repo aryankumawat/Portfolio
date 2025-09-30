@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy load Resend to avoid build-time errors
+let resend: any = null;
+
+const getResend = () => {
+  if (!resend) {
+    const { Resend } = require('resend');
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+};
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,16 +34,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if Resend API key is configured
-    if (!process.env.RESEND_API_KEY) {
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === '') {
       console.error('RESEND_API_KEY is not configured');
       return NextResponse.json(
-        { error: 'Email service not configured' },
+        { error: 'Email service not configured. Please contact the administrator.' },
         { status: 500 }
       );
     }
 
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    const resendInstance = getResend();
+    const { data, error } = await resendInstance.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>', // This will be your domain once verified
       to: ['kumawataryan23@gmail.com'],
       subject: `Portfolio Contact: ${subject}`,
