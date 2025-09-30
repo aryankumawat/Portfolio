@@ -20,7 +20,7 @@ export function AboutHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-5xl font-heading font-bold mb-6 gradient-text bg-gradient-to-r from-purple-400 via-purple-500 to-blue-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text"
             >
               About Me
             </motion.h1>
@@ -28,7 +28,7 @@ export function AboutHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl text-gray-400 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto"
             >
               Penultimate-year Bachelor of Advanced Computing student at The University of Sydney, 
               focusing on data-driven problem solving, financial modeling, and applied analytics.
