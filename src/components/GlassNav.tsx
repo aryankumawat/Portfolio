@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
@@ -103,10 +102,8 @@ export function GlassNav() {
             })}
           </nav>
 
-          {/* Right side - Theme toggle and CTA */}
+          {/* Right side - CTA */}
           <div className="flex items-center space-x-4">
-            <ThemeToggle />
-            
             <Button
               asChild
               size="sm"
