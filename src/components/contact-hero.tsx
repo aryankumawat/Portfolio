@@ -124,14 +124,23 @@ export function ContactHero() {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg mb-2">{method.label}</h3>
-                      <a 
-                        href={method.href}
-                        target={method.label === "LinkedIn" ? "_blank" : "_self"}
-                        rel={method.label === "LinkedIn" ? "noopener noreferrer" : ""}
-                        className="text-electric hover:text-electric-dark transition-colors font-medium"
-                      >
-                        {method.value}
-                      </a>
+                      {method.label === "Email" ? (
+                        <a 
+                          href="#contact-form"
+                          className="text-electric hover:text-electric-dark transition-colors font-medium"
+                        >
+                          {method.value}
+                        </a>
+                      ) : (
+                        <a 
+                          href={method.href}
+                          target={method.label === "LinkedIn" ? "_blank" : "_self"}
+                          rel={method.label === "LinkedIn" ? "noopener noreferrer" : ""}
+                          className="text-electric hover:text-electric-dark transition-colors font-medium"
+                        >
+                          {method.value}
+                        </a>
+                      )}
                       <p className="text-sm text-muted-foreground mt-2">
                         {method.description}
                       </p>

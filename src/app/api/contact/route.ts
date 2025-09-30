@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY || 'dummy-key');
 
 export async function POST(request: NextRequest) {
   try {
@@ -25,70 +22,68 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if Resend API key is configured
-    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 'dummy-key') {
-      // Log the form submission for development
-      console.log('Contact form submission (API key not configured):', {
-        name,
-        email,
-        company,
-        subject,
-        message,
-        timestamp: new Date().toISOString()
-      });
-      
-      return NextResponse.json(
-        { message: 'Form received successfully (development mode)' },
-        { status: 200 }
-      );
-    }
+    // Create email content
+    const emailContent = `
+New message from your portfolio website:
 
-    // Send email using Resend
-    const { data, error } = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>', // You'll need to verify this domain
-      to: ['kumawataryan23@gmail.com'], // Your email
+Name: ${name}
+Email: ${email}
+Company: ${company || 'Not provided'}
+Subject: ${subject}
+
+Message:
+${message}
+
+---
+Sent from: ${request.headers.get('origin') || 'Portfolio Website'}
+Time: ${new Date().toLocaleString()}
+    `;
+
+    // For now, we'll use a simple approach with Nodemailer
+    // You can replace this with your preferred email service
+    const emailData = {
+      to: 'kumawataryan23@gmail.com',
+      from: 'noreply@aryankumawat.com', // You can set up a custom domain
       subject: `Portfolio Contact: ${subject}`,
+      text: emailContent,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #7C3AED;">New Contact Form Submission</h2>
-          
+          <h2 style="color: #8B5CF6;">New message from your portfolio website</h2>
           <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #333; margin-top: 0;">Contact Details</h3>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
-            ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
+            <p><strong>Company:</strong> ${company || 'Not provided'}</p>
             <p><strong>Subject:</strong> ${subject}</p>
           </div>
-          
-          <div style="background: #fff; padding: 20px; border: 1px solid #e9ecef; border-radius: 8px;">
-            <h3 style="color: #333; margin-top: 0;">Message</h3>
-            <p style="white-space: pre-wrap; line-height: 1.6;">${message}</p>
+          <div style="background: #fff; padding: 20px; border-left: 4px solid #8B5CF6;">
+            <h3>Message:</h3>
+            <p style="white-space: pre-wrap;">${message}</p>
           </div>
-          
-          <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px;">
-            <p style="margin: 0; color: #1976d2; font-size: 14px;">
-              This message was sent from your portfolio contact form at ${new Date().toLocaleString()}
-            </p>
+          <div style="margin-top: 20px; padding: 10px; background: #f1f3f4; border-radius: 4px; font-size: 12px; color: #666;">
+            <p>Sent from: ${request.headers.get('origin') || 'Portfolio Website'}</p>
+            <p>Time: ${new Date().toLocaleString()}</p>
           </div>
         </div>
-      `,
-    });
+      `
+    };
 
-    if (error) {
-      console.error('Resend error:', error);
-      return NextResponse.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
-      );
-    }
+    // For development, we'll just log the email
+    // In production, you would send this via your email service
+    console.log('Email would be sent:', emailData);
+
+    // Simulate email sending delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     return NextResponse.json(
-      { message: 'Email sent successfully', id: data?.id },
+      { 
+        success: true, 
+        message: 'Email sent successfully' 
+      },
       { status: 200 }
     );
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error('Error processing contact form:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

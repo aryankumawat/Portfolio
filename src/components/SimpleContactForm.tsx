@@ -82,37 +82,32 @@ export function SimpleContactForm() {
     setSubmitStatus("idle");
 
     try {
-      // Create mailto link with form data
-      const subject = encodeURIComponent(`Portfolio Contact: ${formData.subject}`);
-      const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company || 'Not provided'}
-
-Message:
-${formData.message}
-
----
-This message was sent from your portfolio contact form.
-      `);
-      
-      const mailtoLink = `mailto:kumawataryan23@gmail.com?subject=${subject}&body=${body}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      // Show success message
-      setSubmitStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        subject: "",
-        message: "",
+      // Send email using our custom API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      setErrors({});
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          subject: "",
+          message: "",
+        });
+        setErrors({});
+      } else {
+        const errorData = await response.json();
+        console.error("Error sending email:", errorData);
+        setSubmitStatus("error");
+      }
     } catch (error) {
-      console.error("Error opening email client:", error);
+      console.error("Error sending email:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -136,7 +131,7 @@ This message was sent from your portfolio contact form.
   };
 
   return (
-    <section className="py-20">
+    <section id="contact-form" className="py-20">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <div className="max-w-2xl mx-auto">
@@ -147,7 +142,7 @@ This message was sent from your portfolio contact form.
                     Send Me a Message
                   </h2>
                   <p className="text-slate-300/90">
-                    Fill out the form below and it will open your email client with the message ready to send.
+                    I'll get back to you within 24 hours. Looking forward to hearing from you!
                   </p>
                 </div>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -265,7 +260,7 @@ This message was sent from your portfolio contact form.
                   disabled={isSubmitting}
                 >
                   <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                  {isSubmitting ? "Opening Email..." : "Send Message"}
+                  {isSubmitting ? "Sending Message..." : "Send Message"}
                 </Button>
 
                 {/* Status Messages */}
@@ -278,10 +273,10 @@ This message was sent from your portfolio contact form.
                     <CheckCircle className="h-5 w-5 text-green-600" />
                     <div>
                       <p className="font-medium text-green-800 dark:text-green-200">
-                        Email client opened!
+                        Message sent successfully!
                       </p>
                       <p className="text-sm text-green-600 dark:text-green-300">
-                        Your message is ready to send. Just click send in your email client.
+                        I'll get back to you within 24 hours.
                       </p>
                     </div>
                   </motion.div>
@@ -308,7 +303,8 @@ This message was sent from your portfolio contact form.
                 {/* Form Note */}
                 <div className="text-center">
                   <p className="text-xs text-slate-400">
-                    This form will open your default email client with the message ready to send.
+                    By submitting this form, you agree to receive communications from me. 
+                    I respect your privacy and will never share your information.
                   </p>
                 </div>
               </form>

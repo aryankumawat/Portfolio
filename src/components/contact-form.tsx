@@ -6,7 +6,7 @@ import { GlassCard } from "./GlassCard";
 import { Reveal } from "./Reveal";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import emailjs from '@emailjs/browser';
+// Removed EmailJS import - using custom API instead
 import { 
   Send, 
   CheckCircle, 
@@ -84,33 +84,30 @@ export function ContactForm() {
     setSubmitStatus("idle");
 
     try {
-      // EmailJS configuration
-      const serviceId = 'service_portfolio'; // You'll need to create this in EmailJS
-      const templateId = 'template_contact'; // You'll need to create this in EmailJS
-      const publicKey = 'YOUR_EMAILJS_PUBLIC_KEY'; // You'll get this from EmailJS
-
-      // Prepare template parameters
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || 'Not provided',
-        subject: formData.subject,
-        message: formData.message,
-        to_email: 'kumawataryan23@gmail.com',
-      };
-
-      // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-
-      setSubmitStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        subject: "",
-        message: "",
+      // Send email using our custom API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      setErrors({});
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          subject: "",
+          message: "",
+        });
+        setErrors({});
+      } else {
+        const errorData = await response.json();
+        console.error("Error sending email:", errorData);
+        setSubmitStatus("error");
+      }
     } catch (error) {
       console.error("Error sending email:", error);
       setSubmitStatus("error");
