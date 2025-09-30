@@ -103,7 +103,11 @@ export function ProjectsSection() {
                       </Badge>
                       <Badge 
                         variant={project.status === "Completed" ? "default" : "secondary"}
-                        className={`text-xs ${project.status === "Completed" ? "bg-green-600 hover:bg-green-700 text-white" : ""}`}
+                        className={`text-xs ${
+                          project.status === "Completed" 
+                            ? "bg-green-600/20 text-green-400 border-green-500/30 hover:bg-green-600/30 shadow-lg shadow-green-500/20" 
+                            : "bg-orange-600/20 text-orange-400 border-orange-500/30 hover:bg-orange-600/30 shadow-lg shadow-orange-500/20"
+                        }`}
                       >
                         {project.status}
                       </Badge>
