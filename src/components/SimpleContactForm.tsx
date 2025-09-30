@@ -49,22 +49,74 @@ export function SimpleContactForm() {
 
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters long";
     }
 
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+    } else {
+      // Comprehensive email validation
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+      
+      if (!emailRegex.test(formData.email)) {
+        newErrors.email = "Please enter a valid email address";
+      } else {
+        // Additional validation for common email providers
+        const validDomains = [
+          'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com',
+          'protonmail.com', 'aol.com', 'live.com', 'msn.com', 'zoho.com',
+          'yandex.com', 'mail.com', 'gmx.com', 'web.de', 'tutanota.com',
+          'fastmail.com', 'hey.com', 'company.com', 'org.com', 'edu.com',
+          'gov.com', 'mil.com', 'net.com', 'co.uk', 'co.in', 'co.au',
+          'co.ca', 'co.nz', 'co.za', 'de', 'fr', 'it', 'es', 'nl',
+          'be', 'ch', 'at', 'se', 'no', 'dk', 'fi', 'pl', 'cz',
+          'hu', 'ro', 'bg', 'hr', 'sk', 'si', 'lt', 'lv', 'ee',
+          'ie', 'pt', 'gr', 'cy', 'mt', 'lu', 'jp', 'kr', 'cn',
+          'tw', 'hk', 'sg', 'my', 'th', 'ph', 'id', 'vn', 'br',
+          'mx', 'ar', 'cl', 'co', 'pe', 've', 'uy', 'py', 'bo',
+          'ec', 'gy', 'sr', 'gf', 'fk', 'ru', 'ua', 'by', 'kz',
+          'kg', 'tj', 'tm', 'uz', 'mn', 'af', 'pk', 'bd', 'lk',
+          'mv', 'np', 'bt', 'mm', 'la', 'kh', 'bn', 'tl', 'au',
+          'nz', 'fj', 'pg', 'sb', 'vu', 'nc', 'pf', 'ws', 'to',
+          'ki', 'tv', 'nr', 'fm', 'mh', 'pw', 'as', 'gu', 'mp',
+          'vi', 'pr', 'do', 'ht', 'cu', 'jm', 'tt', 'bb', 'lc',
+          'vc', 'gd', 'ag', 'kn', 'dm', 'bs', 'bz', 'gt', 'sv',
+          'hn', 'ni', 'cr', 'pa', 'ca', 'us'
+        ];
+        
+        const emailDomain = formData.email.split('@')[1]?.toLowerCase();
+        
+        if (!emailDomain) {
+          newErrors.email = "Please enter a valid email address";
+        } else if (!validDomains.some(domain => emailDomain === domain || emailDomain.endsWith('.' + domain))) {
+          newErrors.email = "Please use a valid email provider (Gmail, Yahoo, Outlook, etc.)";
+        } else if (formData.email.length > 254) {
+          newErrors.email = "Email address is too long";
+        } else if (formData.email.includes('..') || formData.email.startsWith('.') || formData.email.endsWith('.')) {
+          newErrors.email = "Email format is invalid";
+        }
+      }
     }
 
     if (!formData.subject.trim()) {
       newErrors.subject = "Subject is required";
+    } else if (formData.subject.trim().length < 3) {
+      newErrors.subject = "Subject must be at least 3 characters long";
+    } else if (formData.subject.trim().length > 100) {
+      newErrors.subject = "Subject must be less than 100 characters";
     }
 
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
     } else if (formData.message.length < 10) {
       newErrors.message = "Message must be at least 10 characters long";
+    } else if (formData.message.length > 1000) {
+      newErrors.message = "Message must be less than 1000 characters";
+    }
+
+    if (formData.company && formData.company.length > 100) {
+      newErrors.company = "Company name must be less than 100 characters";
     }
 
     setErrors(newErrors);

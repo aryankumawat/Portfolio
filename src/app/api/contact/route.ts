@@ -24,11 +24,115 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Validate field lengths and content
+    if (name.trim().length < 2) {
+      return NextResponse.json(
+        { error: 'Name must be at least 2 characters long' },
+        { status: 400 }
+      );
+    }
+
+    if (name.trim().length > 100) {
+      return NextResponse.json(
+        { error: 'Name must be less than 100 characters' },
+        { status: 400 }
+      );
+    }
+
+    if (subject.trim().length < 3) {
+      return NextResponse.json(
+        { error: 'Subject must be at least 3 characters long' },
+        { status: 400 }
+      );
+    }
+
+    if (subject.trim().length > 100) {
+      return NextResponse.json(
+        { error: 'Subject must be less than 100 characters' },
+        { status: 400 }
+      );
+    }
+
+    if (message.length < 10) {
+      return NextResponse.json(
+        { error: 'Message must be at least 10 characters long' },
+        { status: 400 }
+      );
+    }
+
+    if (message.length > 1000) {
+      return NextResponse.json(
+        { error: 'Message must be less than 1000 characters' },
+        { status: 400 }
+      );
+    }
+
+    if (company && company.length > 100) {
+      return NextResponse.json(
+        { error: 'Company name must be less than 100 characters' },
+        { status: 400 }
+      );
+    }
+
+    // Comprehensive email validation
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
+
+    // Additional validation for common email providers
+    const validDomains = [
+      'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com',
+      'protonmail.com', 'aol.com', 'live.com', 'msn.com', 'zoho.com',
+      'yandex.com', 'mail.com', 'gmx.com', 'web.de', 'tutanota.com',
+      'fastmail.com', 'hey.com', 'company.com', 'org.com', 'edu.com',
+      'gov.com', 'mil.com', 'net.com', 'co.uk', 'co.in', 'co.au',
+      'co.ca', 'co.nz', 'co.za', 'de', 'fr', 'it', 'es', 'nl',
+      'be', 'ch', 'at', 'se', 'no', 'dk', 'fi', 'pl', 'cz',
+      'hu', 'ro', 'bg', 'hr', 'sk', 'si', 'lt', 'lv', 'ee',
+      'ie', 'pt', 'gr', 'cy', 'mt', 'lu', 'jp', 'kr', 'cn',
+      'tw', 'hk', 'sg', 'my', 'th', 'ph', 'id', 'vn', 'br',
+      'mx', 'ar', 'cl', 'co', 'pe', 've', 'uy', 'py', 'bo',
+      'ec', 'gy', 'sr', 'gf', 'fk', 'ru', 'ua', 'by', 'kz',
+      'kg', 'tj', 'tm', 'uz', 'mn', 'af', 'pk', 'bd', 'lk',
+      'mv', 'np', 'bt', 'mm', 'la', 'kh', 'bn', 'tl', 'au',
+      'nz', 'fj', 'pg', 'sb', 'vu', 'nc', 'pf', 'ws', 'to',
+      'ki', 'tv', 'nr', 'fm', 'mh', 'pw', 'as', 'gu', 'mp',
+      'vi', 'pr', 'do', 'ht', 'cu', 'jm', 'tt', 'bb', 'lc',
+      'vc', 'gd', 'ag', 'kn', 'dm', 'bs', 'bz', 'gt', 'sv',
+      'hn', 'ni', 'cr', 'pa', 'ca', 'us'
+    ];
+    
+    const emailDomain = email.split('@')[1]?.toLowerCase();
+    
+    if (!emailDomain) {
+      return NextResponse.json(
+        { error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
+    
+    if (!validDomains.some(domain => emailDomain === domain || emailDomain.endsWith('.' + domain))) {
+      return NextResponse.json(
+        { error: 'Please use a valid email provider (Gmail, Yahoo, Outlook, etc.)' },
+        { status: 400 }
+      );
+    }
+    
+    if (email.length > 254) {
+      return NextResponse.json(
+        { error: 'Email address is too long' },
+        { status: 400 }
+      );
+    }
+    
+    if (email.includes('..') || email.startsWith('.') || email.endsWith('.')) {
+      return NextResponse.json(
+        { error: 'Email format is invalid' },
         { status: 400 }
       );
     }
