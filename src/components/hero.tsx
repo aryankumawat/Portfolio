@@ -77,7 +77,7 @@ export function Hero() {
               className="flex flex-wrap justify-center items-center gap-4 mb-8"
             >
               <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 neon-glow-purple">
-                <Code2 className="h-4 w-4 text-purple-400 group-hover:text-purple-300" />
+                <Code2 className="h-4 w-4 text-purple-400 group-hover:text-purple-200" />
                 <span className="text-sm font-medium text-white">Computational Data Science</span>
               </div>
               <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 neon-glow-blue">
@@ -85,7 +85,7 @@ export function Hero() {
                 <span className="text-sm font-medium text-white">Finance</span>
               </div>
               <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 neon-glow-purple">
-                <Sparkles className="h-4 w-4 text-purple-400 group-hover:text-purple-300" />
+                <Sparkles className="h-4 w-4 text-purple-400 group-hover:text-purple-200" />
                 <span className="text-sm font-medium text-white">AI & ML</span>
               </div>
             </motion.div>

@@ -20,7 +20,7 @@ export function AboutHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white"
+              className="text-4xl md:text-5xl font-heading font-bold mb-6 gradient-text bg-gradient-to-r from-purple-400 via-purple-500 to-blue-400 bg-clip-text text-transparent"
             >
               About Me
             </motion.h1>

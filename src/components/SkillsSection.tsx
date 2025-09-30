@@ -93,7 +93,7 @@ export function SkillsSection() {
                     <div className={`p-4 rounded-xl bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}>
                       <category.icon className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-purple-200 transition-colors">
                       {category.title}
                     </h3>
                   </div>
