@@ -103,7 +103,7 @@ export function ProjectsSection() {
                       </Badge>
                       <Badge 
                         variant={project.status === "Completed" ? "default" : "secondary"}
-                        className="text-xs"
+                        className={`text-xs ${project.status === "Completed" ? "bg-green-600 hover:bg-green-700 text-white" : ""}`}
                       >
                         {project.status}
                       </Badge>
@@ -112,7 +112,7 @@ export function ProjectsSection() {
 
                   {/* Project Content */}
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-white mb-4 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-slate-300/80 leading-relaxed mb-6">
@@ -191,7 +191,7 @@ export function ProjectsSection() {
                         </Badge>
                       </div>
                       
-                      <h3 className="text-lg font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                      <h3 className="text-lg font-bold text-white mb-3 transition-colors">
                         {project.title}
                       </h3>
                       

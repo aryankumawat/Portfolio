@@ -79,7 +79,7 @@ export default function RootLayout({
       className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} theme-ultraviolet`}
     >
       <body className="font-sans antialiased">
-        <ThemeProvider defaultTheme="ultraviolet" storageKey="aryan-theme">
+        <ThemeProvider>
           <SmoothScrollProvider>
             <GlassNav />
             <main>

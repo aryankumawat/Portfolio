@@ -62,7 +62,7 @@
     --radius: 0.5rem;
   }
 
-  /* Two-Theme System */
+  /* Single Theme System - Ultraviolet Only */
   .theme-ultraviolet {
     --bg: #000000;
     --purple-deep: #6D28D9;
@@ -74,19 +74,6 @@
     --gradient-primary: linear-gradient(135deg, #6D28D9 0%, #8B5CF6 50%, #A259FF 100%);
     --gradient-hero: linear-gradient(135deg, #6D28D9 0%, #8B5CF6 50%, #3B82F6 100%);
     --gradient-button: linear-gradient(135deg, #6D28D9 0%, #3B82F6 100%);
-  }
-
-  .theme-deep-space {
-    --bg: #000000;
-    --purple-deep: #4C1D95;
-    --purple-violet: #7C3AED;
-    --purple-accent: #A259FF;
-    --blue-deep: #1E3A8A;
-    --blue-bright: #2563EB;
-    --blue-light: #3B82F6;
-    --gradient-primary: linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #A259FF 100%);
-    --gradient-hero: linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #2563EB 100%);
-    --gradient-button: linear-gradient(135deg, #4C1D95 0%, #2563EB 100%);
   }
 }
 

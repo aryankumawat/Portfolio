@@ -77,7 +77,7 @@ export default function AwardsPage() {
                       </Badge>
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-white group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-xl font-semibold text-white transition-colors">
                       {award.title}
                     </h3>
                     

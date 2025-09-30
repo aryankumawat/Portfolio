@@ -196,7 +196,7 @@ export default function ProjectsPage() {
                         </Badge>
                       </div>
 
-                      <h3 className="text-xl font-semibold text-white group-hover:text-purple-300 transition-colors">
+                      <h3 className="text-xl font-semibold text-white transition-colors">
                         {project.title}
                       </h3>
 
@@ -283,7 +283,7 @@ export default function ProjectsPage() {
 
                     {/* Project Info */}
                     <div className="space-y-3 flex-1">
-                      <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
+                      <h3 className="text-lg font-semibold text-white transition-colors">
                         {project.title}
                       </h3>
 

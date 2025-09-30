@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Command } from "lucide-react";
-import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
@@ -115,8 +114,6 @@ export function Header() {
               <span className="text-xs">⌘K</span>
             </Button>
 
-            <ThemeToggle />
-            
             <Button
               asChild
               size="sm"
