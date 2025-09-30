@@ -119,7 +119,7 @@ export function ExperienceSection() {
                               <exp.icon className="h-6 w-6 text-white" />
                             </div>
                             <div>
-                              <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors">
+                              <h3 className="text-xl font-bold text-white transition-colors">
                                 {exp.title}
                               </h3>
                               <p className="text-slate-400 font-medium">{exp.company}</p>
@@ -187,7 +187,7 @@ export function ExperienceSection() {
               >
                 <GlassCard className="inline-block group cursor-pointer">
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-200 transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-2 transition-colors">
                       View Complete Experience
                     </h3>
                     <p className="text-slate-400 text-sm">

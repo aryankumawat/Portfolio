@@ -33,7 +33,7 @@ export function ContactSection() {
             <div className="space-y-8">
               <GlassCard className="group hover:scale-105 transition-all duration-300">
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-purple-200 transition-colors">
+                  <h3 className="text-2xl font-bold text-white mb-6 transition-colors">
                     Let's Connect
                   </h3>
                   <p className="text-slate-300/80 mb-8 leading-relaxed">
@@ -116,7 +116,7 @@ export function ContactSection() {
           <Reveal delay={0.4}>
             <GlassCard className="group hover:scale-105 transition-all duration-300">
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-purple-200 transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-6 transition-colors">
                   Send a Message
                 </h3>
                 
