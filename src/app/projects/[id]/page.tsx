@@ -471,7 +471,7 @@ export default function ProjectDetailPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-300">Source:</span>
-                      <span className="text-white text-sm">{project.dataset.source}</span>
+                      <span className="text-white">{project.dataset.source}</span>
                     </div>
                   </div>
                 </div>
