@@ -148,7 +148,7 @@ export function Hero() {
                     variant="outline" 
                     className="group glass-sm border-purple-500/30 hover:border-purple-400/30 hover:bg-purple-500/5 px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
                   >
-                    <Link href="/contact" className="flex items-center gap-3 text-white">
+                    <Link href="/contact#contact-form" className="flex items-center gap-3 text-white">
                       <span>Get in Touch</span>
                       <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
                     </Link>
