@@ -190,7 +190,7 @@ export function SimpleContactForm() {
             <GlassCard>
               <div className="p-8">
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold mb-4 gradient-text">
+                  <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-cyan-500 to-indigo-500 bg-clip-text text-transparent">
                     Send Me a Message
                   </h2>
                   <p className="text-slate-300/90">
