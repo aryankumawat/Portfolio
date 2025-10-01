@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { GlassCard } from "./GlassCard";
 import { Badge } from "./ui/badge";
 import { 
   Briefcase, 
@@ -281,25 +281,25 @@ export function ExperienceTimeline() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <GlassCard className="relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${experience.color}`} />
                   
-                  <CardHeader>
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                  <div className="p-6">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                       <div className="flex items-start gap-4">
                         <div className={`p-3 rounded-lg bg-gradient-to-r ${experience.color}`}>
                           <experience.icon className="h-6 w-6 text-white" />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <CardTitle className="text-xl">
+                            <h3 className="text-xl font-bold text-white">
                               {experience.title}
-                            </CardTitle>
+                            </h3>
                             {experience.current && (
                               <Badge variant="success">Current</Badge>
                             )}
                           </div>
-                          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-2">
+                          <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300/80 mb-2">
                             <div className="flex items-center gap-1">
                               <Briefcase className="h-4 w-4" />
                               {experience.company}
@@ -319,19 +319,17 @@ export function ExperienceTimeline() {
                         </div>
                       </div>
                     </div>
-                  </CardHeader>
-                  
-                  <CardContent className="pt-0">
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    
+                    <p className="text-slate-300/80 mb-4 leading-relaxed">
                       {experience.description}
                     </p>
                     
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-semibold text-sm text-foreground mb-2">Key Achievements:</h4>
+                        <h4 className="font-semibold text-sm text-white mb-2">Key Achievements:</h4>
                         <ul className="space-y-1">
                           {experience.achievements.map((achievement, achievementIndex) => (
-                            <li key={achievementIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <li key={achievementIndex} className="flex items-start gap-2 text-sm text-slate-300/80">
                               <span className="text-electric mt-1">•</span>
                               {achievement}
                             </li>
@@ -340,18 +338,18 @@ export function ExperienceTimeline() {
                       </div>
                       
                       <div>
-                        <h4 className="font-semibold text-sm text-foreground mb-2">Skills Applied:</h4>
+                        <h4 className="font-semibold text-sm text-white mb-2">Skills Applied:</h4>
                         <div className="flex flex-wrap gap-2">
                           {experience.skills.map((skill, skillIndex) => (
-                            <Badge key={skillIndex} variant="secondary" className="text-xs">
+                            <Badge key={skillIndex} variant="outline" className="text-xs">
                               {skill}
                             </Badge>
                           ))}
                         </div>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
