@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { GlassCard } from "./GlassCard";
 import { Badge } from "./ui/badge";
 import { 
   GraduationCap, 
@@ -92,10 +92,10 @@ export function EducationSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text">
             Education & Certifications
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
             A strong academic foundation combined with specialized training in 
             cybersecurity and continuous learning in emerging technologies.
           </p>
@@ -111,19 +111,19 @@ export function EducationSection() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="relative overflow-hidden">
+              <GlassCard className="relative overflow-hidden">
                 <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${item.color}`} />
-                <CardHeader>
+                <div className="p-6">
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4">
                       <div className={`p-3 rounded-lg bg-gradient-to-r ${item.color}`}>
                         <item.icon className="h-6 w-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <CardTitle className="text-xl mb-2">
+                        <h3 className="text-xl font-bold text-white mb-2">
                           {item.degree}
-                        </CardTitle>
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                        </h3>
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300/80">
                           <div className="flex items-center gap-1">
                             <MapPin className="h-4 w-4" />
                             {item.institution}
@@ -139,24 +139,24 @@ export function EducationSection() {
                       </div>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {item.description}
-                  </p>
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm text-foreground">Key Achievements:</h4>
-                    <ul className="space-y-1">
-                      {item.achievements.map((achievement, achievementIndex) => (
-                        <li key={achievementIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="text-electric mt-1">•</span>
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="pt-4">
+                    <p className="text-slate-300/80 mb-4 leading-relaxed">
+                      {item.description}
+                    </p>
+                    <div className="space-y-2">
+                      <h4 className="font-semibold text-sm text-white">Key Achievements:</h4>
+                      <ul className="space-y-1">
+                        {item.achievements.map((achievement, achievementIndex) => (
+                          <li key={achievementIndex} className="flex items-start gap-2 text-sm text-slate-300/80">
+                            <span className="text-electric mt-1">•</span>
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </GlassCard>
             </motion.div>
           ))}
         </div>
@@ -168,7 +168,7 @@ export function EducationSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-heading font-bold mb-8 text-center">
+          <h3 className="text-3xl font-bold mb-8 text-center text-white">
             Additional Certifications & Recognition
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -180,24 +180,24 @@ export function EducationSection() {
                 transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="p-6">
+                <GlassCard className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className="p-6">
                     <div className="flex items-start gap-4">
                       <div className={`p-3 rounded-lg bg-gradient-to-r ${cert.color}`}>
                         <cert.icon className="h-5 w-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold mb-2">{cert.name}</h4>
-                        <p className="text-sm text-muted-foreground mb-2">
+                        <h4 className="font-semibold mb-2 text-white">{cert.name}</h4>
+                        <p className="text-sm text-slate-300/80 mb-2">
                           {cert.description}
                         </p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text-slate-400">
                           {cert.date}
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
