@@ -30,7 +30,7 @@ export function GlassCard({
       }}
       className={cn(
         "relative overflow-hidden rounded-2xl backdrop-blur-xl bg-black/20 border border-purple-500/20 shadow-2xl group",
-        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500/3 before:to-blue-500/3 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300",
+        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/5 before:to-white/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300",
         magnetic && "cursor-pointer",
         className
       )}
@@ -39,7 +39,7 @@ export function GlassCard({
       <div 
         className="pointer-events-none absolute inset-0 rounded-2xl"
         style={{ 
-          boxShadow: "inset 0 1px 0 rgba(162, 89, 255, 0.3)" 
+          boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.1)" 
         }}
       />
       
@@ -48,7 +48,7 @@ export function GlassCard({
         <div 
           className="absolute inset-0 rounded-2xl p-[1px]"
           style={{
-            background: "linear-gradient(135deg, #6D28D9, #8B5CF6, #3B82F6)"
+            background: "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))"
           }}
         >
           <div className="w-full h-full rounded-2xl bg-transparent" />
