@@ -22,7 +22,6 @@ const education = [
     achievements: [
       "Sydney India Scholar - Merit-based scholarship for academic excellence",
       "Sydney International Student Award - Recognition for international students",
-      "GPA: Distinction average",
       "Relevant coursework: Data Science, Machine Learning, Financial Mathematics, Statistics, Software Engineering"
     ],
     icon: GraduationCap,
