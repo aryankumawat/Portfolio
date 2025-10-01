@@ -96,7 +96,7 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-white">Connect</h3>
             <div className="space-y-3">
-              <Button asChild variant="outline" size="sm" className="w-full border-purple-500/30 hover:border-purple-400/50 hover:bg-purple-500/10 text-white">
+              <Button asChild variant="outline" size="sm" className="w-full border-purple-500/30 hover:border-purple-400/40 hover:bg-purple-500/5 text-white">
                 <a 
                   href="https://www.linkedin.com/in/aryan-kumawat-/"
                   target="_blank"
@@ -107,7 +107,7 @@ export function Footer() {
                   LinkedIn
                 </a>
               </Button>
-              <Button asChild size="sm" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0 neon-glow-button">
+              <Button asChild size="sm" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0">
                 <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf" className="flex items-center gap-2">
                   Download Resume
                 </a>
@@ -128,7 +128,7 @@ export function Footer() {
             variant="ghost"
             size="icon"
             onClick={scrollToTop}
-            className="rounded-full hover:bg-purple-500/10 text-white hover:text-purple-300"
+            className="rounded-full hover:bg-purple-500/5 text-white hover:text-purple-200"
           >
             <ArrowUp className="h-4 w-4" />
           </Button>

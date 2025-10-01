@@ -76,15 +76,15 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-wrap justify-center items-center gap-4 mb-8"
             >
-              <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 neon-glow-purple">
+              <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 hover:bg-purple-500/5">
                 <Code2 className="h-4 w-4 text-purple-400" />
                 <span className="text-sm font-medium text-white">Computational Data Science</span>
               </div>
-              <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 neon-glow-blue">
+              <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 hover:bg-blue-500/5">
                 <Zap className="h-4 w-4 text-blue-400 group-hover:text-blue-300" />
                 <span className="text-sm font-medium text-white">Finance</span>
               </div>
-              <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 neon-glow-purple">
+              <div className="glass-sm rounded-full px-4 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300 hover:bg-purple-500/5">
                 <Sparkles className="h-4 w-4 text-purple-400" />
                 <span className="text-sm font-medium text-white">AI & ML</span>
               </div>
@@ -146,7 +146,7 @@ export function Hero() {
                     asChild 
                     size="lg" 
                     variant="outline" 
-                    className="group glass-sm border-purple-500/30 hover:border-purple-400/50 hover:bg-purple-500/10 px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 neon-glow-purple"
+                    className="group glass-sm border-purple-500/30 hover:border-purple-400/30 hover:bg-purple-500/5 px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
                   >
                     <Link href="/contact" className="flex items-center gap-3 text-white">
                       <span>Get in Touch</span>
@@ -196,7 +196,7 @@ export function Hero() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-purple-400/30 rounded-full flex justify-center group cursor-pointer hover:border-purple-300/50 transition-colors"
+              className="w-6 h-10 border-2 border-purple-400/30 rounded-full flex justify-center group cursor-pointer hover:border-purple-300/40 transition-colors"
             >
               <motion.div
                 animate={{ y: [0, 12, 0] }}

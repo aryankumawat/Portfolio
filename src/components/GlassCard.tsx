@@ -30,7 +30,7 @@ export function GlassCard({
       }}
       className={cn(
         "relative overflow-hidden rounded-2xl backdrop-blur-xl bg-black/20 border border-purple-500/20 shadow-2xl group",
-        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500/10 before:to-blue-500/10 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300",
+        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500/3 before:to-blue-500/3 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300",
         magnetic && "cursor-pointer",
         className
       )}
