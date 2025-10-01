@@ -24,8 +24,91 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+// Define the project interface
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  icon: any;
+  color: string;
+  year: string;
+  status: string;
+  technologies: string[];
+  github: string;
+  live: string;
+  featured: boolean;
+  overview: {
+    problem: string;
+    solution: string;
+    impact: string;
+  };
+  dataset: {
+    name: string;
+    platform: string;
+    samples: string;
+    genes: string;
+    source: string;
+    url: string;
+  };
+  methodology: {
+    dataProcessing: string[];
+    featureSelection: string[];
+    models: Array<{
+      name: string;
+      description: string;
+      performance: string;
+    }>;
+    evaluation: string[];
+  };
+  shinyApp: {
+    features: string[];
+    technicalStack: string[];
+    sampleData: {
+      description: string;
+      structure: string;
+      ageRange: string;
+      demographics: string;
+      format: string;
+    };
+  };
+  results: {
+    keyMetrics: {
+      bestModel: string;
+      auc: string;
+      accuracy: string;
+      sensitivity: string;
+      specificity: string;
+      f1Score: string;
+    };
+    selectedGenes: string[];
+    clinicalSignificance: string[];
+  };
+  technicalDetails: {
+    packages: string[];
+    dataProcessing: string;
+    featureSelection: string;
+    modelTraining: string;
+    geneAnnotation: string;
+    visualization: string;
+  };
+  repository: {
+    structure: string[];
+    documentation: string;
+    codeQuality: string;
+  };
+  references: Array<{
+    title: string;
+    authors?: string;
+    journal?: string;
+    year?: string;
+    url?: string;
+    source?: string;
+  }>;
+}
+
 // Project data - in a real app, this would come from a CMS or API
-const projectData = {
+const projectData: Record<string, Project> = {
   "alopecia-risk-model": {
     id: "alopecia-risk-model",
     title: "Alopecia Areata Risk Model & Shiny App",
@@ -199,12 +282,12 @@ const projectData = {
 
 export default function ProjectDetailPage() {
   const params = useParams();
-  const [project, setProject] = useState(null);
+  const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const projectId = params.id as string;
-    const projectInfo = projectData[projectId];
+    const projectInfo = projectData[projectId] || null;
     
     if (projectInfo) {
       setProject(projectInfo);
