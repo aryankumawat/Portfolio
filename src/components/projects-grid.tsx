@@ -32,7 +32,7 @@ const projects = [
     approach: "Applied multiple ML algorithms (LASSO, SVM, Random Forest) to gene expression data and deployed interactive Shiny app for risk calculation",
     impact: "ROC analysis showed 85% accuracy, with high sensitivity and specificity for early detection",
     image: "/api/placeholder/400/250",
-    github: "#",
+    github: "https://github.com/aryankumawat/Alopecia-Areata-Risk-Model-Shiny-App",
     live: "#",
     featured: true,
   },

@@ -18,7 +18,7 @@ const projects = [
     color: "from-purple-500 to-purple-600",
     technologies: ["R", "Shiny", "Machine Learning", "Bioinformatics"],
     status: "Completed",
-    github: "#",
+    github: "https://github.com/aryankumawat/Alopecia-Areata-Risk-Model-Shiny-App",
     live: "#",
     featured: true,
   },
