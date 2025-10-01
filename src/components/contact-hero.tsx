@@ -52,22 +52,46 @@ const contactMethods = [
 
 const availability = [
   {
-    day: "Monday - Friday",
-    time: "9:00 AM - 6:00 PM",
+    day: "Monday",
+    time: "9:00 AM - 11:00 AM, 12:00 PM - 6:00 PM",
     status: "Available",
     color: "success",
+    busy: "11:00 AM - 12:00 PM (MATH1064 Lecture)",
+  },
+  {
+    day: "Tuesday",
+    time: "9:00 AM - 1:00 PM, 2:00 PM - 4:00 PM, 7:00 PM - 6:00 PM",
+    status: "Limited",
+    color: "warning",
+    busy: "1:00 PM - 2:00 PM (FINC3017), 4:00 PM - 7:00 PM (COMP2123 + SOFT2412)",
+  },
+  {
+    day: "Wednesday",
+    time: "10:00 AM - 1:00 PM, 2:00 PM - 4:00 PM, 5:00 PM - 6:00 PM",
+    status: "Limited",
+    color: "warning",
+    busy: "9:00 AM - 10:00 AM (MATH1064), 1:00 PM - 2:00 PM (MATH1064), 4:00 PM - 5:00 PM (FINC3017)",
+  },
+  {
+    day: "Thursday",
+    time: "10:00 AM - 1:00 PM, 2:00 PM - 5:00 PM, 6:00 PM - 6:00 PM",
+    status: "Limited",
+    color: "warning",
+    busy: "9:00 AM - 10:00 AM (ISYS2120), 1:00 PM - 2:00 PM (SOFT2412), 5:00 PM - 6:00 PM (ISYS2120)",
+  },
+  {
+    day: "Friday",
+    time: "11:00 AM - 6:00 PM",
+    status: "Available",
+    color: "success",
+    busy: "9:00 AM - 11:00 AM (COMP2123 + MATH1064)",
   },
   {
     day: "Weekends",
     time: "10:00 AM - 4:00 PM",
-    status: "Limited",
-    color: "warning",
-  },
-  {
-    day: "Holidays",
-    time: "By appointment",
-    status: "Flexible",
-    color: "info",
+    status: "Available",
+    color: "success",
+    busy: "No classes",
   },
 ];
 
@@ -166,21 +190,27 @@ export function ContactHero() {
                 <Clock className="h-5 w-5 text-electric" />
                 Availability
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {availability.map((item, index) => (
-                  <div key={item.day} className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">{item.day}</p>
-                      <p className="text-sm text-muted-foreground">{item.time}</p>
+                  <div key={item.day} className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-medium">{item.day}</p>
+                        <p className="text-sm text-muted-foreground">{item.time}</p>
+                      </div>
+                      <Badge variant={item.color as any} className="text-xs">
+                        {item.status}
+                      </Badge>
                     </div>
-                    <Badge variant={item.color as any} className="text-xs">
-                      {item.status}
-                    </Badge>
+                    <div className="text-xs text-red-400 bg-red-500/10 px-2 py-1 rounded">
+                      <span className="font-medium">Busy:</span> {item.busy}
+                    </div>
                   </div>
                 ))}
               </div>
               <div className="mt-6 p-4 bg-muted/50 rounded-lg">
                 <p className="text-sm text-muted-foreground text-center">
+                  I'm a full-time student at University of Sydney, so my availability varies by day.
                   I'm flexible with scheduling and happy to accommodate different time zones.
                   Feel free to reach out even outside these hours!
                 </p>
