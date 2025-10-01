@@ -175,7 +175,7 @@ export function SimpleContactForm() {
   };
 
   const getInputClassName = (field: keyof FormData) => {
-    return `w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+    return `w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
       errors[field] 
         ? "border-red-500 bg-red-50/10" 
         : "border-white/20 bg-white/5 hover:border-white/30 text-white placeholder-slate-400"
@@ -308,7 +308,7 @@ export function SimpleContactForm() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:via-violet-500 hover:to-indigo-500 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 hover:scale-105 group"
+                  className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:from-blue-500 hover:via-indigo-500 hover:to-cyan-500 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:scale-105 group"
                   disabled={isSubmitting}
                 >
                   <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" />
