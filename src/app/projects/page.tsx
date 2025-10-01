@@ -169,7 +169,7 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {featuredProjects.map((project, index) => (
               <Reveal key={project.id} delay={index * 0.1}>
-                <GlassCard className="group h-full">
+                <GlassCard className="group h-full projects-card">
                   <div className="space-y-4 h-full flex flex-col">
                     {/* Project Icon */}
                     <div className="aspect-video bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-lg overflow-hidden flex items-center justify-center">
@@ -269,7 +269,7 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {otherProjects.map((project, index) => (
               <Reveal key={project.id} delay={index * 0.1}>
-                <GlassCard className="group h-full">
+                <GlassCard className="group h-full projects-card">
                   <div className="space-y-4 h-full flex flex-col">
                     {/* Project Icon */}
                     <div className="flex items-center justify-between mb-2">

@@ -364,6 +364,19 @@
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
+  /* Projects page specific - remove purple hover effects */
+  .projects-card::before {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)) !important;
+  }
+
+  .projects-card .absolute.inset-0.rounded-2xl.opacity-0.group-hover\:opacity-100 {
+    opacity: 0 !important;
+  }
+
+  .projects-card .absolute.inset-0.rounded-2xl.p-\[1px\] {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
+  }
+
   /* Gradient borders */
   .gradient-border {
     position: relative;
