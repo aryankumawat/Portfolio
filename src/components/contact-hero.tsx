@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent } from "./ui/card";
+import { GlassCard } from "./GlassCard";
 import { Badge } from "./ui/badge";
 import { 
   Mail, 
@@ -85,7 +85,7 @@ export function ContactHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-heading font-bold mb-6"
+            className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text"
           >
             Let's Connect
           </motion.h1>
@@ -93,7 +93,7 @@ export function ContactHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto"
           >
             I'm always interested in new opportunities, collaborations, and 
             interesting conversations. Whether you have a project in mind, 
@@ -116,8 +116,8 @@ export function ContactHero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
+              <GlassCard className="h-full">
+                <div className="p-6">
                   <div className="flex items-start gap-4">
                     <div className={`p-3 rounded-lg bg-gradient-to-r ${method.color}`}>
                       <method.icon className="h-6 w-6 text-white" />
@@ -146,8 +146,8 @@ export function ContactHero() {
                       </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </GlassCard>
             </motion.div>
           ))}
         </motion.div>
@@ -160,8 +160,8 @@ export function ContactHero() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-8"
         >
           {/* Availability */}
-          <Card>
-            <CardContent className="p-6">
+          <GlassCard>
+            <div className="p-6">
               <h3 className="text-xl font-heading font-semibold mb-4 flex items-center gap-2">
                 <Clock className="h-5 w-5 text-electric" />
                 Availability
@@ -185,12 +185,12 @@ export function ContactHero() {
                   Feel free to reach out even outside these hours!
                 </p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </GlassCard>
 
           {/* Quick Actions */}
-          <Card>
-            <CardContent className="p-6">
+          <GlassCard>
+            <div className="p-6">
               <h3 className="text-xl font-heading font-semibold mb-4 flex items-center gap-2">
                 <MessageSquare className="h-5 w-5 text-electric" />
                 Quick Actions
@@ -225,8 +225,8 @@ export function ContactHero() {
                   in data science, finance, or software development.
                 </p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </GlassCard>
         </motion.div>
       </div>
     </section>
