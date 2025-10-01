@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { GlassCard } from "./GlassCard";
 import { Badge } from "./ui/badge";
 import { 
   Code, 
@@ -111,10 +111,10 @@ export function SkillsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 gradient-text">
             Skills & Expertise
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
             A comprehensive skill set spanning technical capabilities, leadership, 
             and domain expertise in data science and finance.
           </p>
@@ -128,14 +128,13 @@ export function SkillsSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+            <GlassCard>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white flex items-center gap-2 mb-6">
                   <Code className="h-5 w-5 text-electric" />
                   Technical Skills
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
+                </h3>
+                <div className="space-y-6">
                 {technicalSkills.map((category, categoryIndex) => (
                   <div key={category.category}>
                     <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider mb-3">
@@ -169,8 +168,9 @@ export function SkillsSection() {
                     </div>
                   </div>
                 ))}
-              </CardContent>
-            </Card>
+                </div>
+              </div>
+            </GlassCard>
           </motion.div>
 
           {/* Soft Skills */}
@@ -180,14 +180,13 @@ export function SkillsSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+            <GlassCard>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white flex items-center gap-2 mb-6">
                   <Users className="h-5 w-5 text-electric" />
                   Soft Skills & Leadership
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
+                </h3>
+                <div className="space-y-6">
                 {softSkills.map((category, categoryIndex) => (
                   <div key={category.category}>
                     <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider mb-3">
@@ -221,8 +220,9 @@ export function SkillsSection() {
                     </div>
                   </div>
                 ))}
-              </CardContent>
-            </Card>
+                </div>
+              </div>
+            </GlassCard>
           </motion.div>
         </div>
 
