@@ -138,7 +138,7 @@ export function ProjectsSection() {
                     <Button
                       asChild
                       size="sm"
-                      className="flex-1 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white border-0 group/btn"
+                      className="flex-1 bg-gradient-to-r from-purple-600 to-cyan-600 text-white border-0 group/btn"
                     >
                       <Link href={`/projects/${project.id}`}>
                         <Eye className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
@@ -241,7 +241,7 @@ export function ProjectsSection() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:via-violet-500 hover:to-indigo-500 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl transition-all duration-300 hover:scale-105"
             >
               <Link href="/projects">
                 View All Projects

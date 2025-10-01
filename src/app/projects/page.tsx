@@ -234,7 +234,7 @@ export default function ProjectsPage() {
                         <Button
                           asChild
                           size="sm"
-                          className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
+                          className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0"
                         >
                           <Link href={`/projects/${project.id}`}>
                             <Eye className="h-4 w-4 mr-2" />
