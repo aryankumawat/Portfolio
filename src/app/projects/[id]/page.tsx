@@ -259,14 +259,14 @@ const projectData: Record<string, Project> = {
       codeQuality: "Well-documented R code with clear comments and modular structure"
     },
     
-    references: [
-      {
-        title: "Molecular signatures define alopecia areata subtypes and transcriptional biomarkers",
-        authors: "Jabbari, A., et al.",
-        journal: "eLife",
-        year: "2016",
-        url: "https://elifesciences.org/articles/19556"
-      },
+  references: [
+    {
+      title: "Involvement of ILC1-like innate lymphocytes in human autoimmunity, lessons from alopecia areata",
+      authors: "Laufer Britva, R., et al.",
+      journal: "eLife",
+      year: "2023",
+      url: "https://elifesciences.org/articles/80768"
+    },
       {
         title: "GSE68801 Dataset",
         source: "NCBI GEO",
