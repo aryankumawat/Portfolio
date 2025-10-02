@@ -727,55 +727,6 @@ export default function ProjectDetailPage() {
             </motion.div>
           )}
 
-          {/* Context Information - Only for Web Development projects */}
-          {project.context && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="mb-16"
-            >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                Project Context
-              </h2>
-              <GlassCard className="p-8">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                      <Target className="h-5 w-5 text-red-400" />
-                      COVID-19 Pandemic Context
-                    </h3>
-                    <p className="text-slate-300 leading-relaxed">{project.context.pandemic}</p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                      <Zap className="h-5 w-5 text-orange-400" />
-                      Urgency & Need
-                    </h3>
-                    <p className="text-slate-300 leading-relaxed">{project.context.urgency}</p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-blue-400" />
-                      Security Requirements
-                    </h3>
-                    <p className="text-slate-300 leading-relaxed">{project.context.security}</p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                      <Database className="h-5 w-5 text-green-400" />
-                      Project Scale & Timeline
-                    </h3>
-                    <p className="text-slate-300 leading-relaxed mb-2">{project.context.scale}</p>
-                    <p className="text-slate-300 leading-relaxed">{project.context.timeline}</p>
-                  </div>
-                </div>
-              </GlassCard>
-            </motion.div>
-          )}
 
           {/* Features - Only for Web Development projects */}
           {project.features && (
@@ -990,62 +941,6 @@ export default function ProjectDetailPage() {
           </motion.div>
           )}
 
-          {/* Results - Only for ML projects */}
-          {project.results && project.results.keyMetrics && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              className="mb-16"
-            >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                Key Results
-              </h2>
-              <div className="grid lg:grid-cols-2 gap-8">
-                <GlassCard className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <BarChart3 className="h-5 w-5 text-green-400" />
-                    Performance Metrics
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-green-400">{project.results.keyMetrics.auc}</div>
-                      <div className="text-sm text-slate-300">AUC Score</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-400">{project.results.keyMetrics.accuracy}</div>
-                      <div className="text-sm text-slate-300">Accuracy</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-purple-400">{project.results.keyMetrics.sensitivity}</div>
-                      <div className="text-sm text-slate-300">Sensitivity</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-400">{project.results.keyMetrics.specificity}</div>
-                      <div className="text-sm text-slate-300">Specificity</div>
-                    </div>
-                  </div>
-                </GlassCard>
-
-                <GlassCard className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Brain className="h-5 w-5 text-blue-400" />
-                    Selected Genes
-                  </h3>
-                  <div className="text-sm text-slate-300">
-                    <p className="mb-3">21 most predictive genes identified:</p>
-                    <div className="flex flex-wrap gap-1">
-                      {project.results.selectedGenes?.map((gene, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {gene}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </GlassCard>
-              </div>
-            </motion.div>
-          )}
 
 
           {/* Shiny App Features - Only for ML projects */}
