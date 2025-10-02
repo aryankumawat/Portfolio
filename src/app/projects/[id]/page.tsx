@@ -163,7 +163,7 @@ const projectData: Record<string, Project> = {
   "exam-portal": {
     id: "exam-portal",
     title: "Exam Portal System",
-    description: "A comprehensive online examination platform built during COVID-19 school closures to enable secure remote assessments. Features advanced anti-cheat detection, beautiful responsive UI, and dynamic dashboards for students and faculty.",
+    description: "A comprehensive online examination platform built during COVID-19 school closures to enable secure remote assessments. Features timed exams with automatic submission, advanced anti-cheat detection, beautiful responsive UI, and dynamic dashboards for students and faculty.",
     category: "Web Development",
     icon: Database,
     color: "from-green-500 to-green-600",
@@ -193,7 +193,8 @@ const projectData: Record<string, Project> = {
       studentFeatures: [
         "Modern Login/Registration with beautiful authentication pages",
         "Interactive Dashboard with real-time exam information and quick actions",
-        "Exam Taking Interface with countdown timer and progress tracking",
+        "Timed Exam Interface with automatic submission when time expires",
+        "Real-time Countdown Timer with visual progress indicators",
         "Results & Attendance tracking with comprehensive performance analytics",
         "Study Materials access with learning resources and practice tests",
         "Profile Management with complete user preferences and settings"
@@ -212,12 +213,14 @@ const projectData: Record<string, Project> = {
         "Anti-Cheat Detection with real-time monitoring for suspicious behavior",
         "IP Whitelisting for admin access control and security",
         "Tab Switching Detection to monitor browser focus during exams",
-        "Session Validation to ensure valid user sessions and prevent fraud"
+        "Session Validation to ensure valid user sessions and prevent fraud",
+        "Timed Exam Security with automatic submission and time enforcement"
       ],
       technicalFeatures: [
         "Database Optimization with comprehensive indexing and query optimization",
         "API Endpoints with RESTful design and proper validation",
         "Real-time Updates with dynamic content updates without page refresh",
+        "Timed Exam Engine with automatic submission and time management",
         "Error Handling with comprehensive error management and user feedback",
         "Performance Monitoring with built-in logging and analytics",
         "Mobile Responsive design for perfect experience on all devices"
