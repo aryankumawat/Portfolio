@@ -50,10 +50,10 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 ## 🔬 Featured Projects
 
 ### Alopecia Areata Risk Model & Shiny App
-- **Technology**: R, Shiny, Machine Learning, Bioinformatics, LASSO, Random Forest
+- **Technology**: R, Shiny, Machine Learning, Bioinformatics
 - **Dataset**: GSE68801 (122 samples: 36 controls, 86 patients, 54,675 genes)
 - **Analysis**: Differential expression analysis, LASSO feature selection identifying 21 key genes
-- **Models**: Random Forest (AUC: 0.92, Accuracy: 85%), SVM, GLMNET, kNN
+- **Models**: LASSO, Random Forest (AUC: 0.92, Accuracy: 85%), SVM, GLMNET, kNN
 - **Features**: Interactive Shiny web application with individual/batch prediction capabilities
 - **Research**: Based on Ali Jabbari et al. - Molecular signatures define alopecia areata subtypes (eLife 2016)
 - **GitHub**: [Repository Link](https://github.com/aryankumawat/Alopecia-Areata-Risk-Model-Shiny-App)
