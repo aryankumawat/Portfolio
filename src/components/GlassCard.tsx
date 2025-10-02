@@ -19,21 +19,23 @@ export function GlassCard({
   return (
     <motion.div
       whileHover={hover ? { 
-        scale: 1.02, 
-        y: -5,
-        transition: { duration: 0.2 }
+        scale: 1.01, 
+        y: -2,
+        transition: { duration: 0.15, ease: "easeOut" }
       } : {}}
       transition={{ 
-        type: "spring", 
-        stiffness: 300, 
-        damping: 20 
+        type: "tween", 
+        duration: 0.15,
+        ease: "easeOut"
       }}
       className={cn(
         "relative overflow-hidden rounded-2xl backdrop-blur-xl bg-black/20 border border-purple-500/20 shadow-2xl group",
-        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500/3 before:to-blue-500/3 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300",
+        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500/3 before:to-blue-500/3 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-200",
         magnetic && "cursor-pointer",
+        "transform-gpu will-change-transform",
         className
       )}
+      style={{ willChange: hover ? 'transform' : 'auto' }}
     >
       {/* Inner highlight */}
       <div 

@@ -545,14 +545,14 @@ export default function ProjectDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black" style={{ willChange: 'auto' }}>
       {/* Header */}
       <section className="pt-32 pb-20">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="mb-8"
           >
             <Link href="/projects">
@@ -599,9 +599,9 @@ export default function ProjectDetailPage() {
 
           {/* Action Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
             className="flex gap-4 mb-12"
           >
             <Button
@@ -631,9 +631,9 @@ export default function ProjectDetailPage() {
 
           {/* Project Overview */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
             className="grid lg:grid-cols-3 gap-8 mb-16"
           >
             <GlassCard className="p-6">
@@ -670,9 +670,9 @@ export default function ProjectDetailPage() {
           {/* Dataset Information - Only for ML projects */}
           {project.dataset && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
               className="mb-16"
             >
               <h2 className="text-3xl font-bold text-white mb-8 text-center">
@@ -739,36 +739,38 @@ export default function ProjectDetailPage() {
                 Project Context
               </h2>
               <GlassCard className="p-8">
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-4">COVID-19 Impact</h3>
-                    <div className="space-y-3">
-                      <div className="flex justify-between">
-                        <span className="text-slate-300">Pandemic Context:</span>
-                        <span className="text-white">{project.context.pandemic}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-300">Urgency:</span>
-                        <span className="text-white">{project.context.urgency}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-300">Security Requirements:</span>
-                        <span className="text-white">{project.context.security}</span>
-                      </div>
-                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                      <Target className="h-5 w-5 text-red-400" />
+                      COVID-19 Pandemic Context
+                    </h3>
+                    <p className="text-slate-300 leading-relaxed">{project.context.pandemic}</p>
                   </div>
+                  
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-4">Project Scale</h3>
-                    <div className="space-y-3">
-                      <div className="flex justify-between">
-                        <span className="text-slate-300">Scale:</span>
-                        <span className="text-white">{project.context.scale}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-300">Timeline:</span>
-                        <span className="text-white">{project.context.timeline}</span>
-                      </div>
-                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                      <Zap className="h-5 w-5 text-orange-400" />
+                      Urgency & Need
+                    </h3>
+                    <p className="text-slate-300 leading-relaxed">{project.context.urgency}</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                      <Shield className="h-5 w-5 text-blue-400" />
+                      Security Requirements
+                    </h3>
+                    <p className="text-slate-300 leading-relaxed">{project.context.security}</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                      <Database className="h-5 w-5 text-green-400" />
+                      Project Scale & Timeline
+                    </h3>
+                    <p className="text-slate-300 leading-relaxed mb-2">{project.context.scale}</p>
+                    <p className="text-slate-300 leading-relaxed">{project.context.timeline}</p>
                   </div>
                 </div>
               </GlassCard>
@@ -1045,81 +1047,6 @@ export default function ProjectDetailPage() {
             </motion.div>
           )}
 
-          {/* Results - For Web Development projects */}
-          {project.results && project.results.keyMetrics && !project.results.keyMetrics.auc && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="mb-16"
-            >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                Project Results & Impact
-              </h2>
-              <div className="grid lg:grid-cols-2 gap-8">
-                <GlassCard className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <BarChart3 className="h-5 w-5 text-green-400" />
-                    Key Metrics
-                  </h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Users Supported:</span>
-                      <span className="text-white font-semibold">{project.results.keyMetrics.usersSupported}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Security Level:</span>
-                      <span className="text-white font-semibold">{project.results.keyMetrics.securityLevel}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Performance:</span>
-                      <span className="text-white font-semibold">{project.results.keyMetrics.performance}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Reliability:</span>
-                      <span className="text-white font-semibold">{project.results.keyMetrics.reliability}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">User Satisfaction:</span>
-                      <span className="text-white font-semibold">{project.results.keyMetrics.userSatisfaction}</span>
-                    </div>
-                  </div>
-                </GlassCard>
-
-                <GlassCard className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Trophy className="h-5 w-5 text-blue-400" />
-                    Key Achievements
-                  </h3>
-                  <ul className="space-y-2">
-                    {project.results.achievements?.map((achievement, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
-              </div>
-
-              <div className="mt-8">
-                <GlassCard className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Target className="h-5 w-5 text-purple-400" />
-                    Impact & Benefits
-                  </h3>
-                  <ul className="space-y-2">
-                    {project.results.impact?.map((impact, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                        {impact}
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
-              </div>
-            </motion.div>
-          )}
 
           {/* Shiny App Features - Only for ML projects */}
           {project.shinyApp && (
