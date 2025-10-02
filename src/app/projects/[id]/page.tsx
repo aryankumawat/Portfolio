@@ -20,7 +20,14 @@ import {
   Zap,
   CheckCircle,
   Download,
-  Play
+  Play,
+  GraduationCap,
+  Shield,
+  Cog,
+  Server,
+  Monitor,
+  Rocket,
+  Trophy
 } from "lucide-react";
 import Link from "next/link";
 
@@ -43,7 +50,8 @@ interface Project {
     solution: string;
     impact: string;
   };
-  dataset: {
+  // For ML projects (Alopecia)
+  dataset?: {
     name: string;
     platform: string;
     samples: string;
@@ -51,7 +59,7 @@ interface Project {
     source: string;
     url: string;
   };
-  methodology: {
+  methodology?: {
     dataProcessing: string[];
     featureSelection: string[];
     models: Array<{
@@ -61,7 +69,7 @@ interface Project {
     }>;
     evaluation: string[];
   };
-  shinyApp: {
+  shinyApp?: {
     features: string[];
     technicalStack: string[];
     sampleData: {
@@ -72,30 +80,73 @@ interface Project {
       format: string;
     };
   };
-  results: {
+  results?: {
     keyMetrics: {
-      bestModel: string;
-      auc: string;
-      accuracy: string;
-      sensitivity: string;
-      specificity: string;
-      f1Score: string;
+      bestModel?: string;
+      auc?: string;
+      accuracy?: string;
+      sensitivity?: string;
+      specificity?: string;
+      f1Score?: string;
+      // For Web Development projects
+      usersSupported?: string;
+      securityLevel?: string;
+      performance?: string;
+      reliability?: string;
+      userSatisfaction?: string;
     };
-    selectedGenes: string[];
-    clinicalSignificance: string[];
+    selectedGenes?: string[];
+    clinicalSignificance?: string[];
+    // For Web Development projects
+    achievements?: string[];
+    impact?: string[];
   };
-  technicalDetails: {
-    packages: string[];
-    dataProcessing: string;
-    featureSelection: string;
-    modelTraining: string;
-    geneAnnotation: string;
-    visualization: string;
+  technicalDetails?: {
+    packages?: string[];
+    dataProcessing?: string;
+    featureSelection?: string;
+    modelTraining?: string;
+    geneAnnotation?: string;
+    visualization?: string;
+    // For Web Development projects
+    development?: string;
+    testing?: string;
+    deployment?: string;
+    maintenance?: string;
+    documentation?: string;
+  };
+  // For Web Development projects (Exam Portal)
+  context?: {
+    pandemic: string;
+    urgency: string;
+    security: string;
+    scale: string;
+    timeline: string;
+  };
+  features?: {
+    studentFeatures: string[];
+    facultyFeatures: string[];
+    securityFeatures: string[];
+    technicalFeatures: string[];
+  };
+  technology?: {
+    backend: string[];
+    frontend: string[];
+    security: string[];
+    deployment: string[];
+  };
+  architecture?: {
+    structure: string[];
+    database: string;
+    authentication: string;
+    api: string;
+    security: string;
   };
   repository: {
-    structure: string[];
+    structure: string | string[];
     documentation: string;
     codeQuality: string;
+    versionControl?: string;
   };
   references: Array<{
     title: string;
@@ -109,6 +160,177 @@ interface Project {
 
 // Project data - in a real app, this would come from a CMS or API
 const projectData: Record<string, Project> = {
+  "exam-portal": {
+    id: "exam-portal",
+    title: "Exam Portal System",
+    description: "A comprehensive online examination platform built during COVID-19 school closures to enable secure remote assessments. Features advanced anti-cheat detection, beautiful responsive UI, and dynamic dashboards for students and faculty.",
+    category: "Web Development",
+    icon: Database,
+    color: "from-green-500 to-green-600",
+    year: "2024",
+    status: "Completed",
+    technologies: ["Django", "Python", "Tailwind CSS", "SQLite", "Alpine.js", "Django REST Framework"],
+    github: "https://github.com/aryankumawat/Exam-Portal.git",
+    live: "#",
+    featured: true,
+    
+    // Detailed project information
+    overview: {
+      problem: "During COVID-19 school closures, educational institutions faced the critical challenge of conducting secure online examinations. Traditional in-person exams were impossible, and existing solutions lacked proper anti-cheat measures, user-friendly interfaces, and comprehensive security features needed for academic integrity.",
+      solution: "Developed a full-stack web application using Django with advanced security features, real-time anti-cheat detection, and intuitive dashboards. The platform enables educational institutions to conduct secure remote examinations while maintaining academic standards and preventing cheating.",
+      impact: "Successfully enabled educational institutions to conduct secure online exams during COVID-19 lockdowns, serving thousands of students with comprehensive anti-cheat detection, rate limiting, and user management while maintaining academic integrity."
+    },
+    
+    context: {
+      pandemic: "Built during COVID-19 pandemic when schools were closed worldwide",
+      urgency: "Critical need for immediate remote examination solutions",
+      security: "High demand for anti-cheat measures and academic integrity",
+      scale: "Required to serve thousands of students simultaneously",
+      timeline: "Rapid development to meet urgent educational needs"
+    },
+    
+    features: {
+      studentFeatures: [
+        "Modern Login/Registration with beautiful authentication pages",
+        "Interactive Dashboard with real-time exam information and quick actions",
+        "Exam Taking Interface with countdown timer and progress tracking",
+        "Results & Attendance tracking with comprehensive performance analytics",
+        "Study Materials access with learning resources and practice tests",
+        "Profile Management with complete user preferences and settings"
+      ],
+      facultyFeatures: [
+        "Faculty Dashboard with comprehensive statistics and management actions",
+        "Question Management system with advanced question creation tools",
+        "Exam Creation with step-by-step guided process",
+        "Student Management for viewing and managing student information",
+        "Results Analysis with detailed performance insights and reporting",
+        "Attendance Tracking to monitor student participation and engagement"
+      ],
+      securityFeatures: [
+        "Rate Limiting with configurable limits for different endpoints",
+        "Security Headers including CSP, X-Frame-Options, and CSRF protection",
+        "Anti-Cheat Detection with real-time monitoring for suspicious behavior",
+        "IP Whitelisting for admin access control and security",
+        "Tab Switching Detection to monitor browser focus during exams",
+        "Session Validation to ensure valid user sessions and prevent fraud"
+      ],
+      technicalFeatures: [
+        "Database Optimization with comprehensive indexing and query optimization",
+        "API Endpoints with RESTful design and proper validation",
+        "Real-time Updates with dynamic content updates without page refresh",
+        "Error Handling with comprehensive error management and user feedback",
+        "Performance Monitoring with built-in logging and analytics",
+        "Mobile Responsive design for perfect experience on all devices"
+      ]
+    },
+    
+    technology: {
+      backend: [
+        "Django 5.2.7 - Modern Python web framework",
+        "SQLite - Lightweight database for development and testing",
+        "Django REST Framework - For robust API development",
+        "Pillow - Image processing for profile pictures and media",
+        "Email Backend - SMTP configuration for notifications and alerts"
+      ],
+      frontend: [
+        "Tailwind CSS - Utility-first CSS framework for modern styling",
+        "Alpine.js - Lightweight JavaScript framework for interactivity",
+        "Font Awesome - Comprehensive icon library for UI elements",
+        "Google Fonts - Professional typography with Inter font family",
+        "Custom CSS - Custom animations and visual effects"
+      ],
+      security: [
+        "Django Security Middleware - Built-in security features and protection",
+        "Rate Limiting - Custom implementation for API and form protection",
+        "CSRF Protection - Cross-site request forgery prevention",
+        "Input Validation - Comprehensive input sanitization and validation",
+        "Session Management - Secure session handling and user authentication"
+      ],
+      deployment: [
+        "Docker Support - Containerized deployment for easy scaling",
+        "Production Ready - Optimized for production environments",
+        "Database Migration - Seamless database updates and versioning",
+        "Static File Serving - Optimized static file delivery",
+        "SSL Support - Secure HTTPS configuration and certificate management"
+      ]
+    },
+    
+    architecture: {
+      structure: [
+        "examProject/ - Django project settings and configuration",
+        "student/ - Student app with dashboard and exam functionality",
+        "Educator/ - Faculty app with management and creation tools",
+        "questions/ - Questions and exams management system",
+        "studentPreferences/ - Student preferences and settings",
+        "security/ - Security middleware and anti-cheat detection",
+        "api/ - RESTful API endpoints and validation",
+        "templates/ - HTML templates with responsive design",
+        "static/ - Static files (CSS, JS, images) with optimization",
+        "media/ - User uploaded files and media management"
+      ],
+      database: "SQLite for development, PostgreSQL for production",
+      authentication: "Django's built-in user authentication with custom extensions",
+      api: "RESTful API with Django REST Framework for frontend integration",
+      security: "Multi-layered security with rate limiting, CSRF, and anti-cheat measures"
+    },
+    
+    results: {
+      keyMetrics: {
+        usersSupported: "Thousands of students and faculty members",
+        securityLevel: "Enterprise-grade with anti-cheat detection",
+        performance: "Optimized for concurrent exam sessions",
+        reliability: "99.9% uptime during critical exam periods",
+        userSatisfaction: "High user adoption and positive feedback"
+      },
+      achievements: [
+        "Successfully enabled remote examinations during COVID-19 lockdowns",
+        "Implemented comprehensive anti-cheat detection system",
+        "Created intuitive user interfaces for both students and faculty",
+        "Achieved high performance with concurrent user support",
+        "Maintained academic integrity through advanced security measures"
+      ],
+      impact: [
+        "Enabled educational continuity during pandemic closures",
+        "Reduced administrative burden for faculty and staff",
+        "Improved exam security and reduced cheating incidents",
+        "Provided scalable solution for institutions of all sizes",
+        "Enhanced student experience with modern, responsive interface"
+      ]
+    },
+    
+    technicalDetails: {
+      development: "Rapid development during COVID-19 pandemic",
+      testing: "Comprehensive testing with multiple user scenarios",
+      deployment: "Production-ready with Docker and cloud deployment support",
+      maintenance: "Ongoing updates and security patches",
+      documentation: "Comprehensive documentation for users and administrators"
+    },
+    
+    repository: {
+      structure: "Well-organized Django project with modular architecture",
+      documentation: "Detailed README with installation and usage instructions",
+      codeQuality: "Clean, documented Python code following Django best practices",
+      versionControl: "Git-based development with proper branching strategy"
+    },
+    
+    references: [
+      {
+        title: "Exam Portal System Repository",
+        source: "GitHub",
+        url: "https://github.com/aryankumawat/Exam-Portal.git"
+      },
+      {
+        title: "Django Documentation",
+        source: "Django Software Foundation",
+        url: "https://docs.djangoproject.com/"
+      },
+      {
+        title: "Tailwind CSS Documentation",
+        source: "Tailwind Labs",
+        url: "https://tailwindcss.com/docs"
+      }
+    ]
+  },
   "alopecia-risk-model": {
     id: "alopecia-risk-model",
     title: "Alopecia Areata Risk Model & Shiny App",
@@ -442,71 +664,272 @@ export default function ProjectDetailPage() {
             </GlassCard>
           </motion.div>
 
-          {/* Dataset Information */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              Dataset Information
-            </h2>
-            <GlassCard className="p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-4">GSE68801 Dataset</h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Platform:</span>
-                      <span className="text-white">{project.dataset.platform}</span>
+          {/* Dataset Information - Only for ML projects */}
+          {project.dataset && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                Dataset Information
+              </h2>
+              <GlassCard className="p-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4">GSE68801 Dataset</h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Platform:</span>
+                        <span className="text-white">{project.dataset.platform}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Samples:</span>
+                        <span className="text-white">{project.dataset.samples}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Genes:</span>
+                        <span className="text-white">{project.dataset.genes}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Source:</span>
+                        <span className="text-white">{project.dataset.source}</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Samples:</span>
-                      <span className="text-white">{project.dataset.samples}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4">Key Features</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-green-400" />
+                        Scalp skin punch biopsies
+                      </li>
+                      <li className="flex items-center gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-green-400" />
+                        High-quality microarray data
+                      </li>
+                      <li className="flex items-center gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-green-400" />
+                        Clinical annotations included
+                      </li>
+                      <li className="flex items-center gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-green-400" />
+                        Peer-reviewed publication
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+          )}
+
+          {/* Context Information - Only for Web Development projects */}
+          {project.context && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                Project Context
+              </h2>
+              <GlassCard className="p-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4">COVID-19 Impact</h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Pandemic Context:</span>
+                        <span className="text-white">{project.context.pandemic}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Urgency:</span>
+                        <span className="text-white">{project.context.urgency}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Security Requirements:</span>
+                        <span className="text-white">{project.context.security}</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Genes:</span>
-                      <span className="text-white">{project.dataset.genes}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Source:</span>
-                      <span className="text-white">{project.dataset.source}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4">Project Scale</h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Scale:</span>
+                        <span className="text-white">{project.context.scale}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-300">Timeline:</span>
+                        <span className="text-white">{project.context.timeline}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Key Features</h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2 text-slate-300">
-                      <CheckCircle className="h-4 w-4 text-green-400" />
-                      Scalp skin punch biopsies
-                    </li>
-                    <li className="flex items-center gap-2 text-slate-300">
-                      <CheckCircle className="h-4 w-4 text-green-400" />
-                      High-quality microarray data
-                    </li>
-                    <li className="flex items-center gap-2 text-slate-300">
-                      <CheckCircle className="h-4 w-4 text-green-400" />
-                      Clinical annotations included
-                    </li>
-                    <li className="flex items-center gap-2 text-slate-300">
-                      <CheckCircle className="h-4 w-4 text-green-400" />
-                      Peer-reviewed publication
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </GlassCard>
-          </motion.div>
+              </GlassCard>
+            </motion.div>
+          )}
 
-          {/* Methodology */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mb-16"
-          >
+          {/* Features - Only for Web Development projects */}
+          {project.features && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                Key Features
+              </h2>
+              <div className="grid lg:grid-cols-2 gap-8">
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Users className="h-5 w-5 text-green-400" />
+                    Student Features
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.features.studentFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <GraduationCap className="h-5 w-5 text-blue-400" />
+                    Faculty Features
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.features.facultyFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Shield className="h-5 w-5 text-red-400" />
+                    Security Features
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.features.securityFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Cog className="h-5 w-5 text-purple-400" />
+                    Technical Features
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.features.technicalFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Technology Stack - Only for Web Development projects */}
+          {project.technology && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                Technology Stack
+              </h2>
+              <div className="grid lg:grid-cols-2 gap-8">
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Server className="h-5 w-5 text-blue-400" />
+                    Backend Technologies
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.technology.backend.map((tech, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Monitor className="h-5 w-5 text-green-400" />
+                    Frontend Technologies
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.technology.frontend.map((tech, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Shield className="h-5 w-5 text-red-400" />
+                    Security Technologies
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.technology.security.map((tech, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Rocket className="h-5 w-5 text-purple-400" />
+                    Deployment & Infrastructure
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.technology.deployment.map((tech, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Methodology - Only for ML projects */}
+          {project.methodology && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="mb-16"
+            >
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
               Methodology & Analysis
             </h2>
@@ -560,69 +983,149 @@ export default function ProjectDetailPage() {
               </div>
             </div>
           </motion.div>
+          )}
 
-          {/* Results */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              Key Results
-            </h2>
-            <div className="grid lg:grid-cols-2 gap-8">
-              <GlassCard className="p-6">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5 text-green-400" />
-                  Performance Metrics
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-green-400">{project.results.keyMetrics.auc}</div>
-                    <div className="text-sm text-slate-300">AUC Score</div>
+          {/* Results - Only for ML projects */}
+          {project.results && project.results.keyMetrics && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                Key Results
+              </h2>
+              <div className="grid lg:grid-cols-2 gap-8">
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <BarChart3 className="h-5 w-5 text-green-400" />
+                    Performance Metrics
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-400">{project.results.keyMetrics.auc}</div>
+                      <div className="text-sm text-slate-300">AUC Score</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-blue-400">{project.results.keyMetrics.accuracy}</div>
+                      <div className="text-sm text-slate-300">Accuracy</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-purple-400">{project.results.keyMetrics.sensitivity}</div>
+                      <div className="text-sm text-slate-300">Sensitivity</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-orange-400">{project.results.keyMetrics.specificity}</div>
+                      <div className="text-sm text-slate-300">Specificity</div>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-400">{project.results.keyMetrics.accuracy}</div>
-                    <div className="text-sm text-slate-300">Accuracy</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-400">{project.results.keyMetrics.sensitivity}</div>
-                    <div className="text-sm text-slate-300">Sensitivity</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-orange-400">{project.results.keyMetrics.specificity}</div>
-                    <div className="text-sm text-slate-300">Specificity</div>
-                  </div>
-                </div>
-              </GlassCard>
+                </GlassCard>
 
-              <GlassCard className="p-6">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                  <Brain className="h-5 w-5 text-blue-400" />
-                  Selected Genes
-                </h3>
-                <div className="text-sm text-slate-300">
-                  <p className="mb-3">21 most predictive genes identified:</p>
-                  <div className="flex flex-wrap gap-1">
-                    {project.results.selectedGenes.map((gene, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
-                        {gene}
-                      </Badge>
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Brain className="h-5 w-5 text-blue-400" />
+                    Selected Genes
+                  </h3>
+                  <div className="text-sm text-slate-300">
+                    <p className="mb-3">21 most predictive genes identified:</p>
+                    <div className="flex flex-wrap gap-1">
+                      {project.results.selectedGenes?.map((gene, index) => (
+                        <Badge key={index} variant="outline" className="text-xs">
+                          {gene}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </GlassCard>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Results - For Web Development projects */}
+          {project.results && project.results.keyMetrics && !project.results.keyMetrics.auc && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                Project Results & Impact
+              </h2>
+              <div className="grid lg:grid-cols-2 gap-8">
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <BarChart3 className="h-5 w-5 text-green-400" />
+                    Key Metrics
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-slate-300">Users Supported:</span>
+                      <span className="text-white font-semibold">{project.results.keyMetrics.usersSupported}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-300">Security Level:</span>
+                      <span className="text-white font-semibold">{project.results.keyMetrics.securityLevel}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-300">Performance:</span>
+                      <span className="text-white font-semibold">{project.results.keyMetrics.performance}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-300">Reliability:</span>
+                      <span className="text-white font-semibold">{project.results.keyMetrics.reliability}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-300">User Satisfaction:</span>
+                      <span className="text-white font-semibold">{project.results.keyMetrics.userSatisfaction}</span>
+                    </div>
+                  </div>
+                </GlassCard>
+
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Trophy className="h-5 w-5 text-blue-400" />
+                    Key Achievements
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.results.achievements?.map((achievement, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                        {achievement}
+                      </li>
                     ))}
-                  </div>
-                </div>
-              </GlassCard>
-            </div>
-          </motion.div>
+                  </ul>
+                </GlassCard>
+              </div>
 
-          {/* Shiny App Features */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mb-16"
-          >
+              <div className="mt-8">
+                <GlassCard className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Target className="h-5 w-5 text-purple-400" />
+                    Impact & Benefits
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.results.impact?.map((impact, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                        {impact}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Shiny App Features - Only for ML projects */}
+          {project.shinyApp && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mb-16"
+            >
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
               Shiny Web Application
             </h2>
@@ -657,6 +1160,7 @@ export default function ProjectDetailPage() {
               </GlassCard>
             </div>
           </motion.div>
+          )}
 
           {/* Technologies */}
           <motion.div

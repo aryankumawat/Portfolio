@@ -36,7 +36,7 @@ const projects = [
   },
   {
     id: "exam-portal",
-    title: "Modern Exam Portal System",
+    title: "Exam Portal System",
     description: "A comprehensive online examination platform built during COVID-19 school closures to enable secure remote assessments. Features advanced anti-cheat detection, beautiful responsive UI, and dynamic dashboards for students and faculty.",
     category: "Web Development",
     icon: Database,
