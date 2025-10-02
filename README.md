@@ -310,4 +310,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-Built with ❤️ in Sydney, Australia | Powered by cutting-edge research and modern web technologies
+Built with ❤️ | Powered by cutting-edge research and modern web technologies

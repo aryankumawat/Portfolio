@@ -119,9 +119,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-purple-500/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-gray-400">
-            <span>© 2024 Aryan Kumawat. Made with</span>
-            <Heart className="h-4 w-4 text-red-500 fill-red-500" />
-            <span>in Sydney</span>
+            <span>© 2024 Aryan Kumawat</span>
           </div>
           
           <Button
