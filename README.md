@@ -57,6 +57,14 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 - **Research**: Based on latest eLife research on ILC1-like lymphocytes
 - **GitHub**: [Repository Link](https://github.com/aryankumawat/Alopecia-Areata-Risk-Model-Shiny-App)
 
+### Exam Portal System
+- **Technology**: Django, Python, Tailwind CSS, SQLite, Alpine.js
+- **Context**: Built during COVID-19 school closures for remote assessments
+- **Features**: Timed exams with automatic submission, anti-cheat detection, beautiful responsive UI
+- **Security**: Rate limiting, IP whitelisting, tab switching detection, session validation
+- **Impact**: Enabled secure online examinations for thousands of students during pandemic
+- **GitHub**: [Repository Link](https://github.com/aryankumawat/Exam-Portal.git)
+
 ### Stock Volatility Prediction
 - **Technology**: Python, Scikit-learn, XGBoost, GARCH
 - **Approach**: Feature engineering, ensemble ML models, time series analysis
