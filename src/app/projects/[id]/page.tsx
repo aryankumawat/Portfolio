@@ -167,7 +167,7 @@ const projectData: Record<string, Project> = {
     category: "Web Development",
     icon: Database,
     color: "from-green-500 to-green-600",
-    year: "2024",
+    year: "2021",
     status: "Completed",
     technologies: ["Django", "Python", "Tailwind CSS", "SQLite", "Alpine.js", "Django REST Framework"],
     github: "https://github.com/aryankumawat/Exam-Portal.git",
