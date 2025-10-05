@@ -254,7 +254,7 @@ export function ProjectsSection() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-[#66FCF1] via-[#45A29E] to-[#1F2833] text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl transition-all duration-300 hover:scale-105"
             >
               <Link href="/projects">
                 View All Projects

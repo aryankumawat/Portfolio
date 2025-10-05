@@ -47,7 +47,7 @@ export function ContactSection() {
                       href="mailto:kumawataryan23@gmail.com"
                       className="flex items-center gap-4 p-4 glass-sm rounded-lg hover:bg-white/10 transition-all duration-300 group"
                     >
-                      <div className="p-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 group-hover:scale-110 transition-transform">
+                      <div className="p-3 rounded-lg bg-gradient-to-r from-[#66FCF1] to-[#45A29E] group-hover:scale-110 transition-transform">
                         <Mail className="h-5 w-5 text-white" />
                       </div>
                       <div>
@@ -127,7 +127,7 @@ export function ContactSection() {
                   <Button
                     asChild
                     size="lg"
-                    className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:via-violet-500 hover:to-indigo-500 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group"
+                    className="bg-gradient-to-r from-[#66FCF1] via-[#45A29E] to-[#1F2833] hover:from-[#66FCF1]/80 hover:via-[#45A29E]/80 hover:to-[#1F2833]/80 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-[#66FCF1]/25 transition-all duration-300 hover:scale-105 group"
                   >
                     <a href="mailto:kumawataryan23@gmail.com?subject=Portfolio%20Contact&body=Hi%20Aryan,%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect.%0A%0A[Your%20message%20here]%0A%0ABest%20regards,">
                       <Mail className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />

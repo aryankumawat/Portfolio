@@ -118,7 +118,7 @@ export function AboutSection() {
                   <h3 className="text-xl font-bold text-white mb-4">Beyond Code</h3>
                   <div className="grid grid-cols-3 gap-4">
                     <div className="text-center group/item">
-                      <div className="p-3 rounded-lg bg-gradient-to-r from-pink-500/20 to-purple-500/20 mb-2 group-hover/item:scale-110 transition-transform">
+                      <div className="p-3 rounded-lg bg-gradient-to-r from-[#66FCF1]/20 to-[#45A29E]/20 mb-2 group-hover/item:scale-110 transition-transform">
                         <Music className="h-6 w-6 text-pink-400 mx-auto" />
                       </div>
                       <p className="text-sm text-slate-400">Music</p>
