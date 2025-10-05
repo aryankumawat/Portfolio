@@ -149,7 +149,7 @@ export default function ProjectsPage() {
   const otherProjects = projects.filter(p => !p.featured);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-hero noise">
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="mx-auto max-w-6xl px-6">
