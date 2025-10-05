@@ -78,7 +78,7 @@ export function ExperienceHero() {
             >
               <GlassCard className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="flex justify-center mb-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600">
+                  <div className="p-3 rounded-lg bg-gradient-to-r from-[#66FCF1] to-[#45A29E]">
                     <stat.icon className="h-6 w-6 text-white" />
                   </div>
                 </div>
@@ -109,18 +109,18 @@ export function ExperienceHero() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                <h4 className="font-semibold text-lg text-purple-400">Leadership & Management</h4>
+                <h4 className="font-semibold text-lg text-[#66FCF1]">Leadership & Management</h4>
                 <ul className="space-y-2 text-sm text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
+                    <span className="text-[#66FCF1] mt-1">•</span>
                     Proven track record of leading teams and organizations
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
+                    <span className="text-[#66FCF1] mt-1">•</span>
                     Strategic planning and project management expertise
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
+                    <span className="text-[#66FCF1] mt-1">•</span>
                     Mentoring and developing team members
                   </li>
                 </ul>

@@ -54,7 +54,7 @@ const experiences = [
     ],
     technologies: ["R", "Python", "MATLAB", "Statistical Analysis"],
     icon: Award,
-    color: "from-purple-500 to-pink-500",
+    color: "from-[#66FCF1] to-[#45A29E]",
   },
   {
     title: "Community Impact Lead",
@@ -84,7 +84,7 @@ export function ExperienceSection() {
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-black mb-6">
-              <span className="gradient-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="gradient-text bg-gradient-to-r from-[#66FCF1] via-[#45A29E] to-[#C5C6C7] bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>
@@ -97,15 +97,15 @@ export function ExperienceSection() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-cyan-500 to-pink-500 transform md:-translate-x-0.5" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#66FCF1] via-[#45A29E] to-[#C5C6C7] transform md:-translate-x-0.5" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <Reveal key={exp.title} delay={index * 0.2}>
                 <div className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Timeline Dot */}
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full transform -translate-x-2 md:-translate-x-2 z-10">
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full animate-pulse" />
+                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-[#66FCF1] to-[#45A29E] rounded-full transform -translate-x-2 md:-translate-x-2 z-10">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#66FCF1] to-[#45A29E] rounded-full animate-pulse" />
                   </div>
 
                   {/* Content */}
@@ -153,7 +153,7 @@ export function ExperienceSection() {
                           <ul className="space-y-1">
                             {exp.achievements.map((achievement, achIndex) => (
                               <li key={achIndex} className="text-sm text-slate-400 flex items-start gap-2">
-                                <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
+                                <div className="w-1.5 h-1.5 bg-[#66FCF1] rounded-full mt-2 flex-shrink-0" />
                                 {achievement}
                               </li>
                             ))}

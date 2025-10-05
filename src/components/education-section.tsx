@@ -69,7 +69,7 @@ const additionalCertifications = [
     date: "July 2021",
     description: "Achieved Grade 4 in traditional music performance",
     icon: Award,
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
   },
   {
     name: "Best Intern Award - Akross Solutions",

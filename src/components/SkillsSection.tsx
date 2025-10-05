@@ -31,7 +31,7 @@ const skillCategories = [
   {
     title: "Data Science & ML",
     icon: Brain,
-    color: "from-purple-500 to-pink-500",
+    color: "from-[#66FCF1] to-[#45A29E]",
     skills: [
       { name: "Machine Learning", level: 92, icon: Brain },
       { name: "Statistical Analysis", level: 90, icon: BarChart3 },
@@ -73,7 +73,7 @@ export function SkillsSection() {
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-black mb-6">
-              <span className="gradient-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="gradient-text bg-gradient-to-r from-[#66FCF1] via-[#45A29E] to-[#C5C6C7] bg-clip-text text-transparent">
                 Technical Skills
               </span>
             </h2>

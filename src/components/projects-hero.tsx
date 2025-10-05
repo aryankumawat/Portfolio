@@ -22,7 +22,7 @@ const projectCategories = [
     icon: TrendingUp,
     label: "Finance",
     count: "1",
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
   },
   {
     icon: Brain,

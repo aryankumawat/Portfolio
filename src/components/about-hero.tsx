@@ -80,7 +80,7 @@ export function AboutHero() {
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-purple-400" />
+                    <Mail className="h-5 w-5 text-[#66FCF1]" />
                     <div>
                       <p className="font-medium text-white">Email</p>
                       <a 
@@ -106,7 +106,7 @@ export function AboutHero() {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <MapPin className="h-5 w-5 text-purple-400" />
+                    <MapPin className="h-5 w-5 text-[#66FCF1]" />
                     <div>
                       <p className="font-medium text-white">Location</p>
                       <p className="text-sm text-gray-400">
@@ -131,14 +131,14 @@ export function AboutHero() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-purple-500/20">
+                <div className="mt-8 pt-6 border-t border-[#66FCF1]/20">
                   <h4 className="font-semibold mb-3 text-white">Quick Facts</h4>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">International Student</Badge>
+                    <Badge variant="outline" className="border-[#66FCF1]/30 text-[#66FCF1]">International Student</Badge>
                     <Badge variant="outline" className="border-blue-500/30 text-blue-300">Data Science Focus</Badge>
-                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">Finance Specialization</Badge>
+                    <Badge variant="outline" className="border-[#66FCF1]/30 text-[#66FCF1]">Finance Specialization</Badge>
                     <Badge variant="outline" className="border-blue-500/30 text-blue-300">Leadership Experience</Badge>
-                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">Community Impact</Badge>
+                    <Badge variant="outline" className="border-[#66FCF1]/30 text-[#66FCF1]">Community Impact</Badge>
                   </div>
                 </div>
               </GlassCard>

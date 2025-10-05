@@ -36,7 +36,7 @@ const resumeHighlights = [
     label: "Scholarships",
     value: "Sydney India Scholar",
     description: "Merit-based Excellence",
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
   },
   {
     icon: MapPin,

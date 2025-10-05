@@ -46,7 +46,7 @@ const contactMethods = [
     value: "Sydney, Australia",
     href: "#",
     description: "Based in Sydney, open to remote opportunities",
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
   },
 ];
 

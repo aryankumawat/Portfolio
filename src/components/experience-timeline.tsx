@@ -58,7 +58,7 @@ const experiences = [
     duration: { start: "2024-05", end: null },
     type: "Education",
     icon: GraduationCap,
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
     current: true,
     description: "Providing personalized mathematics and science tutoring to high school students, helping them achieve academic excellence.",
     achievements: [

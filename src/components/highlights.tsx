@@ -34,7 +34,7 @@ const highlights = [
     title: "Leadership Experience",
     description: "School Captain, Club Founder, Design Director roles",
     badge: "5+ years",
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
   },
   {
     icon: Code,
