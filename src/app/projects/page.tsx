@@ -76,7 +76,7 @@ const projects = [
     description: "CSL Limited (ASX: CSL) 2019-2024 peer comparison with leverage drivers analysis and strategic recommendations.",
     category: "Finance",
     icon: TrendingUp,
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
     year: "2025",
     status: "Completed",
     technologies: ["Financial Analysis", "Excel", "Valuation", "Corporate Finance"],
@@ -172,7 +172,7 @@ export default function ProjectsPage() {
                 <GlassCard className="group h-full projects-card">
                   <div className="space-y-4 h-full flex flex-col">
                     {/* Project Icon */}
-                    <div className="aspect-video bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-lg overflow-hidden flex items-center justify-center">
+                    <div className="aspect-video bg-gradient-to-br from-[#66FCF1]/20 to-[#45A29E]/20 rounded-lg overflow-hidden flex items-center justify-center">
                       <div className={`p-6 rounded-lg bg-gradient-to-r ${project.color}`}>
                         <project.icon className="h-12 w-12 text-white" />
                       </div>

@@ -15,7 +15,7 @@ const projects = [
     description: "Gene expression classification using GSE68801 dataset with LASSO/SVM/Random Forest models and deployed Shiny risk calculator.",
     category: "Machine Learning",
     icon: Brain,
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
     technologies: ["R", "Shiny", "Machine Learning", "Bioinformatics"],
     status: "Completed",
     github: "https://github.com/aryankumawat/Alopecia-Areata-Risk-Model-Shiny-App",
@@ -89,7 +89,7 @@ export function ProjectsSection() {
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-black mb-6">
-              <span className="gradient-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="gradient-text bg-gradient-to-r from-[#66FCF1] via-[#45A29E] to-[#C5C6C7] bg-clip-text text-transparent">
                 Featured Projects
               </span>
             </h2>
@@ -151,7 +151,7 @@ export function ProjectsSection() {
                     <Button
                       asChild
                       size="sm"
-                      className="flex-1 bg-gradient-to-r from-purple-600 to-cyan-600 text-white border-0 group/btn"
+                      className="flex-1 bg-gradient-to-r from-[#66FCF1] to-[#45A29E] text-white border-0 group/btn"
                     >
                       <Link href={`/projects/${project.id}`}>
                         <Eye className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />

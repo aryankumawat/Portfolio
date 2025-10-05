@@ -17,7 +17,7 @@ export function ContactSection() {
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-black mb-6">
-              <span className="gradient-text bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="gradient-text bg-gradient-to-r from-[#66FCF1] via-[#45A29E] to-[#C5C6C7] bg-clip-text text-transparent">
                 Get In Touch
               </span>
             </h2>

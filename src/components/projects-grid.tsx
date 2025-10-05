@@ -78,7 +78,7 @@ const projects = [
     description: "CSL Limited (ASX: CSL) 2019-2024 peer comparison with leverage drivers analysis and strategic recommendations.",
     category: "Finance",
     icon: TrendingUp,
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
     year: "2025",
     status: "Completed",
     technologies: ["Financial Analysis", "Excel", "Valuation", "Corporate Finance"],
