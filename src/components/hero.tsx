@@ -15,14 +15,14 @@ export function Hero() {
     <main className="relative min-h-screen overflow-hidden bg-black">
       {/* Apple/Netflix-Inspired Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900/20 to-black">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-600/30 via-black/50 to-black/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#66FCF1]/30 via-black/50 to-black/80" />
         <div className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,_#6D28D9_0deg,_#8B5CF6_60deg,_#3B82F6_120deg,_#A259FF_180deg,_#6D28D9_360deg)] opacity-25" />
       </div>
 
       {/* Apple/Netflix Floating Orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-purple-600/40 to-violet-500/40 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#66FCF1]/40 to-[#45A29E]/40 rounded-full blur-3xl"
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
@@ -48,7 +48,7 @@ export function Hero() {
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-[#66FCF1]/30 to-[#45A29E]/30 rounded-full blur-3xl"
           animate={{
             x: [0, 50, 0],
             y: [0, -30, 0],
@@ -99,10 +99,10 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-6xl md:text-8xl lg:text-9xl font-black leading-tight mb-6"
               >
-                <span className="block bg-gradient-to-r from-purple-600 via-violet-500 to-blue-500 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-[#66FCF1] via-[#45A29E] to-[#1F2833] bg-clip-text text-transparent">
                   Aryan
                 </span>
-                <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-violet-500 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-[#45A29E] via-[#66FCF1] to-[#C5C6C7] bg-clip-text text-transparent">
                   Kumawat
                 </span>
               </motion.h1>
@@ -117,7 +117,7 @@ export function Hero() {
                 className="text-xl md:text-2xl lg:text-3xl text-white/90 max-w-4xl mx-auto mb-12 font-light"
               >
                 Building data-driven solutions at the intersection of{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 font-semibold">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#66FCF1] to-[#45A29E] font-semibold">
                   technology & finance
                 </span>
               </motion.p>
@@ -178,7 +178,7 @@ export function Hero() {
                   </span>
                   <span className="hidden sm:inline text-gray-500">•</span>
                   <span className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                    <div className="w-2 h-2 bg-[#66FCF1] rounded-full animate-pulse" />
                     University of Sydney
                   </span>
                 </motion.div>

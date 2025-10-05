@@ -125,7 +125,7 @@ export function ContactForm() {
   };
 
   const getInputClassName = (field: keyof FormData) => {
-    return `w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+    return `w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#66FCF1] focus:border-transparent ${
       errors[field] 
         ? "border-red-500 bg-red-50/10" 
         : "border-white/20 bg-white/5 hover:border-white/30 text-white placeholder-slate-400"
