@@ -29,8 +29,8 @@ export function GlassCard({
         ease: "easeOut"
       }}
       className={cn(
-        "relative overflow-hidden rounded-2xl backdrop-blur-xl bg-black/20 border border-purple-500/20 shadow-2xl group",
-        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500/3 before:to-blue-500/3 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-200",
+        "relative overflow-hidden rounded-2xl backdrop-blur-xl bg-black/20 border border-[#66FCF1]/20 shadow-2xl group",
+        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-[#66FCF1]/3 before:to-[#45A29E]/3 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-200",
         magnetic && "cursor-pointer",
         "transform-gpu will-change-transform",
         className

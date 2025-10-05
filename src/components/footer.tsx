@@ -18,13 +18,13 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-black border-t border-purple-500/20">
+    <footer className="bg-black border-t border-[#66FCF1]/20">
       <div className="container-padding py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-lg neon-glow-button">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#66FCF1] to-[#45A29E] text-white font-bold text-lg neon-glow-button">
                 AK
               </div>
               <span className="font-heading font-semibold text-xl text-white">
@@ -68,7 +68,7 @@ export function Footer() {
             <h3 className="font-semibold text-white">Contact</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-purple-400" />
+                <Mail className="h-4 w-4 text-[#66FCF1]" />
                 <a 
                   href="mailto:kumawataryan23@gmail.com"
                   className="hover:text-white transition-colors"
@@ -86,7 +86,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-purple-400" />
+                <MapPin className="h-4 w-4 text-[#66FCF1]" />
                 Sydney, Australia
               </li>
             </ul>
@@ -96,7 +96,7 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-white">Connect</h3>
             <div className="space-y-3">
-              <Button asChild variant="outline" size="sm" className="w-full border-purple-500/30 hover:border-purple-400/40 hover:bg-purple-500/5 text-white">
+              <Button asChild variant="outline" size="sm" className="w-full border-[#66FCF1]/30 hover:border-[#66FCF1]/40 hover:bg-[#66FCF1]/5 text-white">
                 <a 
                   href="https://www.linkedin.com/in/aryan-kumawat-/"
                   target="_blank"
@@ -107,7 +107,7 @@ export function Footer() {
                   LinkedIn
                 </a>
               </Button>
-              <Button asChild size="sm" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0">
+              <Button asChild size="sm" className="w-full bg-gradient-to-r from-[#66FCF1] to-[#45A29E] hover:from-[#66FCF1]/80 hover:to-[#45A29E]/80 text-white border-0">
                 <a href="/resume/Aryan_Web_CV.pdf" download="Aryan_Kumawat_CV.pdf" className="flex items-center gap-2">
                   Download Resume
                 </a>
@@ -117,7 +117,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-purple-500/20 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-[#66FCF1]/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-gray-400">
             <span>© 2024 Aryan Kumawat</span>
           </div>
@@ -126,7 +126,7 @@ export function Footer() {
             variant="ghost"
             size="icon"
             onClick={scrollToTop}
-            className="rounded-full hover:bg-purple-500/5 text-white hover:text-purple-200"
+            className="rounded-full hover:bg-[#66FCF1]/5 text-white hover:text-[#66FCF1]"
           >
             <ArrowUp className="h-4 w-4" />
           </Button>
