@@ -82,7 +82,7 @@ export default function BlogPage() {
                       <Badge variant="outline" className="text-xs">
                         {post.category}
                       </Badge>
-                      <Badge variant="default" className="text-xs bg-gradient-to-r from-purple-600 to-blue-600">
+                      <Badge variant="default" className="text-xs bg-gradient-to-r from-[#66FCF1] to-[#45A29E]">
                         Featured
                       </Badge>
                     </div>
@@ -118,7 +118,7 @@ export default function BlogPage() {
                       ))}
                     </div>
                     
-                    <div className="text-sm text-purple-400 font-medium">
+                    <div className="text-sm text-[#66FCF1] font-medium">
                       Read more →
                     </div>
                   </div>
@@ -168,7 +168,7 @@ export default function BlogPage() {
                     
                     <div className="flex items-center justify-between text-sm text-slate-400">
                       <span>{new Date(post.date).toLocaleDateString()}</span>
-                      <span className="text-purple-400 font-medium">Read more →</span>
+                      <span className="text-[#66FCF1] font-medium">Read more →</span>
                     </div>
                   </div>
                 </GlassCard>
@@ -179,7 +179,7 @@ export default function BlogPage() {
           {/* Coming Soon */}
           <Reveal delay={1.4}>
             <div className="text-center mt-16">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#66FCF1] to-[#45A29E] text-white rounded-full text-sm font-medium">
                 <span>📝</span>
                 <span>More articles coming soon!</span>
               </div>

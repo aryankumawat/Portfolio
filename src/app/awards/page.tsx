@@ -10,7 +10,7 @@ const awards = [
     description: "Achieved Grade 4 in traditional music performance",
     category: "Music",
     icon: Award,
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
   },
   {
     title: "Best Intern Award - Akross Solutions",
@@ -105,7 +105,7 @@ export default function AwardsPage() {
                 <div className="space-y-3">
                   {certificates.map((cert, index) => (
                     <div key={index} className="flex items-start gap-3 p-3 glass-sm rounded-lg">
-                      <Star className="h-4 w-4 text-purple-400 mt-1 flex-shrink-0" />
+                      <Star className="h-4 w-4 text-[#66FCF1] mt-1 flex-shrink-0" />
                       <p className="text-sm text-slate-300">{cert}</p>
                     </div>
                   ))}

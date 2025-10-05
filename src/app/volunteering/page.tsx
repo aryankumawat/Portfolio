@@ -61,7 +61,7 @@ const volunteering = [
     impact: "Supported food security initiatives",
     role: "Volunteer",
     icon: Globe,
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
     featured: false,
   },
 ];
@@ -83,7 +83,7 @@ const impactStats = [
     label: "Communities Served",
     value: "5+",
     description: "Across different regions",
-    color: "from-purple-500 to-purple-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
   },
   {
     label: "Volunteer Hours",
@@ -239,7 +239,7 @@ export default function VolunteeringPage() {
           {/* Call to Action */}
           <Reveal delay={1.6}>
             <div className="text-center mt-16">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#66FCF1] to-[#45A29E] text-white rounded-full text-sm font-medium">
                 <span>❤️</span>
                 <span>Committed to making a positive impact in communities</span>
               </div>
