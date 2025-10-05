@@ -14,9 +14,9 @@ export function Hero() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black">
       {/* Apple/Netflix-Inspired Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900/20 to-black">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-[#1F2833]/20 to-black">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#66FCF1]/30 via-black/50 to-black/80" />
-        <div className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,_#6D28D9_0deg,_#8B5CF6_60deg,_#3B82F6_120deg,_#A259FF_180deg,_#6D28D9_360deg)] opacity-25" />
+        <div className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,_#66FCF1_0deg,_#45A29E_60deg,_#1F2833_120deg,_#C5C6C7_180deg,_#66FCF1_360deg)] opacity-25" />
       </div>
 
       {/* Apple/Netflix Floating Orbs */}

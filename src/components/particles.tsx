@@ -32,8 +32,8 @@ export function Particles() {
 
     const createParticle = (): Particle => {
       const colors = [
-        "rgba(124, 58, 237, 0.6)", // accent-violet
-        "rgba(139, 92, 246, 0.6)", // accent-purple
+        "rgba(102, 252, 241, 0.6)", // accent-cyan
+        "rgba(69, 162, 158, 0.6)", // accent-teal
         "rgba(14, 165, 233, 0.6)", // accent-blue
         "rgba(34, 211, 238, 0.6)", // accent-cyan
         "rgba(16, 185, 129, 0.6)", // accent-emerald

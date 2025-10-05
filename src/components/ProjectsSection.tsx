@@ -54,7 +54,7 @@ const projects = [
     description: "Local LLM workflow with task orchestration, agent specialization, and ephemeral concurrency using Llama 3.3 70B and Phi-4 14B.",
     category: "AI Agents",
     icon: Code,
-    color: "from-violet-500 to-violet-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
     technologies: ["Python", "LLMs", "Agent Systems", "Concurrency"],
     status: "In Progress",
     github: "#",

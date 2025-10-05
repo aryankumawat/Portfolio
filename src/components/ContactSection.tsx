@@ -11,7 +11,7 @@ export function ContactSection() {
   return (
     <section className="py-24 relative">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-purple-900/20 to-slate-900" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-[#1F2833]/20 to-slate-900" />
       
       <div className="mx-auto max-w-6xl px-6 relative z-10">
         <Reveal>

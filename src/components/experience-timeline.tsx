@@ -220,7 +220,7 @@ const experiences = [
     duration: { start: "2020", end: "2020" },
     type: "Technology",
     icon: Briefcase,
-    color: "from-violet-500 to-violet-600",
+    color: "from-[#66FCF1] to-[#45A29E]",
     current: false,
     description: "Conducted research and development on sanitization tunnel technology, contributing to innovative solutions for public health.",
     achievements: [
