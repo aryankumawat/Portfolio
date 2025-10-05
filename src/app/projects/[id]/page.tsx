@@ -534,7 +534,7 @@ export default function ProjectDetailPage() {
         <div className="text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Project Not Found</h1>
           <Link href="/projects">
-            <Button className="bg-gradient-to-r from-purple-600 to-blue-600">
+            <Button className="bg-gradient-to-r from-[#66FCF1] to-[#45A29E]">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Projects
             </Button>
@@ -607,7 +607,7 @@ export default function ProjectDetailPage() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+              className="bg-gradient-to-r from-[#66FCF1] to-[#45A29E] text-white"
             >
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5 mr-2" />
@@ -648,7 +648,7 @@ export default function ProjectDetailPage() {
 
             <GlassCard className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <Zap className="h-6 w-6 text-purple-400" />
+                <Zap className="h-6 w-6 text-[#66FCF1]" />
                 <h3 className="text-xl font-bold text-white">Solution</h3>
               </div>
               <p className="text-slate-300/80 leading-relaxed">
@@ -787,13 +787,13 @@ export default function ProjectDetailPage() {
 
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Cog className="h-5 w-5 text-purple-400" />
+                    <Cog className="h-5 w-5 text-[#66FCF1]" />
                     Technical Features
                   </h3>
                   <ul className="space-y-2">
                     {project.features.technicalFeatures.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="h-4 w-4 text-[#66FCF1] mt-0.5 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -862,13 +862,13 @@ export default function ProjectDetailPage() {
 
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Rocket className="h-5 w-5 text-purple-400" />
+                    <Rocket className="h-5 w-5 text-[#66FCF1]" />
                     Deployment & Infrastructure
                   </h3>
                   <ul className="space-y-2">
                     {project.technology.deployment.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="h-4 w-4 text-[#66FCF1] mt-0.5 flex-shrink-0" />
                         {tech}
                       </li>
                     ))}
@@ -907,13 +907,13 @@ export default function ProjectDetailPage() {
 
               <GlassCard className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                  <Target className="h-5 w-5 text-purple-400" />
+                  <Target className="h-5 w-5 text-[#66FCF1]" />
                   Feature Selection
                 </h3>
                 <ul className="space-y-2">
                   {project.methodology.featureSelection.map((step, index) => (
                     <li key={index} className="flex items-start gap-2 text-slate-300">
-                      <span className="text-purple-400 mt-1">•</span>
+                      <span className="text-[#66FCF1] mt-1">•</span>
                       {step}
                     </li>
                   ))}
