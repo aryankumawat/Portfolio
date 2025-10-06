@@ -151,6 +151,9 @@ const config: Config = {
       backdropBlur: {
         xs: '2px',
       },
+      scale: {
+        '102': '1.02',
+      },
     },
   },
   plugins: [],

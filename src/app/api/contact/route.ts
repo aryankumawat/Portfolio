@@ -156,19 +156,19 @@ export async function POST(request: NextRequest) {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f8f9fa; padding: 20px;">
           <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
             <div style="text-align: center; margin-bottom: 30px;">
-              <h1 style="color: #8B5CF6; margin: 0; font-size: 28px;">New Portfolio Contact</h1>
+              <h1 style="color: #66FCF1; margin: 0; font-size: 28px;">New Portfolio Contact</h1>
               <p style="color: #666; margin: 10px 0 0 0;">Someone reached out through your website</p>
             </div>
             
             <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
               <h3 style="color: #333; margin-top: 0;">Contact Information</h3>
               <p style="margin: 8px 0;"><strong>Name:</strong> ${name}</p>
-              <p style="margin: 8px 0;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #8B5CF6;">${email}</a></p>
+              <p style="margin: 8px 0;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #66FCF1;">${email}</a></p>
               <p style="margin: 8px 0;"><strong>Company:</strong> ${company || 'Not provided'}</p>
               <p style="margin: 8px 0;"><strong>Subject:</strong> ${subject}</p>
             </div>
             
-            <div style="background: #fff; padding: 20px; border-left: 4px solid #8B5CF6; border-radius: 0 8px 8px 0;">
+            <div style="background: #fff; padding: 20px; border-left: 4px solid #66FCF1; border-radius: 0 8px 8px 0;">
               <h3 style="color: #333; margin-top: 0;">Message</h3>
               <p style="white-space: pre-wrap; line-height: 1.6; color: #555;">${message}</p>
             </div>

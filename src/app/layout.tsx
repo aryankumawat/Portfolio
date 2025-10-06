@@ -6,6 +6,7 @@ import { GlassNav } from "@/components/GlassNav";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
+import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -86,6 +87,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <PerformanceMonitor />
           </SmoothScrollProvider>
         </ThemeProvider>
         <Analytics />

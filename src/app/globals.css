@@ -12,11 +12,23 @@
   
   html {
     scroll-behavior: smooth;
+    /* Performance optimizations */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
   }
   
   body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    /* Performance optimizations */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   
   :root {
@@ -127,19 +139,25 @@
 }
 
 @layer components {
-  /* Glass System */
+  /* Glass System - Optimized for performance */
   .glass {
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(12px); /* Reduced blur for better performance */
     background: var(--glass-bg);
     border: 1px solid var(--glass-stroke);
     box-shadow: var(--glass-shadow);
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .glass-sm {
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px); /* Reduced blur for better performance */
     background: var(--glass-bg);
     border: 1px solid var(--glass-stroke);
     box-shadow: var(--glass-shadow-sm);
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .hairline {
@@ -433,6 +451,31 @@
 
   .animation-delay-1000 {
     animation-delay: 1000ms;
+  }
+
+  /* Performance utilities */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .optimize-rendering {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+
+  .reduce-motion {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 
   /* Custom utilities for design system */

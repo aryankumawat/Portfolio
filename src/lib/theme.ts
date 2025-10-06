@@ -15,25 +15,25 @@ export interface ThemeConfig {
 export const themes: Record<Theme, ThemeConfig> = {
   ultraviolet: {
     name: 'Ultraviolet',
-    description: 'Purple gradients with tech vibes',
+    description: 'Cyan gradients with tech vibes',
     colors: {
-      primary: '#8B5CF6',
-      secondary: '#A855F7',
-      accent: '#7C3AED',
-      background: '#000000',
+      primary: '#66FCF1',
+      secondary: '#45A29E',
+      accent: '#1F2833',
+      background: '#0B0C10',
     },
-    gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 50%, #7C3AED 100%)',
+    gradient: 'linear-gradient(135deg, #66FCF1 0%, #45A29E 50%, #1F2833 100%)',
   },
   'deep-space': {
     name: 'Deep Space',
     description: 'Cosmic space with shooting stars',
     colors: {
-      primary: '#4C1D95',
-      secondary: '#7C3AED',
-      accent: '#2563EB',
-      background: '#000000',
+      primary: '#66FCF1',
+      secondary: '#45A29E',
+      accent: '#1F2833',
+      background: '#0B0C10',
     },
-    gradient: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #2563EB 100%)',
+    gradient: 'linear-gradient(135deg, #66FCF1 0%, #45A29E 50%, #1F2833 100%)',
   },
 };
 

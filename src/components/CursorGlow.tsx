@@ -1,54 +1,79 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 export function CursorGlow() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const rafRef = useRef<number>();
+  const lastTimeRef = useRef<number>(0);
+
+  const updateMousePosition = useCallback((e: MouseEvent) => {
+    const currentTime = performance.now();
+    
+    // Throttle mouse updates to 60fps max
+    if (currentTime - lastTimeRef.current < 16) {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      rafRef.current = requestAnimationFrame(() => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+        lastTimeRef.current = currentTime;
+      });
+    } else {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      lastTimeRef.current = currentTime;
+    }
+  }, []);
+
+  const handleMouseEnter = useCallback(() => setIsHovering(true), []);
+  const handleMouseLeave = useCallback(() => setIsHovering(false), []);
 
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    // Use event delegation for better performance
+    const handleMouseOver = (e: Event) => {
+      const target = e.target as HTMLElement;
+      if (target.matches('a, button, [role="button"], [data-interactive]')) {
+        setIsHovering(true);
+      }
     };
 
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
+    const handleMouseOut = (e: Event) => {
+      const target = e.target as HTMLElement;
+      if (target.matches('a, button, [role="button"], [data-interactive]')) {
+        setIsHovering(false);
+      }
+    };
 
-    // Add event listeners to interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', handleMouseEnter);
-      el.addEventListener('mouseleave', handleMouseLeave);
-    });
-
-    window.addEventListener('mousemove', updateMousePosition);
+    window.addEventListener('mousemove', updateMousePosition, { passive: true });
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
+    document.addEventListener('mouseout', handleMouseOut, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
-      interactiveElements.forEach(el => {
-        el.removeEventListener('mouseenter', handleMouseEnter);
-        el.removeEventListener('mouseleave', handleMouseLeave);
-      });
+      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mouseout', handleMouseOut);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
-  }, []);
+  }, [updateMousePosition]);
 
   return (
-    <>
-      {/* Cursor Glow */}
-      <div
-        className="fixed pointer-events-none z-50 transition-all duration-300 ease-out"
-        style={{
-          left: mousePosition.x - 20,
-          top: mousePosition.y - 20,
-          width: 40,
-          height: 40,
-          background: isHovering 
-            ? 'radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(6, 182, 212, 0.2) 50%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)',
-          borderRadius: '50%',
-          transform: isHovering ? 'scale(1.5)' : 'scale(1)',
-        }}
-      />
-    </>
+    <div
+      className="fixed pointer-events-none z-50 will-change-transform"
+      style={{
+        left: mousePosition.x - 20,
+        top: mousePosition.y - 20,
+        width: 40,
+        height: 40,
+        background: isHovering 
+          ? 'radial-gradient(circle, rgba(102, 252, 241, 0.3) 0%, rgba(69, 162, 158, 0.2) 50%, transparent 70%)'
+          : 'radial-gradient(circle, rgba(102, 252, 241, 0.1) 0%, transparent 70%)',
+        borderRadius: '50%',
+        transform: `translateZ(0) scale(${isHovering ? 1.5 : 1})`,
+        transition: 'transform 0.2s ease-out',
+      }}
+    />
   );
 }

@@ -6,6 +6,7 @@ import { GlassCard } from "./GlassCard";
 import { Badge } from "./ui/badge";
 import { Calendar, MapPin, Building, Award, Users, Target } from "lucide-react";
 import Link from "next/link";
+import { memo } from "react";
 
 const experiences = [
   {
@@ -74,7 +75,7 @@ const experiences = [
   },
 ];
 
-export function ExperienceSection() {
+export const ExperienceSection = memo(function ExperienceSection() {
   return (
     <section className="py-24 relative">
       {/* Background */}
@@ -101,7 +102,7 @@ export function ExperienceSection() {
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <Reveal key={exp.title} delay={index * 0.2}>
+              <Reveal key={exp.title} delay={index * 0.1}>
                 <div className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Timeline Dot */}
                   <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-[#66FCF1] to-[#45A29E] rounded-full transform -translate-x-2 md:-translate-x-2 z-10">
@@ -110,12 +111,12 @@ export function ExperienceSection() {
 
                   {/* Content */}
                   <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                    <GlassCard className="group hover:scale-105 transition-all duration-300">
+                    <GlassCard className="group hover:scale-102 transition-all duration-200">
                       <div className="p-8">
                         {/* Header */}
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className={`p-3 rounded-lg bg-gradient-to-r ${exp.color} group-hover:scale-110 transition-transform`}>
+                            <div className={`p-3 rounded-lg bg-gradient-to-r ${exp.color} group-hover:scale-105 transition-transform duration-200`}>
                               <exp.icon className="h-6 w-6 text-white" />
                             </div>
                             <div>
@@ -163,7 +164,7 @@ export function ExperienceSection() {
                         {/* Technologies */}
                         <div className="flex flex-wrap gap-2">
                           {exp.technologies.map((tech) => (
-                            <Badge key={tech} variant="outline" className="text-xs hover:bg-white/10 transition-colors">
+                            <Badge key={tech} variant="outline" className="text-xs hover:bg-white/10 transition-colors duration-200">
                               {tech}
                             </Badge>
                           ))}
@@ -178,12 +179,13 @@ export function ExperienceSection() {
         </div>
 
         {/* View Full Experience Button */}
-        <Reveal delay={1.0}>
+        <Reveal delay={0.8}>
           <div className="text-center mt-16">
             <Link href="/experience">
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 <GlassCard className="inline-block group cursor-pointer">
                   <div className="p-6">
@@ -202,4 +204,4 @@ export function ExperienceSection() {
       </div>
     </section>
   );
-}
+});

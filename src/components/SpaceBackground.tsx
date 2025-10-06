@@ -44,7 +44,7 @@ export function SpaceBackground() {
     // Create static stars with different colors
     const createStars = () => {
       const newStars: Star[] = [];
-      const colors = ['#FFFFFF', '#E0E7FF', '#C7D2FE', '#A5B4FC', '#8B5CF6', '#7C3AED'];
+      const colors = ['#FFFFFF', '#E0F7FF', '#C7F0FE', '#A5F4FC', '#66FCF1', '#45A29E'];
       
       for (let i = 0; i < 150; i++) {
         newStars.push({
@@ -63,7 +63,7 @@ export function SpaceBackground() {
     // Create shooting stars with cosmic colors
     const createShootingStars = () => {
       const newShootingStars: ShootingStar[] = [];
-      const colors = ['#FFFFFF', '#E0E7FF', '#8B5CF6', '#7C3AED'];
+      const colors = ['#FFFFFF', '#E0F7FF', '#66FCF1', '#45A29E'];
       
       for (let i = 0; i < 2; i++) {
         const startX = Math.random() * window.innerWidth;
@@ -88,7 +88,7 @@ export function SpaceBackground() {
     // Create floating planets
     const createPlanets = () => {
       const newPlanets: Planet[] = [];
-      const planetColors = ['#8B5CF6', '#7C3AED', '#6D28D9', '#4C1D95', '#3B82F6'];
+      const planetColors = ['#66FCF1', '#45A29E', '#1F2833', '#0B0C10', '#3B82F6'];
       
       for (let i = 0; i < 3; i++) {
         newPlanets.push({

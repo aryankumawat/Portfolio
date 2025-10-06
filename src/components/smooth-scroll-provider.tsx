@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
 interface SmoothScrollProviderProps {
@@ -8,21 +8,44 @@ interface SmoothScrollProviderProps {
 }
 
 export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
+    // Only initialize on client side
+    if (typeof window === 'undefined') return;
+
+    lenisRef.current = new Lenis({
+      duration: 1.0, // Slightly faster for better responsiveness
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
     });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // Optimize RAF loop
+    let rafId: number;
+    const raf = (time: number) => {
+      lenisRef.current?.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
 
-    requestAnimationFrame(raf);
+    // Handle resize
+    const handleResize = () => {
+      lenisRef.current?.resize();
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
-      lenis.destroy();
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      lenisRef.current?.destroy();
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, memo } from "react";
 
 interface RevealProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface RevealProps {
   distance?: number;
 }
 
-export function Reveal({ 
+export const Reveal = memo(function Reveal({ 
   children, 
   delay = 0, 
   direction = "up", 
@@ -19,7 +19,8 @@ export function Reveal({
   const ref = useRef(null);
   const inView = useInView(ref, { 
     once: true, 
-    margin: "-10% 0px -10% 0px" 
+    margin: "-5% 0px -5% 0px", // Reduced margin for better performance
+    amount: 0.1 // Trigger when 10% visible
   });
 
   const directionMap = {
@@ -42,13 +43,14 @@ export function Reveal({
         x: 0 
       } : {}}
       transition={{ 
-        type: "spring", 
-        stiffness: 120, 
-        damping: 18,
+        type: "tween", // Use tween instead of spring for better performance
+        duration: 0.6,
+        ease: "easeOut",
         delay 
       }}
+      style={{ willChange: inView ? 'auto' : 'transform, opacity' }}
     >
       {children}
     </motion.div>
   );
-}
+});

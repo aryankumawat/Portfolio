@@ -19,46 +19,49 @@ export function Hero() {
         <div className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,_#66FCF1_0deg,_#45A29E_60deg,_#1F2833_120deg,_#C5C6C7_180deg,_#66FCF1_360deg)] opacity-25" />
       </div>
 
-      {/* Apple/Netflix Floating Orbs */}
+      {/* Optimized Floating Orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#66FCF1]/40 to-[#45A29E]/40 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#66FCF1]/30 to-[#45A29E]/30 rounded-full blur-3xl will-change-transform"
           animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.1, 1],
+            x: [0, 50, 0], // Reduced movement
+            y: [0, -25, 0],
+            scale: [1, 1.05, 1], // Reduced scale change
           }}
           transition={{
-            duration: 20,
+            duration: 25, // Slower for better performance
             repeat: Infinity,
             ease: "easeInOut",
           }}
+          style={{ transform: 'translateZ(0)' }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-600/40 to-indigo-500/40 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-600/30 to-indigo-500/30 rounded-full blur-3xl will-change-transform"
           animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-            scale: [1, 0.9, 1],
+            x: [0, -50, 0], // Reduced movement
+            y: [0, 25, 0],
+            scale: [1, 0.95, 1], // Reduced scale change
           }}
           transition={{
-            duration: 25,
+            duration: 30, // Slower for better performance
             repeat: Infinity,
             ease: "easeInOut",
           }}
+          style={{ transform: 'translateZ(0)' }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-[#66FCF1]/30 to-[#45A29E]/30 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-[#66FCF1]/20 to-[#45A29E]/20 rounded-full blur-3xl will-change-transform"
           animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.2, 1],
+            x: [0, 25, 0], // Reduced movement
+            y: [0, -15, 0],
+            scale: [1, 1.1, 1], // Reduced scale change
           }}
           transition={{
-            duration: 30,
+            duration: 35, // Slower for better performance
             repeat: Infinity,
             ease: "easeInOut",
           }}
+          style={{ transform: 'translateZ(0)' }}
         />
       </div>
 
