@@ -84,10 +84,8 @@ export const ExperienceSection = memo(function ExperienceSection() {
       <div className="mx-auto max-w-6xl px-6 relative z-10">
         <Reveal>
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black mb-6">
-              <span className="gradient-text bg-gradient-to-r from-[#66FCF1] via-[#45A29E] to-[#C5C6C7] bg-clip-text text-transparent">
-                Experience
-              </span>
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-white">
+              Experience
             </h2>
             <p className="text-xl text-slate-300/90 max-w-3xl mx-auto">
               Professional journey spanning data science, finance, research, and community impact
@@ -98,15 +96,15 @@ export const ExperienceSection = memo(function ExperienceSection() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#66FCF1] via-[#45A29E] to-[#C5C6C7] transform md:-translate-x-0.5" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/20 transform md:-translate-x-0.5" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <Reveal key={exp.title} delay={index * 0.1}>
                 <div className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Timeline Dot */}
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-[#66FCF1] to-[#45A29E] rounded-full transform -translate-x-2 md:-translate-x-2 z-10">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#66FCF1] to-[#45A29E] rounded-full animate-pulse" />
+                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-white/30 rounded-full transform -translate-x-2 md:-translate-x-2 z-10">
+                    <div className="absolute inset-0 bg-white/50 rounded-full animate-pulse" />
                   </div>
 
                   {/* Content */}
@@ -116,7 +114,7 @@ export const ExperienceSection = memo(function ExperienceSection() {
                         {/* Header */}
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className={`p-3 rounded-lg bg-gradient-to-r ${exp.color} group-hover:scale-105 transition-transform duration-200`}>
+                            <div className="p-3 rounded-lg bg-white/10 group-hover:scale-105 transition-transform duration-200">
                               <exp.icon className="h-6 w-6 text-white" />
                             </div>
                             <div>
@@ -154,7 +152,7 @@ export const ExperienceSection = memo(function ExperienceSection() {
                           <ul className="space-y-1">
                             {exp.achievements.map((achievement, achIndex) => (
                               <li key={achIndex} className="text-sm text-slate-400 flex items-start gap-2">
-                                <div className="w-1.5 h-1.5 bg-[#66FCF1] rounded-full mt-2 flex-shrink-0" />
+                                <div className="w-1.5 h-1.5 bg-white/40 rounded-full mt-2 flex-shrink-0" />
                                 {achievement}
                               </li>
                             ))}

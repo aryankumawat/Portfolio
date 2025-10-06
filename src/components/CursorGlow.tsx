@@ -68,8 +68,8 @@ export function CursorGlow() {
         width: 40,
         height: 40,
         background: isHovering 
-          ? 'radial-gradient(circle, rgba(102, 252, 241, 0.3) 0%, rgba(69, 162, 158, 0.2) 50%, transparent 70%)'
-          : 'radial-gradient(circle, rgba(102, 252, 241, 0.1) 0%, transparent 70%)',
+          ? 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%)'
+          : 'radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%)',
         borderRadius: '50%',
         transform: `translateZ(0) scale(${isHovering ? 1.5 : 1})`,
         transition: 'transform 0.2s ease-out',
