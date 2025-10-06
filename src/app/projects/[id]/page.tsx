@@ -513,17 +513,17 @@ const projectData: Record<string, Project> = {
     icon: Brain,
     color: "from-purple-500 to-purple-600",
     year: "2025",
-    status: "Completed",
+    status: "In Progress",
     technologies: ["Next.js 14", "React 18", "TypeScript", "OpenAI", "Ollama", "Playwright", "PptxGenJS", "Recharts", "IndexedDB"],
     github: "https://github.com/aryankumawat/slidesmith",
-    live: "https://slidesmith.ai",
+    live: "#",
     featured: true,
     
     // Detailed project information
     overview: {
       problem: "Creating professional slide decks is time-consuming and inconsistent. Teams need fast, high-quality presentations with live data integration and seamless export capabilities for modern business needs.",
-      solution: "Built a comprehensive AI-powered slide generation platform with 5 beautiful themes, live widgets (charts, tickers, countdowns, maps), inline editing, and export to PDF/PPTX with perfect formatting.",
-      impact: "Enables rapid creation of professional slide decks with one-prompt generation, real-time data widgets, 5 stunning themes, and faithful PDF/PPTX exports. Supports both OpenAI and local Ollama models for flexibility."
+      solution: "Building a comprehensive AI-powered slide generation platform with 5 beautiful themes, live widgets (charts, tickers, countdowns, maps), inline editing, and export to PDF/PPTX with perfect formatting.",
+      impact: "Will enable rapid creation of professional slide decks with one-prompt generation, real-time data widgets, 5 stunning themes, and faithful PDF/PPTX exports. Supports both OpenAI and local Ollama models for flexibility."
     },
     
     features: {
