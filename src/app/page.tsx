@@ -1,8 +1,6 @@
 "use client";
 
 import { Hero } from "@/components/hero";
-import { SkillsSection } from "@/components/SkillsSection";
-import { ExperienceSection } from "@/components/ExperienceSection";
 import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
@@ -10,12 +8,6 @@ export default function Home() {
     <div className="min-h-screen bg-black text-[#C5C6C7] overflow-x-hidden">
       {/* Hero Section */}
       <Hero />
-
-      {/* Skills Section */}
-      <SkillsSection />
-
-      {/* Experience Section */}
-      <ExperienceSection />
 
       {/* Contact Section */}
       <ContactSection />
