@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/GlassCard";
@@ -762,7 +762,7 @@ export default function ProjectDetailPage() {
             <div className="flex items-start justify-between mb-6">
               <div className="flex items-start gap-4">
                 <div className={`p-4 rounded-xl bg-gradient-to-r ${project.color}`}>
-                  <project.icon className="h-8 w-8 text-white" />
+                  {React.createElement(project.icon, { className: "h-8 w-8 text-white" })}
                 </div>
                 <div>
                   <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
