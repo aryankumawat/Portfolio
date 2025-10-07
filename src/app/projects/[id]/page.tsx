@@ -1047,7 +1047,7 @@ export default function ProjectDetailPage() {
                     Student Features
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.studentFeatures.map((feature, index) => (
+                    {project.features.studentFeatures && project.features.studentFeatures.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -1062,7 +1062,7 @@ export default function ProjectDetailPage() {
                     Faculty Features
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.facultyFeatures.map((feature, index) => (
+                    {project.features.facultyFeatures && project.features.facultyFeatures.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -1077,7 +1077,7 @@ export default function ProjectDetailPage() {
                     Security Features
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.securityFeatures.map((feature, index) => (
+                    {project.features.securityFeatures && project.features.securityFeatures.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -1092,7 +1092,7 @@ export default function ProjectDetailPage() {
                     Technical Features
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.technicalFeatures.map((feature, index) => (
+                    {project.features.technicalFeatures && project.features.technicalFeatures.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-[#66FCF1] mt-0.5 flex-shrink-0" />
                         {feature}
@@ -1177,7 +1177,7 @@ export default function ProjectDetailPage() {
                     Backend & AI
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.backend.map((tech, index) => (
+                    {project.technology.backend && project.technology.backend.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
                         {tech}
@@ -1192,7 +1192,7 @@ export default function ProjectDetailPage() {
                     Frontend & UI
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.frontend.map((tech, index) => (
+                    {project.technology.frontend && project.technology.frontend.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
                         {tech}
@@ -1207,7 +1207,7 @@ export default function ProjectDetailPage() {
                     Security & Privacy
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.security.map((tech, index) => (
+                    {project.technology.security && project.technology.security.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
                         {tech}
@@ -1222,7 +1222,7 @@ export default function ProjectDetailPage() {
                     Deployment & Export
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.deployment.map((tech, index) => (
+                    {project.technology.deployment && project.technology.deployment.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
                         {tech}
@@ -1252,7 +1252,7 @@ export default function ProjectDetailPage() {
                     Backend Technologies
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.backend.map((tech, index) => (
+                    {project.technology.backend && project.technology.backend.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
                         {tech}
@@ -1267,7 +1267,7 @@ export default function ProjectDetailPage() {
                     Frontend Technologies
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.frontend.map((tech, index) => (
+                    {project.technology.frontend && project.technology.frontend.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
                         {tech}
@@ -1282,7 +1282,7 @@ export default function ProjectDetailPage() {
                     Security Technologies
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.security.map((tech, index) => (
+                    {project.technology.security && project.technology.security.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
                         {tech}
@@ -1297,7 +1297,7 @@ export default function ProjectDetailPage() {
                     Deployment & Infrastructure
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.deployment.map((tech, index) => (
+                    {project.technology.deployment && project.technology.deployment.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-[#66FCF1] mt-0.5 flex-shrink-0" />
                         {tech}
@@ -1327,7 +1327,7 @@ export default function ProjectDetailPage() {
                   Data Processing
                 </h3>
                 <ul className="space-y-2">
-                  {project.methodology.dataProcessing.map((step, index) => (
+                  {project.methodology.dataProcessing && project.methodology.dataProcessing.map((step, index) => (
                     <li key={index} className="flex items-start gap-2 text-slate-300">
                       <span className="text-blue-400 mt-1">•</span>
                       {step}
@@ -1342,7 +1342,7 @@ export default function ProjectDetailPage() {
                   Feature Selection
                 </h3>
                 <ul className="space-y-2">
-                  {project.methodology.featureSelection.map((step, index) => (
+                  {project.methodology.featureSelection && project.methodology.featureSelection.map((step, index) => (
                     <li key={index} className="flex items-start gap-2 text-slate-300">
                       <span className="text-[#66FCF1] mt-1">•</span>
                       {step}
@@ -1358,7 +1358,7 @@ export default function ProjectDetailPage() {
                 Machine Learning Models
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {project.methodology.models.map((model, index) => (
+                {project.methodology.models && project.methodology.models.map((model, index) => (
                   <GlassCard key={index} className="p-6 text-center">
                     <h4 className="text-lg font-bold text-white mb-2">{model.name}</h4>
                     <p className="text-sm text-slate-300 mb-3">{model.description}</p>
@@ -1392,7 +1392,7 @@ export default function ProjectDetailPage() {
                   Key Features
                 </h3>
                 <ul className="space-y-2">
-                  {project.shinyApp.features.map((feature, index) => (
+                  {project.shinyApp.features && project.shinyApp.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2 text-slate-300">
                       <CheckCircle className="h-4 w-4 text-green-400 mt-1 flex-shrink-0" />
                       {feature}
@@ -1407,7 +1407,7 @@ export default function ProjectDetailPage() {
                   Technical Stack
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {project.shinyApp.technicalStack.map((tech, index) => (
+                  {project.shinyApp.technicalStack && project.shinyApp.technicalStack.map((tech, index) => (
                     <Badge key={index} variant="outline" className="text-xs">
                       {tech}
                     </Badge>
@@ -1485,7 +1485,7 @@ export default function ProjectDetailPage() {
             </h2>
             <GlassCard className="p-8">
               <div className="flex flex-wrap gap-3 justify-center">
-                {project.technologies.map((tech, index) => (
+                {project.technologies && project.technologies.map((tech, index) => (
                   <Badge key={index} variant="outline" className="text-sm px-4 py-2">
                     {tech}
                   </Badge>
@@ -1505,7 +1505,7 @@ export default function ProjectDetailPage() {
               References
             </h2>
             <div className="space-y-4">
-              {project.references.map((ref, index) => (
+              {project.references && project.references.map((ref, index) => (
                 <GlassCard key={index} className="p-6">
                   <div className="flex items-start gap-4">
                     <FileText className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
