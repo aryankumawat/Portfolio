@@ -706,21 +706,50 @@ export default function ProjectDetailPage() {
   const params = useParams();
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const projectId = params.id as string;
-    const projectInfo = projectData[projectId] || null;
-    
-    if (projectInfo) {
-      setProject(projectInfo);
+    try {
+      const projectId = params.id as string;
+      console.log('Project ID:', projectId);
+      
+      const projectInfo = projectData[projectId] || null;
+      console.log('Project Info:', projectInfo);
+      
+      if (projectInfo) {
+        setProject(projectInfo);
+      } else {
+        setError(`Project with ID "${projectId}" not found`);
+      }
+      setLoading(false);
+    } catch (err) {
+      console.error('Error loading project:', err);
+      setError('Failed to load project');
+      setLoading(false);
     }
-    setLoading(false);
   }, [params.id]);
 
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-white mb-4">Error</h1>
+          <p className="text-red-400 mb-4">{error}</p>
+          <Link href="/projects">
+            <Button className="bg-gradient-to-r from-[#66FCF1] to-[#45A29E]">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Projects
+            </Button>
+          </Link>
+        </div>
       </div>
     );
   }
@@ -926,7 +955,7 @@ export default function ProjectDetailPage() {
 
 
           {/* Features - Customized for SlideSmith */}
-          {project.features && project.id === "slidesmith" && (
+          {project.features && project.id === "slidesmith" && project.features.coreFeatures && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -943,7 +972,7 @@ export default function ProjectDetailPage() {
                     AI Generation
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.coreFeatures?.map((feature, index) => (
+                    {project.features.coreFeatures && project.features.coreFeatures.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -958,7 +987,7 @@ export default function ProjectDetailPage() {
                     Live Widgets
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.liveWidgets?.map((feature, index) => (
+                    {project.features.liveWidgets && project.features.liveWidgets.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -973,7 +1002,7 @@ export default function ProjectDetailPage() {
                     Security & Privacy
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.themes?.map((feature, index) => (
+                    {project.features.themes && project.features.themes.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -988,7 +1017,7 @@ export default function ProjectDetailPage() {
                     Technical Excellence
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.technicalFeatures?.map((feature, index) => (
+                    {project.features.technicalFeatures && project.features.technicalFeatures.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
                         {feature}
