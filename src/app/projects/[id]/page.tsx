@@ -943,7 +943,7 @@ export default function ProjectDetailPage() {
                     AI Generation
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.studentFeatures.map((feature, index) => (
+                    {project.features.coreFeatures?.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -958,7 +958,7 @@ export default function ProjectDetailPage() {
                     Live Widgets
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.facultyFeatures.map((feature, index) => (
+                    {project.features.liveWidgets?.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -973,7 +973,7 @@ export default function ProjectDetailPage() {
                     Security & Privacy
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.securityFeatures.map((feature, index) => (
+                    {project.features.themes?.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -988,7 +988,7 @@ export default function ProjectDetailPage() {
                     Technical Excellence
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.technicalFeatures.map((feature, index) => (
+                    {project.features.technicalFeatures?.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
                         {feature}
