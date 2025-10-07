@@ -1174,12 +1174,18 @@ export default function ProjectDetailPage() {
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <Server className="h-5 w-5 text-blue-400" />
-                    Backend & AI
+                    Framework & AI
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.backend && project.technology.backend.map((tech, index) => (
+                    {project.technology.framework && project.technology.framework.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                        {tech}
+                      </li>
+                    ))}
+                    {project.technology.ai && project.technology.ai.map((tech, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
                         {tech}
                       </li>
                     ))}
@@ -1189,12 +1195,18 @@ export default function ProjectDetailPage() {
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <Monitor className="h-5 w-5 text-green-400" />
-                    Frontend & UI
+                    UI & Data
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.frontend && project.technology.frontend.map((tech, index) => (
+                    {project.technology.ui && project.technology.ui.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                        {tech}
+                      </li>
+                    ))}
+                    {project.technology.data && project.technology.data.map((tech, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                         {tech}
                       </li>
                     ))}
@@ -1203,13 +1215,19 @@ export default function ProjectDetailPage() {
 
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-red-400" />
-                    Security & Privacy
+                    <Download className="h-5 w-5 text-orange-400" />
+                    Export & Deployment
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.security && project.technology.security.map((tech, index) => (
+                    {project.technology.export && project.technology.export.map((tech, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
+                        {tech}
+                      </li>
+                    ))}
+                    {project.technology.deployment && project.technology.deployment.map((tech, index) => (
+                      <li key={index} className="flex items-start gap-2 text-slate-300">
+                        <CheckCircle className="h-4 w-4 text-[#66FCF1] mt-0.5 flex-shrink-0" />
                         {tech}
                       </li>
                     ))}
@@ -1219,15 +1237,25 @@ export default function ProjectDetailPage() {
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <Rocket className="h-5 w-5 text-purple-400" />
-                    Deployment & Export
+                    Additional Features
                   </h3>
                   <ul className="space-y-2">
-                    {project.technology.deployment && project.technology.deployment.map((tech, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                        {tech}
-                      </li>
-                    ))}
+                    <li className="flex items-start gap-2 text-slate-300">
+                      <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span>5 Beautiful Themes (DeepSpace, Ultraviolet, Minimal, Corporate, NeonGrid)</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-300">
+                      <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span>Live Widgets (Charts, Tickers, Countdowns, Maps, Iframes)</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-300">
+                      <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span>Perfect PDF & PPTX Export</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-300">
+                      <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span>IndexedDB Local Storage</span>
+                    </li>
                   </ul>
                 </GlassCard>
               </div>
