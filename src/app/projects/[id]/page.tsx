@@ -84,18 +84,7 @@ interface Project {
   };
   results?: {
     keyMetrics: {
-      bestModel?: string;
-      auc?: string;
-      accuracy?: string;
-      sensitivity?: string;
-      specificity?: string;
-      f1Score?: string;
-      // For Web Development projects
-      usersSupported?: string;
-      securityLevel?: string;
-      performance?: string;
-      reliability?: string;
-      userSatisfaction?: string;
+      [key: string]: string;
     };
     selectedGenes?: string[];
     clinicalSignificance?: string[];
@@ -126,16 +115,10 @@ interface Project {
     timeline: string;
   };
   features?: {
-    studentFeatures: string[];
-    facultyFeatures: string[];
-    securityFeatures: string[];
-    technicalFeatures: string[];
+    [key: string]: string[];
   };
   technology?: {
-    backend: string[];
-    frontend: string[];
-    security: string[];
-    deployment: string[];
+    [key: string]: string[];
   };
   architecture?: {
     structure: string[];
@@ -527,7 +510,7 @@ const projectData: Record<string, Project> = {
     },
     
     features: {
-      studentFeatures: [
+      coreFeatures: [
         "AI Generation: Generate complete slide decks from any topic using OpenAI or Ollama",
         "5 Beautiful Themes: DeepSpace, Ultraviolet, Minimal, Corporate, and NeonGrid",
         "Live Widgets: Real-time charts, tickers, countdowns, maps, and iframes",
@@ -535,80 +518,85 @@ const projectData: Record<string, Project> = {
         "Inline Editing: WYSIWYG editing with real-time preview",
         "Share & Save: Share via URL or save locally with IndexedDB"
       ],
-      facultyFeatures: [
-        "Theme Customization: Choose from 5 professionally designed themes",
-        "Live Data Integration: Real-time charts and tickers for dynamic content",
-        "Batch Processing: Generate multiple presentations efficiently",
-        "Template Management: Save and reuse custom templates",
-        "Collaboration Tools: Share presentations via secure URLs",
-        "Advanced Export: High-quality PDF and PPTX generation"
+      themes: [
+        "DeepSpace: Near-black background with twinkling stars and blue-violet accents",
+        "Ultraviolet: Dark purple gradient with neon borders and glow effects",
+        "Minimal: Clean white design with subtle typography",
+        "Corporate: Professional navy and slate color scheme",
+        "NeonGrid: Cyber-themed with grid patterns and neon colors"
       ],
-      securityFeatures: [
-        "API Key Security: Secure OpenAI API key management",
-        "Local Processing: Ollama support for private data processing",
-        "Data Privacy: IndexedDB for local storage without server dependency",
-        "Input Validation: Comprehensive validation for all user inputs",
-        "Rate Limiting: Built-in protection against API abuse",
-        "Secure Export: Safe file generation and download handling"
+      liveWidgets: [
+        "LiveChart: Real-time data visualization with auto-refresh",
+        "Ticker: Live cryptocurrency and stock price tickers",
+        "Countdown: Event countdown timers",
+        "Map: Interactive location markers",
+        "Iframe: Embedded live dashboards and content"
       ],
       technicalFeatures: [
-        "Multi-Model AI: Support for both OpenAI and local Ollama models",
-        "Real-time Rendering: Live preview with instant updates",
-        "Theme System: Extensible theming with custom CSS variables",
-        "Widget Framework: Pluggable live widget system",
-        "Export Engine: High-fidelity PDF and PPTX generation",
-        "Performance Optimization: Lazy loading and efficient rendering",
-        "Responsive Design: Works perfectly on all device sizes"
+        "Next.js 14: App Router with TypeScript for modern development",
+        "AI Integration: OpenAI-compatible API with Ollama support",
+        "State Management: React Hook Form + Zod validation",
+        "Charts: Recharts for data visualization",
+        "Export: PptxGenJS (PPTX), Playwright (PDF)",
+        "Storage: IndexedDB with idb-keyval",
+        "UI Components: shadcn/ui with Tailwind CSS",
+        "Icons: Lucide React for consistent iconography"
       ]
     },
     
     technology: {
-      backend: [
-        "Next.js 14 - App Router with TypeScript",
-        "OpenAI API - GPT-4 for content generation",
-        "Ollama - Local AI model support",
-        "Playwright - PDF generation engine",
-        "PptxGenJS - PowerPoint export functionality",
-        "IndexedDB - Client-side data storage"
-      ],
-      frontend: [
+      framework: [
+        "Next.js 14 - App Router with TypeScript for modern development",
         "React 18 - Modern React with hooks and concurrent features",
+        "TypeScript - Type-safe development with comprehensive type definitions"
+      ],
+      ui: [
         "Tailwind CSS - Utility-first styling framework",
         "shadcn/ui - Beautiful, accessible UI components",
-        "Framer Motion - Smooth animations and transitions",
-        "Recharts - Data visualization and live charts",
-        "Lucide React - Consistent icon system"
+        "Lucide React - Consistent icon system",
+        "Framer Motion - Smooth animations and transitions"
       ],
-      security: [
-        "Environment Variables - Secure API key management",
-        "Input Sanitization - XSS protection and validation",
-        "CORS Configuration - Proper cross-origin resource sharing",
-        "Rate Limiting - API abuse prevention",
-        "Data Encryption - Secure local storage",
-        "HTTPS Only - Secure data transmission"
+      ai: [
+        "OpenAI API - GPT-4 for content generation",
+        "Ollama - Local AI model support for privacy",
+        "LLM Provider - Flexible AI model integration",
+        "Prompt Engineering - Optimized prompts for slide generation"
+      ],
+      data: [
+        "Recharts - Data visualization and live charts",
+        "IndexedDB - Client-side data storage with idb-keyval",
+        "React Hook Form - Form state management",
+        "Zod - Schema validation and type safety"
+      ],
+      export: [
+        "PptxGenJS - PowerPoint export functionality",
+        "Playwright - PDF generation engine",
+        "Live Widgets - Real-time data integration",
+        "Theme System - 5 beautiful, customizable themes"
       ],
       deployment: [
         "Vercel - Optimized Next.js deployment platform",
-        "Docker Support - Containerized deployment option",
-        "Environment Configuration - Production-ready setup",
+        "Environment Variables - Secure API key management",
         "CDN Integration - Global content delivery",
-        "SSL/TLS - Automatic HTTPS configuration",
-        "Performance Monitoring - Built-in analytics and monitoring"
+        "SSL/TLS - Automatic HTTPS configuration"
       ]
     },
     
     architecture: {
       structure: [
         "src/app/ - Next.js app router with API routes",
-        "src/components/ - Reusable React components",
+        "src/components/ - React component library",
         "src/lib/ - Core utilities and AI integration",
-        "src/prompts/ - AI prompt templates and optimization",
-        "public/ - Static assets and theme resources",
+        "src/prompts/ - AI prompt templates",
+        "public/themes/ - Theme assets and resources",
         "components/blocks/ - Slide block components",
-        "components/live-widgets/ - Real-time widget system",
+        "components/live-widgets/ - Live widget system",
         "lib/schema.ts - TypeScript type definitions",
-        "lib/llm.ts - AI client abstraction layer",
-        "lib/theming.ts - Theme system and customization"
+        "lib/llm.ts - AI client implementation",
+        "lib/outline.ts - Outline generation logic",
+        "lib/slidewriter.ts - Slide creation logic",
+        "lib/theming.ts - Theme system and customization",
+        "lib/storage.ts - IndexedDB storage utilities"
       ],
       database: "IndexedDB for client-side storage, no server database required",
       authentication: "No authentication required - works entirely client-side",
@@ -622,21 +610,25 @@ const projectData: Record<string, Project> = {
         securityLevel: "High - local processing with optional cloud AI",
         performance: "Fast - optimized rendering and lazy loading",
         reliability: "99.9% - robust error handling and fallbacks",
-        userSatisfaction: "Excellent - intuitive interface and powerful features"
+        userSatisfaction: "Excellent - intuitive interface and powerful features",
+        themeVariety: "5 - Professional themes for different use cases"
       },
       achievements: [
         "Successfully created production-ready AI slide generation tool",
-        "Implemented 5 beautiful, professional themes",
+        "Implemented 5 beautiful, professional themes (DeepSpace, Ultraviolet, Minimal, Corporate, NeonGrid)",
         "Built comprehensive live widget system for real-time data",
         "Achieved perfect PDF and PPTX export fidelity",
-        "Created extensible architecture for easy customization"
+        "Created extensible architecture for easy customization",
+        "Integrated multiple AI providers (OpenAI, Ollama) for flexibility",
+        "Built responsive design that works on all device sizes"
       ],
       impact: [
         "Dramatically reduced slide creation time from hours to minutes",
         "Enabled consistent, professional presentation design",
         "Provided real-time data integration capabilities",
         "Offered flexible AI model support (OpenAI + Ollama)",
-        "Created reusable template and theme system"
+        "Created reusable template and theme system",
+        "Improved presentation quality through AI-powered content generation"
       ]
     },
     
@@ -657,9 +649,12 @@ const projectData: Record<string, Project> = {
         "public/themes/ - Theme assets and resources",
         "components/blocks/ - Slide block components",
         "components/live-widgets/ - Live widget system",
-        "lib/schema.ts - TypeScript definitions",
+        "lib/schema.ts - TypeScript type definitions",
         "lib/llm.ts - AI client implementation",
+        "lib/outline.ts - Outline generation logic",
+        "lib/slidewriter.ts - Slide creation logic",
         "lib/theming.ts - Theme system",
+        "lib/storage.ts - IndexedDB storage utilities",
         "README.md - Comprehensive documentation"
       ],
       documentation: "Detailed README with installation, configuration, and usage instructions",
@@ -692,6 +687,16 @@ const projectData: Record<string, Project> = {
         title: "PptxGenJS Documentation",
         source: "PptxGenJS",
         url: "https://gitbrent.github.io/PptxGenJS/"
+      },
+      {
+        title: "Recharts Documentation",
+        source: "Recharts",
+        url: "https://recharts.org/en-US"
+      },
+      {
+        title: "shadcn/ui Components",
+        source: "shadcn/ui",
+        url: "https://ui.shadcn.com/"
       }
     ]
   }
