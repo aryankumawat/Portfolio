@@ -2,13 +2,15 @@ import { GlassCard } from "@/components/GlassCard";
 import { Reveal } from "@/components/Reveal";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, User, Tag } from "lucide-react";
+import Link from "next/link";
 
 const blogPosts = [
   {
+    id: "chatgpt-agentkit-competitor-n8n",
     title: "ChatGPT's New AgentKit: A Competitor to n8n?",
     excerpt: "OpenAI recently introduced AgentKit, a framework that takes ChatGPT beyond simple Q&A into true autonomous agents. Instead of just generating text, AgentKit lets ChatGPT plan tasks, break them into steps, and act inside a virtual environment — browsing the web, running code, managing files, and more.",
     category: "AI & Automation",
-    date: "2025-01-20",
+    date: "2025-10-08",
     readTime: "5 min read",
     author: "Aryan Kumawat",
     tags: ["AI", "ChatGPT", "AgentKit", "n8n", "Automation"],
@@ -117,9 +119,9 @@ export default function BlogPage() {
                       ))}
                     </div>
                     
-                    <div className="text-sm text-[#66FCF1] font-medium">
+                    <Link href={`/blog/${post.id}`} className="text-sm text-[#66FCF1] font-medium hover:text-[#45A29E] transition-colors">
                       Read more →
-                    </div>
+                    </Link>
                   </div>
                 </GlassCard>
               </Reveal>
