@@ -5,44 +5,43 @@ import { Calendar, Clock, User, Tag } from "lucide-react";
 
 const blogPosts = [
   {
-    title: "Building Multi-Model AI Agents: A Technical Deep Dive",
-    excerpt: "Exploring the architecture and implementation of local LLM workflows with task orchestration and agent specialization.",
-    category: "AI & Machine Learning",
-    date: "2025-01-15",
-    readTime: "8 min read",
+    title: "ChatGPT's New AgentKit: A Competitor to n8n?",
+    excerpt: "OpenAI recently introduced AgentKit, a framework that takes ChatGPT beyond simple Q&A into true autonomous agents. Instead of just generating text, AgentKit lets ChatGPT plan tasks, break them into steps, and act inside a virtual environment — browsing the web, running code, managing files, and more.",
+    category: "AI & Automation",
+    date: "2025-01-20",
+    readTime: "5 min read",
     author: "Aryan Kumawat",
-    tags: ["AI", "LLMs", "Python", "Architecture"],
+    tags: ["AI", "ChatGPT", "AgentKit", "n8n", "Automation"],
     featured: true,
-  },
-  {
-    title: "Financial Modeling in Python: From Theory to Practice",
-    excerpt: "A comprehensive guide to implementing financial models using Python, covering valuation, risk analysis, and portfolio optimization.",
-    category: "Finance & Data",
-    date: "2024-12-20",
-    readTime: "12 min read",
-    author: "Aryan Kumawat",
-    tags: ["Python", "Finance", "Data Analysis", "Modeling"],
-    featured: true,
-  },
-  {
-    title: "The Future of Data Science in Healthcare",
-    excerpt: "Examining how machine learning and data analytics are transforming healthcare delivery and patient outcomes.",
-    category: "Healthcare & Data",
-    date: "2024-11-30",
-    readTime: "10 min read",
-    author: "Aryan Kumawat",
-    tags: ["Healthcare", "Data Science", "ML", "Analytics"],
-    featured: false,
-  },
-  {
-    title: "Cybersecurity Bootcamp: Lessons Learned",
-    excerpt: "Reflections on my cybersecurity training journey and key insights for aspiring security professionals.",
-    category: "Cybersecurity",
-    date: "2024-10-15",
-    readTime: "6 min read",
-    author: "Aryan Kumawat",
-    tags: ["Cybersecurity", "Training", "Career", "Learning"],
-    featured: false,
+    content: `OpenAI recently introduced AgentKit, a framework that takes ChatGPT beyond simple Q&A into true autonomous agents. Instead of just generating text, AgentKit lets ChatGPT plan tasks, break them into steps, and act inside a virtual environment — browsing the web, running code, managing files, and more.
+
+This raises the question: how does it compare to existing automation platforms like n8n?
+
+## What Makes AgentKit Different?
+
+**Reasoning + Action Together**: AgentKit doesn't just think, it executes — dynamically branching, reflecting, and correcting itself along the way.
+
+**Interactive & Steerable**: You can pause or redirect mid-run without losing context.
+
+**Hands-On Tools**: With access to browsers, code, and files, ChatGPT agents can perform real-world tasks beyond prompts.
+
+## Where n8n Still Shines
+
+n8n is already a favorite for workflow automation, with its drag-and-drop interface and hundreds of integrations. It handles concurrency, error-handling, and observability better than AgentKit. Think of n8n as the production-grade automation tool, while AgentKit is the flexible AI brain.
+
+## Competition or Collaboration?
+
+It doesn't have to be one or the other:
+
+- Use AgentKit for dynamic reasoning and complex planning.
+- Use n8n for reliability, integrations, and scale.
+- Together, they can form a hybrid system where ChatGPT agents think and n8n executes.
+
+## Final Thoughts
+
+AgentKit is exciting because it pushes AI toward true agency — planning, acting, and adapting like a digital teammate. But n8n remains a powerhouse for safe, scalable automation.
+
+The real win might not be AgentKit versus n8n, but AgentKit + n8n working together.`
   },
 ];
 
@@ -60,8 +59,8 @@ export default function BlogPage() {
                 Blog & Insights
               </h1>
               <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
-                Sharing knowledge and experiences in data science, finance, 
-                technology, and career development.
+                Sharing insights on AI, automation, technology trends, 
+                and the future of intelligent systems.
               </p>
             </div>
           </Reveal>
@@ -69,7 +68,7 @@ export default function BlogPage() {
           {/* Featured Posts */}
           <Reveal delay={0.2}>
             <h2 className="text-3xl font-bold mb-8 text-center gradient-text">
-              Featured Articles
+              Latest Article
             </h2>
           </Reveal>
           
@@ -127,54 +126,6 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Regular Posts */}
-          <Reveal delay={0.8}>
-            <h3 className="text-2xl font-bold mb-8 text-center gradient-text">
-              Latest Articles
-            </h3>
-          </Reveal>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {regularPosts.map((post, index) => (
-              <Reveal key={post.title} delay={1 + index * 0.1}>
-                <GlassCard className="h-full group">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <Badge variant="outline" className="text-xs">
-                        {post.category}
-                      </Badge>
-                    </div>
-                    
-                    <h3 className="text-lg font-semibold text-white transition-colors">
-                      {post.title}
-                    </h3>
-                    
-                    <p className="text-sm text-slate-300/80">
-                      {post.excerpt}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {post.tags.slice(0, 3).map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="outline" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                      {post.tags.length > 3 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{post.tags.length - 3} more
-                        </Badge>
-                      )}
-                    </div>
-                    
-                    <div className="flex items-center justify-between text-sm text-slate-400">
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
-                      <span className="text-[#66FCF1] font-medium">Read more →</span>
-                    </div>
-                  </div>
-                </GlassCard>
-              </Reveal>
-            ))}
-          </div>
 
           {/* Coming Soon */}
           <Reveal delay={1.4}>
