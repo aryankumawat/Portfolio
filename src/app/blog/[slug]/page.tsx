@@ -241,7 +241,7 @@ export default function BlogPostPage() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <GlassCard className="p-8 mb-8">
+            <GlassCard className="p-8">
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <Badge variant="outline" className="text-sm">
@@ -275,22 +275,20 @@ export default function BlogPostPage() {
                   {post.excerpt}
                 </p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {post.tags.map((tag, tagIndex) => (
                     <Badge key={tagIndex} variant="outline" className="text-sm">
                       {tag}
                     </Badge>
                   ))}
                 </div>
-              </div>
-            </GlassCard>
-          </Reveal>
 
-          <Reveal delay={0.4}>
-            <GlassCard className="p-8">
-              <div className="max-w-none">
-                <div className="space-y-4">
-                  {renderContent(post.content)}
+                <div className="border-t border-slate-600 pt-6">
+                  <div className="max-w-none">
+                    <div className="space-y-4">
+                      {renderContent(post.content)}
+                    </div>
+                  </div>
                 </div>
               </div>
             </GlassCard>
