@@ -158,10 +158,10 @@ export default function BlogPostPage() {
     const flushList = () => {
       if (inList && listItems.length > 0) {
         elements.push(
-          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-6 text-slate-300">
+          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-4 text-slate-300">
             {listItems.map((item, idx) => (
               <li key={idx} className="leading-relaxed">
-                {item}
+                {renderBoldText(item)}
               </li>
             ))}
           </ul>
@@ -171,20 +171,34 @@ export default function BlogPostPage() {
       }
     };
 
+    const renderBoldText = (text: string) => {
+      const parts = text.split(/(\*\*.*?\*\*)/g);
+      return parts.map((part, idx) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+          return (
+            <strong key={idx} className="font-bold text-white">
+              {part.replace(/\*\*/g, '')}
+            </strong>
+          );
+        }
+        return part;
+      });
+    };
+
     lines.forEach((line, index) => {
       const trimmedLine = line.trim();
       
       if (trimmedLine.startsWith('## ')) {
         flushList();
         elements.push(
-          <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-6 border-b border-slate-600 pb-2">
+          <h2 key={index} className="text-2xl font-bold text-white mt-6 mb-4 border-b border-slate-600 pb-2">
             {trimmedLine.replace('## ', '')}
           </h2>
         );
       } else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**') && trimmedLine.length > 4) {
         flushList();
         elements.push(
-          <h3 key={index} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-4">
+          <h3 key={index} className="text-xl font-semibold text-[#66FCF1] mt-4 mb-3">
             {trimmedLine.replace(/\*\*/g, '')}
           </h3>
         );
@@ -196,12 +210,12 @@ export default function BlogPostPage() {
         listItems.push(trimmedLine.replace('- ', ''));
       } else if (trimmedLine === '') {
         flushList();
-        elements.push(<div key={index} className="h-4" />);
+        elements.push(<div key={index} className="h-2" />);
       } else if (trimmedLine.length > 0) {
         flushList();
         elements.push(
-          <p key={index} className="text-slate-300 leading-relaxed mb-6 text-base">
-            {trimmedLine}
+          <p key={index} className="text-slate-300 leading-relaxed mb-4 text-base">
+            {renderBoldText(trimmedLine)}
           </p>
         );
       }
@@ -275,7 +289,7 @@ export default function BlogPostPage() {
           <Reveal delay={0.4}>
             <GlassCard className="p-8">
               <div className="max-w-none">
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {renderContent(post.content)}
                 </div>
               </div>
