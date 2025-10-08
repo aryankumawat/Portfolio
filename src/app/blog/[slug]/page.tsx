@@ -41,9 +41,9 @@ n8n is already a favorite for workflow automation, with its drag-and-drop interf
 
 It doesn't have to be one or the other:
 
-- Use AgentKit for dynamic reasoning and complex planning.
-- Use n8n for reliability, integrations, and scale.
-- Together, they can form a hybrid system where ChatGPT agents think and n8n executes.
+- Use AgentKit for dynamic reasoning and complex planning
+- Use n8n for reliability, integrations, and scale
+- Together, they can form a hybrid system where ChatGPT agents think and n8n executes
 
 ## Final Thoughts
 
@@ -137,35 +137,64 @@ export default function BlogPostPage() {
   // Function to render markdown-like content
   const renderContent = (content: string) => {
     const lines = content.split('\n');
-    return lines.map((line, index) => {
-      if (line.startsWith('## ')) {
-        return (
-          <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4">
-            {line.replace('## ', '')}
+    const elements: JSX.Element[] = [];
+    let inList = false;
+    let listItems: string[] = [];
+
+    const flushList = () => {
+      if (inList && listItems.length > 0) {
+        elements.push(
+          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-6 text-slate-300">
+            {listItems.map((item, idx) => (
+              <li key={idx} className="leading-relaxed">
+                {item}
+              </li>
+            ))}
+          </ul>
+        );
+        listItems = [];
+        inList = false;
+      }
+    };
+
+    lines.forEach((line, index) => {
+      const trimmedLine = line.trim();
+      
+      if (trimmedLine.startsWith('## ')) {
+        flushList();
+        elements.push(
+          <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-6 border-b border-slate-600 pb-2">
+            {trimmedLine.replace('## ', '')}
           </h2>
         );
-      } else if (line.startsWith('**') && line.endsWith('**')) {
-        return (
-          <h3 key={index} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-3">
-            {line.replace(/\*\*/g, '')}
+      } else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**') && trimmedLine.length > 4) {
+        flushList();
+        elements.push(
+          <h3 key={index} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-4">
+            {trimmedLine.replace(/\*\*/g, '')}
           </h3>
         );
-      } else if (line.startsWith('- ')) {
-        return (
-          <li key={index} className="text-slate-300 ml-4 mb-2">
-            {line.replace('- ', '')}
-          </li>
-        );
-      } else if (line.trim() === '') {
-        return <br key={index} />;
-      } else {
-        return (
-          <p key={index} className="text-slate-300 leading-relaxed mb-4">
-            {line}
+      } else if (trimmedLine.startsWith('- ')) {
+        if (!inList) {
+          flushList();
+          inList = true;
+        }
+        listItems.push(trimmedLine.replace('- ', ''));
+      } else if (trimmedLine === '') {
+        flushList();
+        elements.push(<div key={index} className="h-4" />);
+      } else if (trimmedLine.length > 0) {
+        flushList();
+        elements.push(
+          <p key={index} className="text-slate-300 leading-relaxed mb-6 text-base">
+            {trimmedLine}
           </p>
         );
       }
     });
+
+    flushList(); // Flush any remaining list items
+    return elements;
   };
 
   return (
@@ -231,8 +260,10 @@ export default function BlogPostPage() {
 
           <Reveal delay={0.4}>
             <GlassCard className="p-8">
-              <div className="prose prose-invert max-w-none">
-                {renderContent(post.content)}
+              <div className="max-w-none">
+                <div className="space-y-6">
+                  {renderContent(post.content)}
+                </div>
               </div>
             </GlassCard>
           </Reveal>
