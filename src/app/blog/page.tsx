@@ -77,7 +77,7 @@ In a world where automation is becoming mission-critical, n8n proves that open-s
     title: "ChatGPT's New AgentKit: A Competitor to n8n?",
     excerpt: "The automation landscape just got more interesting. OpenAI's latest release, AgentKit, transforms ChatGPT from a conversational AI into something far more powerful: a true autonomous agent capable of planning, executing, and adapting in real-time.",
     category: "AI & Automation",
-    date: "2025-10-08",
+    date: "08/10/2025",
     readTime: "8 min read",
     author: "Aryan Kumawat",
     tags: ["AI", "ChatGPT", "AgentKit", "n8n", "Automation"],
