@@ -102,7 +102,7 @@ const getLevelColor = (level: string) => {
 
 export function SkillsSection() {
   return (
-    <section className="section-padding bg-muted/30">
+    <section className="section-padding">
       <div className="container-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
