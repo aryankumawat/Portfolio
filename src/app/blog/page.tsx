@@ -6,6 +6,73 @@ import Link from "next/link";
 
 const blogPosts = [
   {
+    id: "what-is-n8n-workflow-automation",
+    title: "What is n8n? The Open-Source Workflow Automation Platform Explained",
+    excerpt: "The world of automation is evolving quickly, but some tools have already cemented themselves as go-to choices. One of the most powerful yet flexible platforms in this space is n8n (pronounced \"n-eight-n\").",
+    category: "Automation",
+    date: "2025-01-27",
+    readTime: "6 min read",
+    author: "Aryan Kumawat",
+    tags: ["n8n", "Automation", "Workflow", "Open Source", "Integration"],
+    featured: true,
+    content: `The world of automation is evolving quickly, but some tools have already cemented themselves as go-to choices. One of the most powerful yet flexible platforms in this space is n8n (pronounced "n-eight-n"). Unlike many proprietary automation suites, n8n is an open-source, extendable workflow automation tool that empowers individuals and businesses to connect apps, automate processes, and build custom integrations—without being locked into a closed ecosystem.
+
+So, what exactly makes n8n stand out? Let's break it down.
+
+## The Core Idea: Workflows Made Easy
+
+At its heart, n8n lets you create workflows—step-by-step chains of actions that connect your apps and services. Think of it as a bridge: you can set a trigger (like a new email, form submission, or webhook), and then define what happens next (send a message, update a database, transform data, etc.).
+
+The beauty is in its visual drag-and-drop interface. Even if you aren't a developer, you can design powerful automations by simply connecting nodes on a canvas. Each node represents a task—whether it's pulling data from an API, formatting text, sending notifications, or running custom code.
+
+## Why Developers Love n8n
+
+While tools like Zapier and Make focus heavily on no-code simplicity, n8n strikes a balance:
+
+**Open Source Freedom**: Because it's open-source, you're not stuck with vendor lock-in. You can host it yourself, customize it, and even add your own nodes.
+
+**Custom Code Execution**: Built-in nodes let you run JavaScript, making it highly flexible for edge cases.
+
+**API-First Design**: Developers can treat n8n as an automation engine, integrating it directly with their systems.
+
+**Community Power**: With a strong open-source community, you'll find contributions, plugins, and discussions that help the platform evolve quickly.
+
+## Key Features That Make n8n Special
+
+**400+ Integrations**: From Google Sheets and Slack to CRMs and databases, n8n connects to virtually everything.
+
+**Conditional Logic**: Unlike simple linear automation, you can branch workflows, add loops, and handle errors gracefully.
+
+**Scalability**: Run it on your local machine, deploy it to the cloud, or scale it with Docker and Kubernetes.
+
+**Fair Code License**: n8n uses a special license that keeps the core open-source but protects against unfair commercial exploitation.
+
+## Where It Shines
+
+n8n is perfect for:
+
+- Startups and teams that want automation without paying per-workflow fees.
+- Enterprises that need control, scalability, and self-hosting.
+- Developers and power users who like to get under the hood and customize.
+- Data workflows like ETL (Extract, Transform, Load), where multiple steps and conditional logic are required.
+
+## Where It Has Limitations
+
+Of course, n8n isn't flawless:
+
+**Learning Curve**: While powerful, it can feel overwhelming to beginners compared to simpler drag-and-drop tools.
+
+**Hosting Overhead**: If you self-host, you're responsible for infrastructure, updates, and security.
+
+**Ecosystem vs Competitors**: Zapier has more polished integrations, while Make offers an even more beginner-friendly interface.
+
+## The Bottom Line
+
+n8n is more than just another automation tool—it's a platform for building custom, scalable, and open automation systems. Whether you're an individual trying to streamline repetitive tasks, or an enterprise architect designing large-scale workflows, n8n offers the flexibility to make it happen on your terms.
+
+In a world where automation is becoming mission-critical, n8n proves that open-source solutions can be both powerful and practical. It's not just about connecting apps—it's about giving you the freedom to automate the way you want.`
+  },
+  {
     id: "chatgpt-agentkit-competitor-n8n",
     title: "ChatGPT's New AgentKit: A Competitor to n8n?",
     excerpt: "The automation landscape just got more interesting. OpenAI's latest release, AgentKit, transforms ChatGPT from a conversational AI into something far more powerful: a true autonomous agent capable of planning, executing, and adapting in real-time.",
@@ -14,7 +81,7 @@ const blogPosts = [
     readTime: "8 min read",
     author: "Aryan Kumawat",
     tags: ["AI", "ChatGPT", "AgentKit", "n8n", "Automation"],
-    featured: true,
+    featured: false,
     content: `The automation landscape just got more interesting. OpenAI's latest release, AgentKit, transforms ChatGPT from a conversational AI into something far more powerful: a true autonomous agent capable of planning, executing, and adapting in real-time.
 
 Unlike traditional chatbots that simply respond to prompts, AgentKit enables ChatGPT to break down complex tasks, make decisions on the fly, and interact with the digital world through browsers, code execution, and file management. This isn't just another AI tool—it's a glimpse into the future of intelligent automation.
