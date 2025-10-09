@@ -10,7 +10,7 @@ const blogPosts = [
     title: "What is n8n? The Open-Source Workflow Automation Platform Explained",
     excerpt: "The world of automation is evolving quickly, but some tools have already cemented themselves as go-to choices. One of the most powerful yet flexible platforms in this space is n8n (pronounced \"n-eight-n\").",
     category: "Automation",
-    date: "2025-01-27",
+    date: "2025-10-10",
     readTime: "6 min read",
     author: "Aryan Kumawat",
     tags: ["n8n", "Automation", "Workflow", "Open Source", "Integration"],
@@ -81,7 +81,7 @@ In a world where automation is becoming mission-critical, n8n proves that open-s
     readTime: "8 min read",
     author: "Aryan Kumawat",
     tags: ["AI", "ChatGPT", "AgentKit", "n8n", "Automation"],
-    featured: false,
+    featured: true,
     content: `The automation landscape just got more interesting. OpenAI's latest release, AgentKit, transforms ChatGPT from a conversational AI into something far more powerful: a true autonomous agent capable of planning, executing, and adapting in real-time.
 
 Unlike traditional chatbots that simply respond to prompts, AgentKit enables ChatGPT to break down complex tasks, make decisions on the fly, and interact with the digital world through browsers, code execution, and file management. This isn't just another AI tool—it's a glimpse into the future of intelligent automation.
