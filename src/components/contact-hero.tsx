@@ -10,7 +10,9 @@ import {
   Linkedin, 
   Clock, 
   MessageSquare,
-  Send
+  Send,
+  Github,
+  Instagram
 } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
@@ -31,6 +33,22 @@ const contactMethods = [
     href: "https://www.linkedin.com/in/aryan-kumawat-/",
     description: "Connect professionally and view my experience",
     color: "from-indigo-500 to-indigo-600",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "aryankumawat",
+    href: "https://github.com/aryankumawat",
+    description: "View my code repositories and projects",
+    color: "from-gray-600 to-gray-800",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    value: "@_aryankumawat_",
+    href: "https://www.instagram.com/_aryankumawat_/",
+    description: "Follow my personal journey and updates",
+    color: "from-pink-500 to-purple-600",
   },
   {
     icon: Phone,
@@ -131,12 +149,12 @@ export function ContactHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
         >
           {contactMethods.map((method, index) => (
             <motion.div
               key={method.label}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+              initial={{ opacity: 0, x: index % 3 === 0 ? -20 : index % 3 === 1 ? 0 : 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
             >
@@ -240,6 +258,26 @@ export function ContactHero() {
                   >
                     <Linkedin className="h-4 w-4 mr-2" />
                     Connect on LinkedIn
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="w-full">
+                  <a 
+                    href="https://github.com/aryankumawat"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="h-4 w-4 mr-2" />
+                    View GitHub Profile
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="w-full">
+                  <a 
+                    href="https://www.instagram.com/_aryankumawat_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Instagram className="h-4 w-4 mr-2" />
+                    Follow on Instagram
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="w-full">
