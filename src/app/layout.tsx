@@ -27,6 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aryankumawat.com"),
   title: "Aryan Kumawat - Data Science & Finance Portfolio",
   description: "Data & Finance at USYD — building AI-driven, real-world solutions. View my projects, experience, and get in touch.",
   keywords: ["Aryan Kumawat", "Data Science", "Finance", "Machine Learning", "University of Sydney", "Portfolio"],
