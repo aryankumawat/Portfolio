@@ -1141,69 +1141,86 @@ export default function ProjectDetailPage() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="mb-16"
             >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                🚀 Core Features
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                  <span className="text-2xl">🚀</span>
+                </div>
+                Core Features
               </h2>
-              <div className="grid lg:grid-cols-2 gap-8">
-                <GlassCard className="p-6">
+              
+              <div className="space-y-8 pl-15">
+                {/* Multi-Agent System - Compact Grid */}
+                <div>
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <Brain className="h-5 w-5 text-purple-400" />
-                    Multi-Agent System
+                    13-Agent System
                   </h3>
-                  <ul className="space-y-2">
-                    {project.features.multiAgentSystem && project.features.multiAgentSystem.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {project.features.multiAgentSystem && project.features.multiAgentSystem.map((feature, index) => {
+                      const agentName = feature.split(':')[0].replace(' Agent', '').replace(/\(.*?\)/, '').trim();
+                      const agentDesc = feature.split(':')[1]?.trim() || '';
+                      return (
+                        <div key={index} className="p-3 rounded-lg bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 hover:border-purple-500/40 transition-colors">
+                          <div className="text-sm font-semibold text-purple-400 mb-1">{agentName}</div>
+                          <div className="text-xs text-slate-400 line-clamp-2">{agentDesc}</div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
 
-                <GlassCard className="p-6">
+                {/* Model Routing Policies - Compact */}
+                <div>
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <BarChart3 className="h-5 w-5 text-cyan-400" />
                     Model Routing Policies
                   </h3>
-                  <ul className="space-y-2">
-                    {project.features.modelRoutingPolicies && project.features.modelRoutingPolicies.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {project.features.modelRoutingPolicies && project.features.modelRoutingPolicies.slice(0, 4).map((feature, index) => {
+                      const policyName = feature.split(':')[0].trim();
+                      const policyDesc = feature.split(':')[1]?.trim() || '';
+                      return (
+                        <div key={index} className="p-4 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-l-2 border-cyan-500">
+                          <div className="text-sm font-semibold text-cyan-400 mb-1">{policyName}</div>
+                          <div className="text-xs text-slate-300">{policyDesc}</div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
 
-                <GlassCard className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-green-400" />
-                    Performance Benchmarks
-                  </h3>
-                  <ul className="space-y-2">
-                    {project.features.performanceBenchmarks && project.features.performanceBenchmarks.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
+                {/* Performance & Enterprise - Side by Side */}
+                <div className="grid lg:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <Zap className="h-5 w-5 text-green-400" />
+                      Key Optimizations
+                    </h3>
+                    <div className="space-y-2">
+                      {project.features.performanceOptimizations && project.features.performanceOptimizations.map((feature, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2 rounded hover:bg-white/5 transition-colors">
+                          <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-300">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-                <GlassCard className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Cog className="h-5 w-5 text-orange-400" />
-                    Enterprise Features
-                  </h3>
-                  <ul className="space-y-2">
-                    {project.features.enterpriseFeatures && project.features.enterpriseFeatures.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2 text-slate-300">
-                        <CheckCircle className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <Shield className="h-5 w-5 text-orange-400" />
+                      Enterprise Features
+                    </h3>
+                    <div className="space-y-2">
+                      {project.features.enterpriseFeatures && project.features.enterpriseFeatures.map((feature, index) => (
+                        <div key={index} className="flex items-start gap-2 p-2 rounded hover:bg-white/5 transition-colors">
+                          <CheckCircle className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-300">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}
