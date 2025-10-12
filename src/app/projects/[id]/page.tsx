@@ -490,7 +490,7 @@ const projectData: Record<string, Project> = {
   },
   "slidesmith": {
     id: "slidesmith",
-    title: "SlideSmith - Enterprise-Grade AI Presentation Platform",
+    title: "SlideSmith - Multi-Agent AI Slide Maker",
     description: "A production-ready, distributed multi-agent system for automated slide deck generation with advanced quality assurance, semantic validation, and multi-format export capabilities. Built on a modular, extensible architecture supporting both cloud and edge LLM deployments.",
     category: "AI Applications",
     icon: Brain,
@@ -543,42 +543,42 @@ const projectData: Record<string, Project> = {
         "Production-Grade: TypeScript strict mode, Zod schemas, structured logging, 80%+ test coverage"
       ],
       themes: [
-        "DeepSpace: Near-black background with twinkling stars and blue-violet accents",
-        "Ultraviolet: Dark purple gradient with neon borders and glow effects",
-        "Minimal: Clean white design with subtle typography",
-        "Corporate: Professional navy and slate color scheme",
-        "NeonGrid: Cyber-themed with grid patterns and neon colors"
+        "DeepSpace: #0B0C10 base, CSS transforms for particle effects, #66FCF1/#45A29E accent system",
+        "Ultraviolet: Linear gradient (#5B21B6 → #7C3AED), box-shadow glow (0 0 20px rgba(139, 92, 246, 0.5))",
+        "Minimal: #FFFFFF base, system font stack, 1px borders (#E5E7EB), 8px border-radius",
+        "Corporate: #1E293B primary, #475569 secondary, 16px grid system, sans-serif typography",
+        "NeonGrid: Background SVG grid pattern, #00F5FF accents, matrix-style animations"
       ],
       liveWidgets: [
-        "LiveChart: Real-time data visualization with auto-refresh",
-        "Ticker: Live cryptocurrency and stock price tickers",
-        "Countdown: Event countdown timers",
-        "Map: Interactive location markers",
-        "Iframe: Embedded live dashboards and content"
+        "LiveChart: Recharts components with WebSocket polling (configurable interval), real-time data binding",
+        "Ticker: REST API integration (CoinGecko/Alpha Vantage), 5s refresh rate, price delta calculations",
+        "Countdown: JavaScript Date() calculations, millisecond precision, timezone-aware (Intl.DateTimeFormat)",
+        "Map: Leaflet.js integration, GeoJSON parsing, marker clustering, custom tile layers",
+        "Iframe: Sandboxed embeds (allow-scripts, allow-same-origin), CSP headers, lazy loading"
       ],
       exportOptions: [
-        "Advanced PPTX Export: Native chart rendering (line, bar, pie, area, scatter, doughnut) with PowerPoint 2016+ compatibility",
-        "Smart Text Wrapping: Word-boundary wrapping algorithm (no truncation, preserves full content)",
-        "Theme Consistency: All 5 themes applied to charts, backgrounds, and text with color matching",
-        "PDF Export: Landscape format (11\" × 8.5\") with adaptive layout and embedded fonts using PDFKit",
-        "Image Integration: Unsplash API with dynamic content-aware sourcing and keyword extraction",
-        "Editable Charts: Native PowerPoint chart objects (fully editable after export)",
-        "Speaker Notes: Full presenter guidance preserved in PPTX format",
-        "Share & Save: URL sharing and local IndexedDB storage with offline support"
+        "PPTX: PptxGenJS v3.12+ with addChart() API, native Office Open XML format, chartData object serialization",
+        "Chart Types: pptx.ChartType enum (bar, line, pie, area, scatter, doughnut), multi-series support",
+        "Text Wrapping: Recursive word-boundary algorithm, max width calculations, font metrics (measureText())",
+        "PDF: PDFKit v0.13+, landscape A4 (792×612pt), TTF font embedding, vector graphics preservation",
+        "Image API: Unsplash API v1, TF-IDF keyword extraction, async fetch with retry logic (3 attempts)",
+        "Theme Mapping: HEX → RGB conversion, chart color arrays, background fill patterns, gradient stops",
+        "Speaker Notes: pptx.addNotes() method, plain text format, presenter timing metadata",
+        "Storage: IndexedDB v3 (idb-keyval), structured cloning, Blob serialization, 50MB quota management"
       ]
     },
     
     technology: {
       framework: [
-        "Next.js 15 - App Router with TypeScript for modern development",
-        "React 18 - Modern React with hooks and concurrent features",
-        "TypeScript - Type-safe development with comprehensive type definitions"
+        "Next.js 15.0 - App Router (file-based routing), RSC (React Server Components), Turbopack bundler",
+        "React 18.2 - Concurrent rendering, useTransition(), Suspense boundaries, automatic batching",
+        "TypeScript 5.3 - Strict mode, type inference, branded types, template literal types"
       ],
       ui: [
-        "Tailwind CSS - Utility-first styling framework",
-        "shadcn/ui - Beautiful, accessible UI components",
-        "Lucide React - Consistent icon system",
-        "Framer Motion - Smooth animations and transitions"
+        "Tailwind CSS 3.4 - JIT compiler, arbitrary values, custom variants (@layer utilities)",
+        "shadcn/ui - Radix UI primitives, cn() utility (clsx + tailwind-merge), CSS variables theming",
+        "Lucide React 0.263 - SVG icon components, tree-shakeable imports, 24×24px stroke-width:2",
+        "Framer Motion 10.16 - useSpring() hook, layout animations, AnimatePresence exit transitions"
       ],
       multiAgentAI: [
         "Ollama - Local/edge LLM deployment with Phi-4 14B and Gemma3 4B models",
@@ -614,11 +614,12 @@ const projectData: Record<string, Project> = {
         "Theme Consistency - All 5 themes applied to charts, backgrounds, and text"
       ],
       deployment: [
-        "Vercel - Optimized Next.js deployment platform",
-        "Docker - Container support for local deployment",
-        "Environment Variables - Secure API key management",
-        "Local-First - Full Ollama support for privacy and cost control"
+        "Vercel - Edge Network (300+ PoPs), automatic HTTPS (Let's Encrypt), zero-config deployments",
+        "Docker - Multi-stage builds, alpine:3.18 base, HEALTHCHECK directives, BuildKit caching",
+        "Environment Variables - dotenv parsing, process.env access, encrypted secrets (Vercel Env Vault)",
+        "Ollama - HTTP server (port 11434), GGUF model format, GPU offloading (CUDA/Metal), 16GB RAM requirement"
       ]
+      
     },
     
     architecture: {

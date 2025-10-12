@@ -90,7 +90,7 @@ const projects = [
   },
   {
     id: "slidesmith",
-    title: "SlideSmith - Enterprise-Grade AI Presentation Platform",
+    title: "SlideSmith - Multi-Agent AI Slide Maker",
     description: "A production-ready, distributed multi-agent system for automated slide deck generation with advanced quality assurance, semantic validation, and multi-format export. Built on modular, extensible architecture supporting both cloud and edge LLM deployments with 13 specialized AI agents.",
     category: "AI Applications",
     icon: Brain,
