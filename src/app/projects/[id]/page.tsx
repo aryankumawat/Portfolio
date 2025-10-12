@@ -1253,19 +1253,19 @@ export default function ProjectDetailPage() {
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2 text-slate-300">
                       <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                      <span>5 Beautiful Themes (DeepSpace, Ultraviolet, Minimal, Corporate, NeonGrid)</span>
+                      <span>Provider Abstraction (Ollama, OpenAI, OpenRouter)</span>
                     </li>
                     <li className="flex items-start gap-2 text-slate-300">
                       <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                      <span>Live Widgets (Charts, Tickers, Countdowns, Maps, Iframes)</span>
+                      <span>Native PPTX Charts with PptxGenJS (Editable in PowerPoint)</span>
                     </li>
                     <li className="flex items-start gap-2 text-slate-300">
                       <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                      <span>Perfect PDF & PPTX Export</span>
+                      <span>Theme-Aware PDF Export with PDFKit</span>
                     </li>
                     <li className="flex items-start gap-2 text-slate-300">
                       <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                      <span>IndexedDB Local Storage</span>
+                      <span>IndexedDB Client-Side Persistence</span>
                     </li>
                   </ul>
                 </GlassCard>
