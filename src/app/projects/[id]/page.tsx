@@ -51,6 +51,8 @@ interface Project {
     problem: string;
     solution: string;
     impact: string;
+    summary?: string;
+    keyPoints?: string[];
   };
   // For ML projects (Alopecia)
   dataset?: {
@@ -141,6 +143,40 @@ interface Project {
     url?: string;
     source?: string;
   }>;
+  // SlideSmith specific fields
+  architectureDetails?: {
+    overview: string[];
+    keyAgents: string;
+    exportAgent: string;
+  };
+  performanceMetrics?: {
+    latency: string;
+    parallelQA: string;
+    routingEfficiency: string;
+    reliability: string;
+    tokensPerDeck: string;
+  };
+  qualityAssurance?: {
+    schemas: string;
+    factuality: string;
+    accessibility: string;
+    readability: string;
+    metrics: string[];
+  };
+  apiSurface?: {
+    multiAgent: {
+      endpoint: string;
+      params: string[];
+    };
+    simplified: {
+      endpoint: string;
+      params: string[];
+    };
+    exports: string[];
+  };
+  securityPrivacy?: {
+    features: string[];
+  };
 }
 
 // Project data - in a real app, this would come from a CMS or API
