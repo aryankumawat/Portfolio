@@ -1049,10 +1049,10 @@ export default function ProjectDetailPage() {
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <BarChart3 className="h-5 w-5 text-cyan-400" />
-                    Live Widgets
+                    Model Routing Policies
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.liveWidgets && project.features.liveWidgets.map((feature, index) => (
+                    {project.features.modelRoutingPolicies && project.features.modelRoutingPolicies.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -1064,10 +1064,10 @@ export default function ProjectDetailPage() {
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <Shield className="h-5 w-5 text-green-400" />
-                    Security & Privacy
+                    Performance Benchmarks
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.themes && project.features.themes.map((feature, index) => (
+                    {project.features.performanceBenchmarks && project.features.performanceBenchmarks.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -1169,60 +1169,6 @@ export default function ProjectDetailPage() {
             </motion.div>
           )}
 
-          {/* Themes Section - Only for SlideSmith */}
-          {project.id === "slidesmith" && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              className="mb-16"
-            >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                🎨 Beautiful Themes
-              </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-slate-900 to-black flex items-center justify-center">
-                    <span className="text-2xl">🌌</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">DeepSpace</h3>
-                  <p className="text-sm text-slate-300">Near-black background with twinkling stars and blue-violet accents</p>
-                </GlassCard>
-
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-purple-900 to-purple-600 flex items-center justify-center">
-                    <span className="text-2xl">✨</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Ultraviolet</h3>
-                  <p className="text-sm text-slate-300">Dark purple gradient with neon borders and glow effects</p>
-                </GlassCard>
-
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-white to-gray-100 flex items-center justify-center">
-                    <span className="text-2xl text-gray-800">⚪</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Minimal</h3>
-                  <p className="text-sm text-slate-300">Clean white design with subtle typography</p>
-                </GlassCard>
-
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-slate-800 to-slate-600 flex items-center justify-center">
-                    <span className="text-2xl">🏢</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Corporate</h3>
-                  <p className="text-sm text-slate-300">Professional navy and slate color scheme</p>
-                </GlassCard>
-
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-green-900 to-green-600 flex items-center justify-center">
-                    <span className="text-2xl">🔲</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">NeonGrid</h3>
-                  <p className="text-sm text-slate-300">Cyber-themed with grid patterns and neon colors</p>
-                </GlassCard>
-              </div>
-            </motion.div>
-          )}
 
           {/* Technology Stack - Customized for SlideSmith */}
           {project.technology && project.id === "slidesmith" && (
@@ -1511,60 +1457,6 @@ export default function ProjectDetailPage() {
           </motion.div>
           )}
 
-          {/* Live Widgets Section - Only for SlideSmith */}
-          {project.id === "slidesmith" && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="mb-16"
-            >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                📊 Live Widgets
-              </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                    <BarChart3 className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">LiveChart</h3>
-                  <p className="text-sm text-slate-300">Real-time data visualization with auto-refresh capabilities</p>
-                </GlassCard>
-
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-                    <TrendingUp className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Ticker</h3>
-                  <p className="text-sm text-slate-300">Live cryptocurrency and stock price tickers</p>
-                </GlassCard>
-
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
-                    <Zap className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Countdown</h3>
-                  <p className="text-sm text-slate-300">Event countdown timers with real-time updates</p>
-                </GlassCard>
-
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
-                    <Globe className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Map</h3>
-                  <p className="text-sm text-slate-300">Interactive location markers and geographic data</p>
-                </GlassCard>
-
-                <GlassCard className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                    <Monitor className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Iframe</h3>
-                  <p className="text-sm text-slate-300">Embedded live dashboards and external content</p>
-                </GlassCard>
-              </div>
-            </motion.div>
-          )}
 
           {/* Technologies */}
           <motion.div
