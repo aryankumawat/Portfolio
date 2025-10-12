@@ -547,7 +547,8 @@ const projectData: Record<string, Project> = {
         "Speed Policy: Gemma3 4B for all agents, 2-3 min/deck, rapid prototyping and draft iterations",
         "Balanced Policy (Default): Phi-4 14B for research/structure, Gemma3 4B for content, 3-5 min/deck",
         "Local-Only Policy: Ollama-exclusive execution, zero cloud API calls, privacy-sensitive deployments",
-        "Dynamic Routing: Task complexity analysis, real-time model selection, cost-latency optimization"
+        "Dynamic Routing: Task complexity analysis, real-time model selection, cost-latency optimization",
+        "API Configuration: POST /api/multi-model-generate with policy: 'quality' | 'speed' | 'balanced' | 'local-only'"
       ],
       performanceBenchmarks: [
         "Initialization: ~1-2s (model loading, context setup, dependency injection)",
@@ -557,7 +558,8 @@ const projectData: Record<string, Project> = {
         "QA Pipeline: ~20-30s (4 concurrent agents: fact-checker, accessibility, readability, copy-tightener)",
         "Export Phase: ~1-2s (PPTX: 0.3-0.8s, PDF: 0.3-0.4s, theme rendering, font embedding)",
         "Total End-to-End: 3-5 min (13-slide deck, balanced policy, M1 Pro 16GB, GPU-accelerated)",
-        "Token Usage: 10k-20k tokens/deck (2k-5k input, 8k-15k output, intelligent caching)"
+        "Token Usage: 10k-20k tokens/deck (2k-5k input, 8k-15k output, intelligent caching)",
+        "Hardware: Apple M1 Pro (16GB RAM, 16-core GPU), all 35 layers offloaded to GPU"
       ],
       exportOptions: [
         "PPTX: PptxGenJS v3.12+ with addChart() API, native Office Open XML format, chartData object serialization",
