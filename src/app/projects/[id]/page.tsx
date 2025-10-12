@@ -542,19 +542,22 @@ const projectData: Record<string, Project> = {
         "Security & Privacy: GDPR-compliant, local-first processing, TLS 1.3 encryption",
         "Production-Grade: TypeScript strict mode, Zod schemas, structured logging, 80%+ test coverage"
       ],
-      themes: [
-        "DeepSpace: #0B0C10 base, CSS transforms for particle effects, #66FCF1/#45A29E accent system",
-        "Ultraviolet: Linear gradient (#5B21B6 → #7C3AED), box-shadow glow (0 0 20px rgba(139, 92, 246, 0.5))",
-        "Minimal: #FFFFFF base, system font stack, 1px borders (#E5E7EB), 8px border-radius",
-        "Corporate: #1E293B primary, #475569 secondary, 16px grid system, sans-serif typography",
-        "NeonGrid: Background SVG grid pattern, #00F5FF accents, matrix-style animations"
+      modelRoutingPolicies: [
+        "Quality Policy: Phi-4 14B for all agents, 5-7 min/deck, maximum accuracy for production presentations",
+        "Speed Policy: Gemma3 4B for all agents, 2-3 min/deck, rapid prototyping and draft iterations",
+        "Balanced Policy (Default): Phi-4 14B for research/structure, Gemma3 4B for content, 3-5 min/deck",
+        "Local-Only Policy: Ollama-exclusive execution, zero cloud API calls, privacy-sensitive deployments",
+        "Dynamic Routing: Task complexity analysis, real-time model selection, cost-latency optimization"
       ],
-      liveWidgets: [
-        "LiveChart: Recharts components with WebSocket polling (configurable interval), real-time data binding",
-        "Ticker: REST API integration (CoinGecko/Alpha Vantage), 5s refresh rate, price delta calculations",
-        "Countdown: JavaScript Date() calculations, millisecond precision, timezone-aware (Intl.DateTimeFormat)",
-        "Map: Leaflet.js integration, GeoJSON parsing, marker clustering, custom tile layers",
-        "Iframe: Sandboxed embeds (allow-scripts, allow-same-origin), CSP headers, lazy loading"
+      performanceBenchmarks: [
+        "Initialization: ~1-2s (model loading, context setup, dependency injection)",
+        "Research Phase: ~30-40s (Phi-4 14B, evidence extraction, source validation, citation mapping)",
+        "Structure Phase: ~15-25s (Gemma3 4B, narrative planning, section decomposition, flow optimization)",
+        "Slidewriter Phase: ~120-180s (Gemma3 4B, parallel generation, 15-25s per slide)",
+        "QA Pipeline: ~20-30s (4 concurrent agents: fact-checker, accessibility, readability, copy-tightener)",
+        "Export Phase: ~1-2s (PPTX: 0.3-0.8s, PDF: 0.3-0.4s, theme rendering, font embedding)",
+        "Total End-to-End: 3-5 min (13-slide deck, balanced policy, M1 Pro 16GB, GPU-accelerated)",
+        "Token Usage: 10k-20k tokens/deck (2k-5k input, 8k-15k output, intelligent caching)"
       ],
       exportOptions: [
         "PPTX: PptxGenJS v3.12+ with addChart() API, native Office Open XML format, chartData object serialization",
