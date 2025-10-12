@@ -1020,7 +1020,7 @@ export default function ProjectDetailPage() {
 
 
           {/* Features - Customized for SlideSmith */}
-          {project.features && project.id === "slidesmith" && project.features.coreFeatures && (
+          {project.features && project.id === "slidesmith" && project.features.multiAgentSystem && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -1034,10 +1034,10 @@ export default function ProjectDetailPage() {
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <Brain className="h-5 w-5 text-purple-400" />
-                    AI Generation
+                    Multi-Agent System
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.coreFeatures && project.features.coreFeatures.map((feature, index) => (
+                    {project.features.multiAgentSystem && project.features.multiAgentSystem.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-purple-400 mt-0.5 flex-shrink-0" />
                         {feature}
@@ -1079,10 +1079,10 @@ export default function ProjectDetailPage() {
                 <GlassCard className="p-6">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <Cog className="h-5 w-5 text-orange-400" />
-                    Technical Excellence
+                    Enterprise Features
                   </h3>
                   <ul className="space-y-2">
-                    {project.features.technicalFeatures && project.features.technicalFeatures.map((feature, index) => (
+                    {project.features.enterpriseFeatures && project.features.enterpriseFeatures.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2 text-slate-300">
                         <CheckCircle className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
                         {feature}
