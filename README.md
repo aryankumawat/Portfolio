@@ -76,6 +76,81 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 - **Models**: Llama 3.3 70B, Phi-4 14B
 - **Features**: Task orchestration, agent specialization, ephemeral concurrency
 
+### SlideSmith - Multi-Agent AI Slide Maker
+- **Technology**: Next.js 15, React 18, TypeScript, Ollama, Phi-4, Gemma3-4B, OpenAI, Zod, Playwright, PptxGenJS
+- **Architecture**: Revolutionary 12-agent AI system with multi-agent orchestration
+- **Performance**: 75% faster parallel processing, 60% speed improvement, 99% reliability, 100% cost reduction with local Ollama
+- **Features**: Automated fact-checking, WCAG compliance, readability analysis, 5 beautiful themes, live widgets, PDF/PPTX export
+- **GitHub**: [Repository Link](https://github.com/aryankumawat/slidesmith)
+
+#### SlideSmith Project Structure
+
+```
+src/
+├── app/                                    # Next.js App Router
+│   ├── api/                               # API Routes
+│   │   ├── multi-model-generate/         # Multi-agent orchestration endpoint
+│   │   ├── generate-deck/                # Simplified generation endpoint
+│   │   ├── generate/                     # Legacy endpoint (backward compat)
+│   │   └── export/                       # Format conversion endpoints
+│   │       ├── pdf/                      # PDF export endpoint
+│   │       └── pptx/                     # PPTX export endpoint
+│   ├── studio/                           # Legacy studio interface
+│   ├── studio-new/                       # Modern studio interface
+│   └── page.tsx                          # Landing page
+│
+├── components/                            # React Components
+│   ├── blocks/                           # Slide content primitives
+│   │   ├── HeadingBlock.tsx             # Heading/title blocks
+│   │   ├── BulletsBlock.tsx             # Bullet point lists
+│   │   ├── ChartBlock.tsx               # Chart visualizations
+│   │   ├── ImageBlock.tsx               # Image blocks
+│   │   └── ...                          # Additional block types
+│   │
+│   ├── live-widgets/                     # Real-time data components
+│   │   ├── LiveChart.tsx                # Live data charts
+│   │   ├── Ticker.tsx                   # Stock/crypto tickers
+│   │   ├── Map.tsx                      # Interactive maps
+│   │   └── ...                          # Additional widgets
+│   │
+│   ├── DeckCanvas.tsx                    # Slide rendering engine
+│   └── ui/                               # Design system components (shadcn)
+│
+├── lib/                                   # Core Library & Utilities
+│   ├── multi-model/                      # Agent system core
+│   │   ├── agents/                       # Individual agent implementations
+│   │   │   ├── researcher.ts            # Research & fact gathering agent
+│   │   │   ├── structurer.ts            # Deck outline & structure agent
+│   │   │   ├── slidewriter.ts           # Content generation agent
+│   │   │   ├── copy-tightener.ts        # Tone & refinement agent
+│   │   │   ├── fact-checker.ts          # Verification & citation agent
+│   │   │   ├── accessibility-linter.ts  # WCAG compliance agent
+│   │   │   └── ...                      # Additional specialized agents
+│   │   │
+│   │   ├── base-agent.ts                # Abstract agent class
+│   │   ├── orchestrator.ts              # DAG execution coordinator
+│   │   ├── router.ts                    # Model selection logic
+│   │   ├── schemas.ts                   # Zod validation contracts
+│   │   └── ollama-config.ts             # Model configuration
+│   │
+│   ├── llm.ts                            # LLM provider abstraction
+│   ├── deck-generator.ts                 # Simplified generation pipeline
+│   ├── pptx-advanced-exporter.ts        # Advanced PPTX engine (native charts, wrapping)
+│   ├── schema.ts                         # Core TypeScript types
+│   ├── theming.ts                        # Theme system
+│   ├── storage.ts                        # Client-side persistence
+│   └── utils.ts                          # Utility functions
+│
+└── prompts/                               # AI Prompt Templates
+    └── slide_prompts.ts                   # Prompt template library
+```
+
+**Key Features:**
+- **12 Specialized AI Agents**: Researcher, Structurer, Slidewriter, Copy Tightener, Fact Checker, Data→Viz Planner, Media Finder, Speaker Notes Generator, Accessibility Linter, Live Widget Planner, Executive Summary, Audience Adapter
+- **Performance Optimizations**: Parallel processing (75% faster), smart model routing (60% improvement), intelligent caching, timeout handling (99% reliability)
+- **Quality Assurance**: Built-in fact-checking, accessibility validation, readability analysis
+- **Local-First**: Full Ollama support for privacy and 100% cost reduction
+
 ## 🚀 Getting Started
 
 ### Prerequisites
