@@ -1180,24 +1180,27 @@ export default function ProjectDetailPage() {
               transition={{ duration: 0.8, delay: 1.0 }}
               className="mb-16"
             >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                📋 Overview
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                  <span className="text-2xl">📋</span>
+                </div>
+                Overview
               </h2>
-              <GlassCard className="p-8">
-                <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+              <div className="space-y-6">
+                <p className="text-lg text-slate-300 leading-relaxed pl-15">
                   {project.overview.summary}
                 </p>
                 {project.overview.keyPoints && (
-                  <ul className="space-y-3">
+                  <div className="grid md:grid-cols-3 gap-4 pl-15">
                     {project.overview.keyPoints.map((point, index) => (
-                      <li key={index} className="flex items-start gap-3 text-slate-300">
+                      <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
                         <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                        <span>{point}</span>
-                      </li>
+                        <span className="text-sm text-slate-300">{point}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 )}
-              </GlassCard>
+              </div>
             </motion.div>
           )}
 
@@ -1209,31 +1212,40 @@ export default function ProjectDetailPage() {
               transition={{ duration: 0.8, delay: 1.1 }}
               className="mb-16"
             >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                🏗️ Architecture
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                  <span className="text-2xl">🏗️</span>
+                </div>
+                Architecture
               </h2>
-              <GlassCard className="p-8">
-                <ul className="space-y-3 mb-6">
-                  {project.architectureDetails.overview && project.architectureDetails.overview.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-slate-300">
-                      <CheckCircle className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                {project.architectureDetails.keyAgents && (
-                  <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-                    <p className="text-sm font-semibold text-white mb-2">Key Agents (13):</p>
-                    <p className="text-sm text-slate-300">{project.architectureDetails.keyAgents}</p>
+              <div className="space-y-4 pl-15">
+                {project.architectureDetails.overview && project.architectureDetails.overview.map((item, index) => (
+                  <div key={index} className="flex items-start gap-3 text-slate-300 p-3 rounded-lg hover:bg-white/5 transition-colors">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <span>{item}</span>
                   </div>
-                )}
-                {project.architectureDetails.exportAgent && (
-                  <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10">
-                    <p className="text-sm font-semibold text-white mb-2">Export:</p>
-                    <p className="text-sm text-slate-300">{project.architectureDetails.exportAgent}</p>
-                  </div>
-                )}
-              </GlassCard>
+                ))}
+                <div className="grid md:grid-cols-2 gap-4 mt-6">
+                  {project.architectureDetails.keyAgents && (
+                    <div className="p-5 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-xl border border-blue-500/20">
+                      <p className="text-sm font-bold text-blue-400 mb-2 flex items-center gap-2">
+                        <Brain className="h-4 w-4" />
+                        Key Agents (13)
+                      </p>
+                      <p className="text-sm text-slate-300 leading-relaxed">{project.architectureDetails.keyAgents}</p>
+                    </div>
+                  )}
+                  {project.architectureDetails.exportAgent && (
+                    <div className="p-5 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-xl border border-green-500/20">
+                      <p className="text-sm font-bold text-green-400 mb-2 flex items-center gap-2">
+                        <Download className="h-4 w-4" />
+                        Export
+                      </p>
+                      <p className="text-sm text-slate-300 leading-relaxed">{project.architectureDetails.exportAgent}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </motion.div>
           )}
 
@@ -1286,51 +1298,52 @@ export default function ProjectDetailPage() {
               transition={{ duration: 0.8, delay: 1.3 }}
               className="mb-16"
             >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                ✅ Quality Assurance
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                  <span className="text-2xl">✅</span>
+                </div>
+                Quality Assurance
               </h2>
-              <GlassCard className="p-8">
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-green-400" />
-                      Validation Methods
-                    </h3>
-                    <ul className="space-y-2 text-slate-300">
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-400">▸</span>
-                        <span><strong>Schemas:</strong> {project.qualityAssurance.schemas}</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-400">▸</span>
-                        <span><strong>Factuality:</strong> {project.qualityAssurance.factuality}</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-400">▸</span>
-                        <span><strong>Accessibility:</strong> {project.qualityAssurance.accessibility}</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-400">▸</span>
-                        <span><strong>Readability:</strong> {project.qualityAssurance.readability}</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
-                      <BarChart3 className="h-5 w-5 text-blue-400" />
-                      Quality Metrics
-                    </h3>
-                    <ul className="space-y-2 text-sm text-slate-300">
-                      {project.qualityAssurance.metrics && project.qualityAssurance.metrics.map((metric, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
-                          <span>{metric}</span>
-                        </li>
-                      ))}
-                    </ul>
+              <div className="grid md:grid-cols-2 gap-6 pl-15">
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                    <Shield className="h-5 w-5 text-green-400" />
+                    Validation Methods
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="p-4 rounded-lg bg-gradient-to-r from-green-500/10 to-transparent border-l-2 border-green-500">
+                      <span className="text-sm font-semibold text-green-400">Schemas:</span>
+                      <p className="text-sm text-slate-300 mt-1">{project.qualityAssurance.schemas}</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-gradient-to-r from-blue-500/10 to-transparent border-l-2 border-blue-500">
+                      <span className="text-sm font-semibold text-blue-400">Factuality:</span>
+                      <p className="text-sm text-slate-300 mt-1">{project.qualityAssurance.factuality}</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-gradient-to-r from-purple-500/10 to-transparent border-l-2 border-purple-500">
+                      <span className="text-sm font-semibold text-purple-400">Accessibility:</span>
+                      <p className="text-sm text-slate-300 mt-1">{project.qualityAssurance.accessibility}</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-gradient-to-r from-orange-500/10 to-transparent border-l-2 border-orange-500">
+                      <span className="text-sm font-semibold text-orange-400">Readability:</span>
+                      <p className="text-sm text-slate-300 mt-1">{project.qualityAssurance.readability}</p>
+                    </div>
                   </div>
                 </div>
-              </GlassCard>
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                    <BarChart3 className="h-5 w-5 text-blue-400" />
+                    Quality Metrics
+                  </h3>
+                  <div className="space-y-2">
+                    {project.qualityAssurance.metrics && project.qualityAssurance.metrics.map((metric, index) => (
+                      <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors">
+                        <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-slate-300">{metric}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           )}
 
@@ -1342,65 +1355,70 @@ export default function ProjectDetailPage() {
               transition={{ duration: 0.8, delay: 1.4 }}
               className="mb-16"
             >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                🔌 API Surface
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center">
+                  <span className="text-2xl">🔌</span>
+                </div>
+                API Surface
               </h2>
-              <div className="grid lg:grid-cols-2 gap-6">
-                {project.apiSurface.multiAgent && (
-                  <GlassCard className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <Code className="h-5 w-5 text-purple-400" />
-                      Multi-Agent Generation
-                    </h3>
-                    <div className="bg-black/50 rounded-lg p-4 mb-4 border border-white/10">
-                      <code className="text-sm text-green-400">{project.apiSurface.multiAgent.endpoint}</code>
+              <div className="space-y-6 pl-15">
+                <div className="grid lg:grid-cols-2 gap-6">
+                  {project.apiSurface.multiAgent && (
+                    <div className="space-y-3">
+                      <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                        <Code className="h-5 w-5 text-purple-400" />
+                        Multi-Agent Generation
+                      </h3>
+                      <div className="bg-black/50 rounded-lg p-4 border border-purple-500/30">
+                        <code className="text-sm text-green-400">{project.apiSurface.multiAgent.endpoint}</code>
+                      </div>
+                      <div className="space-y-1.5">
+                        {project.apiSurface.multiAgent.params.map((param, index) => (
+                          <div key={index} className="flex items-start gap-2 text-sm text-slate-300 pl-4">
+                            <span className="text-purple-400">▸</span>
+                            <code>{param}</code>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <ul className="space-y-2 text-sm text-slate-300">
-                      {project.apiSurface.multiAgent.params.map((param, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="text-purple-400">▸</span>
-                          <code className="text-slate-300">{param}</code>
-                        </li>
-                      ))}
-                    </ul>
-                  </GlassCard>
-                )}
-                {project.apiSurface.simplified && (
-                  <GlassCard className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <Zap className="h-5 w-5 text-blue-400" />
-                      Simplified Generation
-                    </h3>
-                    <div className="bg-black/50 rounded-lg p-4 mb-4 border border-white/10">
-                      <code className="text-sm text-green-400">{project.apiSurface.simplified.endpoint}</code>
+                  )}
+                  {project.apiSurface.simplified && (
+                    <div className="space-y-3">
+                      <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                        <Zap className="h-5 w-5 text-blue-400" />
+                        Simplified Generation
+                      </h3>
+                      <div className="bg-black/50 rounded-lg p-4 border border-blue-500/30">
+                        <code className="text-sm text-green-400">{project.apiSurface.simplified.endpoint}</code>
+                      </div>
+                      <div className="space-y-1.5">
+                        {project.apiSurface.simplified.params.map((param, index) => (
+                          <div key={index} className="flex items-start gap-2 text-sm text-slate-300 pl-4">
+                            <span className="text-blue-400">▸</span>
+                            <code>{param}</code>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <ul className="space-y-2 text-sm text-slate-300">
-                      {project.apiSurface.simplified.params.map((param, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="text-blue-400">▸</span>
-                          <code className="text-slate-300">{param}</code>
-                        </li>
+                  )}
+                </div>
+                {project.apiSurface.exports && (
+                  <div className="mt-6 p-5 bg-gradient-to-r from-green-500/10 to-transparent rounded-xl border-l-2 border-green-500">
+                    <h3 className="text-sm font-bold text-green-400 mb-3 flex items-center gap-2">
+                      <Download className="h-4 w-4" />
+                      Export Endpoints
+                    </h3>
+                    <div className="space-y-2">
+                      {project.apiSurface.exports.map((exp, index) => (
+                        <div key={index} className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                          <code className="text-sm text-slate-300">{exp}</code>
+                        </div>
                       ))}
-                    </ul>
-                  </GlassCard>
+                    </div>
+                  </div>
                 )}
               </div>
-              {project.apiSurface.exports && (
-                <GlassCard className="p-6 mt-6">
-                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                    <Download className="h-5 w-5 text-green-400" />
-                    Export Endpoints
-                  </h3>
-                  <ul className="space-y-2 text-sm text-slate-300">
-                    {project.apiSurface.exports.map((exp, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                        <code className="text-slate-300">{exp}</code>
-                      </li>
-                    ))}
-                  </ul>
-                </GlassCard>
-              )}
             </motion.div>
           )}
 
@@ -1412,19 +1430,20 @@ export default function ProjectDetailPage() {
               transition={{ duration: 0.8, delay: 1.5 }}
               className="mb-16"
             >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
-                🔒 Security & Privacy
-              </h2>
-              <GlassCard className="p-8">
-                <div className="grid md:grid-cols-2 gap-6">
-                  {project.securityPrivacy.features && project.securityPrivacy.features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Shield className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-300">{feature}</span>
-                    </div>
-                  ))}
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                  <span className="text-2xl">🔒</span>
                 </div>
-              </GlassCard>
+                Security & Privacy
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4 pl-15">
+                {project.securityPrivacy.features && project.securityPrivacy.features.map((feature, index) => (
+                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10 hover:border-red-500/30 transition-colors">
+                    <Shield className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-slate-300">{feature}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           )}
 
