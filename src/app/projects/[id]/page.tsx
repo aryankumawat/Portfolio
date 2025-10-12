@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import Head from "next/head";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/GlassCard";
 import { Badge } from "@/components/ui/badge";
@@ -835,7 +836,50 @@ export default function ProjectDetailPage() {
     );
   }
 
+  // Generate metadata for SEO
+  const getMetadata = () => {
+    if (project.id === "slidesmith") {
+      return {
+        title: "SlideSmith — Enterprise AI Presentation Generator | Aryan Kumawat",
+        description: "Production-ready multi-agent system for automated slide decks with policy-based model routing, parallel QA, and native PPTX/PDF export. Runs on Ollama or OpenAI.",
+        ogTitle: "SlideSmith — Enterprise AI Presentation Generator",
+        ogDescription: "13-agent DAG pipeline, parallel QA, semantic export, and provider-agnostic LLM routing (local or cloud).",
+        ogImage: "/images/projects/slidesmith-og.png",
+        url: "https://aryankumawat.com/projects/slidesmith"
+      };
+    }
+    return {
+      title: `${project.title} | Aryan Kumawat`,
+      description: project.description,
+      ogTitle: project.title,
+      ogDescription: project.description,
+      ogImage: "/images/projects/default-og.png",
+      url: `https://aryankumawat.com/projects/${project.id}`
+    };
+  };
+
+  const metadata = getMetadata();
+
   return (
+    <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        
+        {/* OpenGraph */}
+        <meta property="og:title" content={metadata.ogTitle} />
+        <meta property="og:description" content={metadata.ogDescription} />
+        <meta property="og:url" content={metadata.url} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={metadata.ogImage} />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metadata.ogTitle} />
+        <meta name="twitter:description" content={metadata.ogDescription} />
+        <meta name="twitter:image" content={metadata.ogImage} />
+      </Head>
+      
     <div className="min-h-screen bg-black" style={{ willChange: 'auto' }}>
       {/* Header */}
       <section className="pt-32 pb-20">
@@ -1523,5 +1567,6 @@ export default function ProjectDetailPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

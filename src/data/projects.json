@@ -1,0 +1,52 @@
+{
+  "projects": [
+    {
+      "slug": "slidesmith",
+      "title": "SlideSmith",
+      "subtitle": "Enterprise-Grade AI Presentation Generation Platform",
+      "summary": "A production-ready, distributed multi-agent system that turns unstructured input into polished PPTX/PDF decks with parallel QA, semantic validation, and policy-based multi-model routing (cloud or local via Ollama).",
+      "role": ["System Architect", "Full-Stack Engineer"],
+      "links": {
+        "repo": "https://github.com/aryankumawat/SlideSmith",
+        "demo": "/studio-new",
+        "docs": "/projects/slidesmith"
+      },
+      "period": "2025",
+      "tags": [
+        "LLM Orchestration",
+        "Multi-Agent Systems",
+        "Next.js 15",
+        "TypeScript",
+        "Ollama",
+        "OpenAI",
+        "PptxGenJS",
+        "PDFKit",
+        "shadcn/ui",
+        "Recharts",
+        "Zod"
+      ],
+      "highlights": [
+        "13-agent DAG pipeline with dependency resolution and parallel execution",
+        "Policy-based model routing: quality, speed, balanced, local-only",
+        "Parallel QA (facts, accessibility, readability) → ~75% latency reduction",
+        "Task-aware routing → ~60% cost optimization",
+        "Theme-consistent semantic export to PPTX & PDF with native charts",
+        "Provider abstraction for Ollama, OpenAI, OpenRouter"
+      ],
+      "tech": {
+        "frontend": ["Next.js 15 (App Router)", "React 18", "Tailwind", "shadcn/ui"],
+        "backend": ["Node.js 18+", "TypeScript (strict)", "Zod"],
+        "ai": ["Phi-4 14B (Ollama)", "Gemma3 4B (Ollama)", "OpenAI (cloud)"],
+        "viz_export": ["Recharts", "PptxGenJS (native charts)", "PDFKit"]
+      },
+      "metrics": {
+        "deckLatencyMinutes": "≈3–5 for 10 slides (balanced policy)",
+        "reliability": "99.5% with graceful degradation",
+        "tokensPerDeck": "≈10k–20k"
+      },
+      "cta": "View full case study",
+      "thumbnail": "/images/projects/slidesmith-card.png"
+    }
+  ]
+}
+
