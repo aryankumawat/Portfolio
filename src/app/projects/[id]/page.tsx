@@ -506,7 +506,85 @@ const projectData: Record<string, Project> = {
     overview: {
       problem: "Enterprise teams face critical challenges in presentation creation: hours of manual work, inconsistent quality across teams, lack of automated validation (fact-checking, accessibility), inability to scale production, and privacy concerns with cloud-only solutions. Existing tools lack comprehensive quality assurance, flexible deployment options, and enterprise-grade reliability needed for production environments.",
       solution: "Implemented a distributed 13-agent collaborative pipeline using LLM orchestration patterns with intelligent model routing. The system employs DAG-based workflow coordination, parallel QA validation (4 concurrent agents running fact-checking, accessibility linting, readability analysis), provider abstraction layer (Ollama/OpenAI/custom), and advanced semantic export engine with native chart rendering and smart text wrapping. Features three routing policies (Quality/Speed/Balanced) for optimization.",
-      impact: "Delivers enterprise-grade presentation generation with measurable improvements: 75% latency reduction through parallel QA pipeline, 60% cost optimization via smart model routing (Phi-4 14B for research, Gemma3 4B for content), 99.5% reliability with graceful degradation and exponential backoff, 100% privacy option with local-first Ollama deployment. Automated fact-checking with confidence scoring, WCAG 2.1 Level AA compliance validation, and Flesch-Kincaid readability analysis ensure production-ready output in 3-5 minutes per deck."
+      impact: "Delivers enterprise-grade presentation generation with measurable improvements: 75% latency reduction through parallel QA pipeline, 60% cost optimization via smart model routing (Phi-4 14B for research, Gemma3 4B for content), 99.5% reliability with graceful degradation and exponential backoff, 100% privacy option with local-first Ollama deployment. Automated fact-checking with confidence scoring, WCAG 2.1 Level AA compliance validation, and Flesch-Kincaid readability analysis ensure production-ready output in 3-5 minutes per deck.",
+      summary: "SlideSmith is a production-ready, distributed multi-agent system that converts unstructured input into polished, on-brand slide decks. It implements a 13-agent DAG pipeline with parallel QA and semantic export to PPTX/PDF. The platform runs locally (Ollama) or in the cloud (OpenAI) via a provider-agnostic abstraction.",
+      keyPoints: [
+        "Parallel QA: factual checks, WCAG accessibility, readability",
+        "Routing Policies: quality, speed, balanced (default), local-only",
+        "Semantic Export: theme-aware PPTX/PDF with native charts & smart wrapping"
+      ]
+    },
+    
+    architectureDetails: {
+      overview: [
+        "Distributed Agent Orchestration: DAG with dependency resolution and concurrent stages",
+        "Adaptive Model Selection: policy-based router assigns Phi-4 14B or Gemma3 4B per task",
+        "Provider Abstraction: unified client for Ollama/OpenAI/OpenRouter",
+        "Semantic Export Engine: PPTX (PptxGenJS native charts), PDF (PDFKit)",
+        "Validation: Zod contracts (compile-time & runtime)"
+      ],
+      keyAgents: "Researcher, Structurer, Slidewriter, Copy Tightener, Fact Checker, Data→Viz Planner, Media Finder, Speaker Notes Generator, Accessibility Linter, Live Widget Planner, Executive Summary, Audience Adapter, Readability Analyzer",
+      exportAgent: "PPTX Export Agent (native charts), PDF Export (theme-aware pagination)"
+    },
+    
+    performanceMetrics: {
+      latency: "~3–5 minutes for a 10-slide deck (balanced policy, M1 Pro)",
+      parallelQA: "~75% latency reduction vs. serial checks",
+      routingEfficiency: "~60% cost optimization via task-aware model selection",
+      reliability: "99.5% with timeout/backoff & graceful degradation",
+      tokensPerDeck: "~10k–20k total"
+    },
+    
+    qualityAssurance: {
+      schemas: "Zod input/output contracts",
+      factuality: "Claim–citation alignment & confidence scoring",
+      accessibility: "WCAG 2.1 AA checks & contrast analysis",
+      readability: "Flesch-Kincaid grade targets & tone deviation detection",
+      metrics: [
+        "Factual Accuracy: 0–1 confidence score",
+        "Accessibility Score: 0–100 WCAG compliance",
+        "Readability Grade: 6–16 Flesch-Kincaid",
+        "Tone Consistency: 0–1 deviation score",
+        "Citation Coverage: 0–100% claim coverage"
+      ]
+    },
+    
+    apiSurface: {
+      multiAgent: {
+        endpoint: "POST /api/multi-model-generate",
+        params: [
+          "topic: string",
+          "audience: string",
+          "tone: 'Professional' | 'Academic' | 'Technical' | 'Casual'",
+          "desiredSlideCount: number",
+          "theme: string",
+          "duration: number (minutes)",
+          "policy: 'quality' | 'speed' | 'balanced' | 'local-only'"
+        ]
+      },
+      simplified: {
+        endpoint: "POST /api/generate-deck",
+        params: [
+          "mode: 'quick_prompt' | 'doc_to_deck'",
+          "prompt: string",
+          "files?: File[]",
+          "style: string (theme id)"
+        ]
+      },
+      exports: [
+        "POST /api/export/pdf – theme-aware PDF (11\"×8.5\", embedded fonts, footers)",
+        "POST /api/export/pptx – native charts, smart wrapping, speaker notes"
+      ]
+    },
+    
+    securityPrivacy: {
+      features: [
+        "Local-First: full offline flow with Ollama",
+        "No Persistence: server processes are ephemeral",
+        "GDPR-Friendly: no personal data collection",
+        "TLS 1.3: for any external API calls",
+        "API Keys: server-side env only (never client-exposed)"
+      ]
     },
     
     features: {
@@ -1091,6 +1169,262 @@ export default function ProjectDetailPage() {
                   </ul>
                 </GlassCard>
               </div>
+            </motion.div>
+          )}
+
+          {/* Overview Section - SlideSmith Only */}
+          {project.id === "slidesmith" && project.overview && project.overview.summary && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                📋 Overview
+              </h2>
+              <GlassCard className="p-8">
+                <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+                  {project.overview.summary}
+                </p>
+                {project.overview.keyPoints && (
+                  <ul className="space-y-3">
+                    {project.overview.keyPoints.map((point, index) => (
+                      <li key={index} className="flex items-start gap-3 text-slate-300">
+                        <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </GlassCard>
+            </motion.div>
+          )}
+
+          {/* Architecture Section - SlideSmith Only */}
+          {project.id === "slidesmith" && project.architectureDetails && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.1 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                🏗️ Architecture
+              </h2>
+              <GlassCard className="p-8">
+                <ul className="space-y-3 mb-6">
+                  {project.architectureDetails.overview && project.architectureDetails.overview.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 text-slate-300">
+                      <CheckCircle className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                {project.architectureDetails.keyAgents && (
+                  <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
+                    <p className="text-sm font-semibold text-white mb-2">Key Agents (13):</p>
+                    <p className="text-sm text-slate-300">{project.architectureDetails.keyAgents}</p>
+                  </div>
+                )}
+                {project.architectureDetails.exportAgent && (
+                  <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10">
+                    <p className="text-sm font-semibold text-white mb-2">Export:</p>
+                    <p className="text-sm text-slate-300">{project.architectureDetails.exportAgent}</p>
+                  </div>
+                )}
+              </GlassCard>
+            </motion.div>
+          )}
+
+          {/* Performance Metrics Section - SlideSmith Only */}
+          {project.id === "slidesmith" && project.performanceMetrics && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                ⚡ Performance
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <GlassCard className="p-6 text-center">
+                  <div className="text-3xl font-bold text-white mb-2">3-5 min</div>
+                  <div className="text-sm text-slate-400">Deck Generation</div>
+                  <div className="text-xs text-slate-500 mt-2">{project.performanceMetrics.latency}</div>
+                </GlassCard>
+                <GlassCard className="p-6 text-center">
+                  <div className="text-3xl font-bold text-green-400 mb-2">75%</div>
+                  <div className="text-sm text-slate-400">Latency Reduction</div>
+                  <div className="text-xs text-slate-500 mt-2">{project.performanceMetrics.parallelQA}</div>
+                </GlassCard>
+                <GlassCard className="p-6 text-center">
+                  <div className="text-3xl font-bold text-blue-400 mb-2">60%</div>
+                  <div className="text-sm text-slate-400">Cost Optimization</div>
+                  <div className="text-xs text-slate-500 mt-2">{project.performanceMetrics.routingEfficiency}</div>
+                </GlassCard>
+                <GlassCard className="p-6 text-center">
+                  <div className="text-3xl font-bold text-purple-400 mb-2">99.5%</div>
+                  <div className="text-sm text-slate-400">Reliability</div>
+                  <div className="text-xs text-slate-500 mt-2">{project.performanceMetrics.reliability}</div>
+                </GlassCard>
+                <GlassCard className="p-6 text-center">
+                  <div className="text-3xl font-bold text-orange-400 mb-2">10-20k</div>
+                  <div className="text-sm text-slate-400">Tokens/Deck</div>
+                  <div className="text-xs text-slate-500 mt-2">{project.performanceMetrics.tokensPerDeck}</div>
+                </GlassCard>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Quality Assurance Section - SlideSmith Only */}
+          {project.id === "slidesmith" && project.qualityAssurance && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.3 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                ✅ Quality Assurance
+              </h2>
+              <GlassCard className="p-8">
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                      <Shield className="h-5 w-5 text-green-400" />
+                      Validation Methods
+                    </h3>
+                    <ul className="space-y-2 text-slate-300">
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-400">▸</span>
+                        <span><strong>Schemas:</strong> {project.qualityAssurance.schemas}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-400">▸</span>
+                        <span><strong>Factuality:</strong> {project.qualityAssurance.factuality}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-400">▸</span>
+                        <span><strong>Accessibility:</strong> {project.qualityAssurance.accessibility}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-400">▸</span>
+                        <span><strong>Readability:</strong> {project.qualityAssurance.readability}</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                      <BarChart3 className="h-5 w-5 text-blue-400" />
+                      Quality Metrics
+                    </h3>
+                    <ul className="space-y-2 text-sm text-slate-300">
+                      {project.qualityAssurance.metrics && project.qualityAssurance.metrics.map((metric, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                          <span>{metric}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+          )}
+
+          {/* API Surface Section - SlideSmith Only */}
+          {project.id === "slidesmith" && project.apiSurface && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                🔌 API Surface
+              </h2>
+              <div className="grid lg:grid-cols-2 gap-6">
+                {project.apiSurface.multiAgent && (
+                  <GlassCard className="p-6">
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <Code className="h-5 w-5 text-purple-400" />
+                      Multi-Agent Generation
+                    </h3>
+                    <div className="bg-black/50 rounded-lg p-4 mb-4 border border-white/10">
+                      <code className="text-sm text-green-400">{project.apiSurface.multiAgent.endpoint}</code>
+                    </div>
+                    <ul className="space-y-2 text-sm text-slate-300">
+                      {project.apiSurface.multiAgent.params.map((param, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-purple-400">▸</span>
+                          <code className="text-slate-300">{param}</code>
+                        </li>
+                      ))}
+                    </ul>
+                  </GlassCard>
+                )}
+                {project.apiSurface.simplified && (
+                  <GlassCard className="p-6">
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <Zap className="h-5 w-5 text-blue-400" />
+                      Simplified Generation
+                    </h3>
+                    <div className="bg-black/50 rounded-lg p-4 mb-4 border border-white/10">
+                      <code className="text-sm text-green-400">{project.apiSurface.simplified.endpoint}</code>
+                    </div>
+                    <ul className="space-y-2 text-sm text-slate-300">
+                      {project.apiSurface.simplified.params.map((param, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-blue-400">▸</span>
+                          <code className="text-slate-300">{param}</code>
+                        </li>
+                      ))}
+                    </ul>
+                  </GlassCard>
+                )}
+              </div>
+              {project.apiSurface.exports && (
+                <GlassCard className="p-6 mt-6">
+                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                    <Download className="h-5 w-5 text-green-400" />
+                    Export Endpoints
+                  </h3>
+                  <ul className="space-y-2 text-sm text-slate-300">
+                    {project.apiSurface.exports.map((exp, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                        <code className="text-slate-300">{exp}</code>
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+              )}
+            </motion.div>
+          )}
+
+          {/* Security & Privacy Section - SlideSmith Only */}
+          {project.id === "slidesmith" && project.securityPrivacy && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.5 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+                🔒 Security & Privacy
+              </h2>
+              <GlassCard className="p-8">
+                <div className="grid md:grid-cols-2 gap-6">
+                  {project.securityPrivacy.features && project.securityPrivacy.features.map((feature, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Shield className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </GlassCard>
             </motion.div>
           )}
 
