@@ -1189,36 +1189,48 @@ export default function ProjectDetailPage() {
                   </div>
                 </div>
 
-                {/* Performance & Enterprise - Side by Side */}
-                <div className="grid lg:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <Zap className="h-5 w-5 text-green-400" />
-                      Key Optimizations
-                    </h3>
-                    <div className="space-y-2">
-                      {project.features.performanceOptimizations && project.features.performanceOptimizations.map((feature, index) => (
-                        <div key={index} className="flex items-start gap-2 p-2 rounded hover:bg-white/5 transition-colors">
-                          <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-slate-300">{feature}</span>
+                {/* Performance & Enterprise - Compact Grid */}
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Zap className="h-5 w-5 text-green-400" />
+                    Key Optimizations
+                  </h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {project.features.performanceOptimizations && project.features.performanceOptimizations.map((feature, index) => {
+                      const title = feature.split(':')[0].trim();
+                      const desc = feature.split(':')[1]?.trim() || '';
+                      return (
+                        <div key={index} className="p-3 rounded-lg bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 hover:border-green-500/40 transition-colors">
+                          <div className="flex items-start gap-2 mb-1">
+                        <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                            <div className="text-sm font-semibold text-green-400">{title}</div>
+                          </div>
+                          <div className="text-xs text-slate-400 pl-6 line-clamp-2">{desc}</div>
                         </div>
-                      ))}
-                    </div>
+                      );
+                    })}
                   </div>
+                </div>
 
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-orange-400" />
-                      Enterprise Features
-                    </h3>
-                    <div className="space-y-2">
-                      {project.features.enterpriseFeatures && project.features.enterpriseFeatures.map((feature, index) => (
-                        <div key={index} className="flex items-start gap-2 p-2 rounded hover:bg-white/5 transition-colors">
-                          <CheckCircle className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-slate-300">{feature}</span>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Shield className="h-5 w-5 text-orange-400" />
+                    Enterprise Features
+                  </h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {project.features.enterpriseFeatures && project.features.enterpriseFeatures.map((feature, index) => {
+                      const title = feature.split(':')[0].trim();
+                      const desc = feature.split(':')[1]?.trim() || '';
+                      return (
+                        <div key={index} className="p-3 rounded-lg bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20 hover:border-orange-500/40 transition-colors">
+                          <div className="flex items-start gap-2 mb-1">
+                        <CheckCircle className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
+                            <div className="text-sm font-semibold text-orange-400">{title}</div>
+                          </div>
+                          <div className="text-xs text-slate-400 pl-6 line-clamp-2">{desc}</div>
                         </div>
-                      ))}
-                    </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
