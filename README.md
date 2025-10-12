@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio website built with Next.js 14, showcasing expertise in Data Science, Machine Learning, Finance, and Software Development with a focus on AI-driven solutions and bioinformatics research.
 
-## 🚀 Features
+## Features
 
 - **Modern Glass Morphism Design**: Elegant translucent cards with backdrop blur effects
 - **Responsive**: Fully responsive across all devices (360px → 1440px)
@@ -14,7 +14,7 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 - **Interactive Timeline**: Professional experience with glass morphism cards
 - **Real-time Contact Form**: API-powered contact system
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
@@ -25,7 +25,7 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 - **Fonts**: Inter, Inter Tight, Geist Mono
 - **State Management**: React hooks and context
 
-## 📱 Pages & Routes
+## Pages & Routes
 
 - `/` - Home with hero section and project highlights
 - `/about` - Bio, skills, and contact information
@@ -38,7 +38,7 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 - `/contact` - Contact form with API integration
 - `/resume` - Resume viewer and download
 
-## 🎨 Design System
+## Design System
 
 - **Glass Morphism**: Translucent cards with backdrop blur and subtle borders
 - **Colors**: Slate/stone neutrals with electric blue accent and gradient overlays
@@ -47,7 +47,7 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 - **Motion**: Subtle spring animations with scroll-triggered reveals
 - **Visual Hierarchy**: Clear information architecture with proper contrast
 
-## 🔬 Featured Projects
+## Featured Projects
 
 ### Alopecia Areata Risk Model & Shiny App
 - **Technology**: R, Shiny, Machine Learning, Bioinformatics
@@ -151,7 +151,7 @@ src/
 - **Quality Assurance**: Built-in fact-checking, accessibility validation, readability analysis
 - **Local-First**: Full Ollama support for privacy and 100% cost reduction
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -185,7 +185,7 @@ npm run build
 npm start
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -218,7 +218,7 @@ src/
     └── utils.ts
 ```
 
-## 🎯 Key Components
+## Key Components
 
 ### GlassCard Component
 - Custom glass morphism design with backdrop blur
@@ -245,7 +245,7 @@ src/
 - Success/error states
 - Responsive layout with glass styling
 
-## 🌐 Deployment
+## Deployment
 
 ### Vercel (Recommended)
 
@@ -261,7 +261,7 @@ The app can be deployed to any platform that supports Next.js:
 - DigitalOcean App Platform
 - AWS Amplify
 
-## 📊 Performance
+## Performance
 
 - **Lighthouse Scores**: Target 95+ on all metrics
 - **Core Web Vitals**: Optimized for LCP, FID, CLS
@@ -270,7 +270,7 @@ The app can be deployed to any platform that supports Next.js:
 - **Fonts**: Optimized font loading
 - **TypeScript**: Full type safety with zero errors
 
-## ♿ Accessibility
+## Accessibility
 
 - Semantic HTML structure
 - ARIA labels and roles
@@ -280,7 +280,7 @@ The app can be deployed to any platform that supports Next.js:
 - High contrast support
 - Focus management
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -302,7 +302,7 @@ Custom colors, fonts, and animations are defined in `tailwind.config.ts` with gl
 
 Theme settings are managed in `src/contexts/theme-context.tsx`.
 
-## 📝 Content Management
+## Content Management
 
 ### Adding New Projects
 
@@ -318,7 +318,7 @@ Modify `src/components/experience-timeline.tsx` to update work experience with g
 
 Blog content is currently placeholder. Integrate with a CMS like Contentful or Sanity for dynamic content.
 
-## 🎨 Customization
+## Customization
 
 ### Glass Morphism Effects
 
@@ -336,7 +336,7 @@ Modify font imports in `src/app/globals.css` and font family settings in `tailwi
 
 Adjust animation timings and effects in component files using Framer Motion.
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run linting
@@ -349,7 +349,7 @@ npm run type-check
 npm run build
 ```
 
-## 🔬 Research Integration
+## Research Integration
 
 The portfolio showcases cutting-edge research integration:
 
@@ -358,22 +358,22 @@ The portfolio showcases cutting-edge research integration:
 - **Machine Learning Applications**: Advanced ML models for medical diagnosis
 - **Bioinformatics Tools**: R Shiny applications for interactive analysis
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📞 Contact
+## Contact
 
 - **Email**: kumawataryan23@gmail.com
 - **LinkedIn**: [Aryan Kumawat | LinkedIn](https://www.linkedin.com/in/aryan-kumawat-/)
 - **GitHub**: [aryankumawat](https://github.com/aryankumawat)
 - **Location**: Sydney, Australia
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Next.js](https://nextjs.org/) for the amazing framework
 - [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS
@@ -382,16 +382,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - [Lucide](https://lucide.dev/) for icons
 - [eLife](https://elifesciences.org/) for cutting-edge research publications
 
-## 🚀 Recent Updates
+## Recent Updates
 
-- ✅ **Glass Morphism Design**: Implemented throughout the portfolio
-- ✅ **Dynamic Project Pages**: Detailed project showcases with comprehensive information
-- ✅ **Experience Timeline**: Updated with glass morphism cards
-- ✅ **Research Integration**: Latest Alopecia Areata research references
-- ✅ **TypeScript Safety**: Full type safety with zero compilation errors
-- ✅ **Performance Optimization**: 95+ Lighthouse scores across all metrics
-- ✅ **Responsive Design**: Perfect display across all device sizes
-
----
-
-Built with ❤️ | Powered by cutting-edge research and modern web technologies
+- **Glass Morphism Design**: Implemented throughout the portfolio
+- **Dynamic Project Pages**: Detailed project showcases with comprehensive information
+- **Experience Timeline**: Updated with glass morphism cards
+- **Research Integration**: Latest Alopecia Areata research references
+- **TypeScript Safety**: Full type safety with zero compilation errors
+- **Performance Optimization**: 95+ Lighthouse scores across all metrics
+- **Responsive Design**: Perfect display across all device sizes
