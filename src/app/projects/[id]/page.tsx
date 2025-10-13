@@ -29,7 +29,8 @@ import {
   Rocket,
   Trophy,
   TrendingUp,
-  Globe
+  Globe,
+  Gamepad2
 } from "lucide-react";
 import Link from "next/link";
 
@@ -876,6 +877,204 @@ const projectData: Record<string, Project> = {
         title: "shadcn/ui Components",
         source: "shadcn/ui",
         url: "https://ui.shadcn.com/"
+      }
+    ]
+  },
+
+  "wizard-td": {
+    id: "wizard-td",
+    title: "Wizard Tower Defense",
+    description: "A strategic tower defense game built with Java and Processing, featuring wave-based combat, progressive difficulty, and mana economy system. Defend the wizard's house from waves of monsters by strategically placing and upgrading towers along their path.",
+    category: "Game Development",
+    icon: Gamepad2,
+    color: "from-indigo-500 to-indigo-600",
+    year: "2024",
+    status: "Completed",
+    technologies: ["Java 8", "Processing 3.3.7", "Gradle 8.2", "JUnit 5", "Google Guava 28.0"],
+    github: "https://github.com/aryankumawat/Maze-Tank-Game",
+    live: "#",
+    featured: true,
+
+    overview: {
+      problem: "Traditional tower defense games often lack depth in strategic decision-making, with limited upgrade paths and rigid gameplay mechanics. There's a need for a game that combines resource management, strategic tower placement, and progressive difficulty while maintaining clean, extensible architecture for future development.",
+      solution: "Developed Wizard Tower Defense using a component-based architecture with Processing framework, featuring a layered rendering system (7 distinct layers), controller pattern for game logic separation, and JSON-driven configuration for easy gameplay customization. Implemented a sophisticated mana economy system where players earn resources by defeating monsters and strategically allocate them between building new towers and upgrading existing ones.",
+      impact: "Created an engaging tower defense game that provides strategic depth through individual tower upgrades (range/speed/damage), resource management via dynamic mana economy, and progressive difficulty across 4 custom-designed levels. The clean MVC architecture enables easy extension with new monster types, tower variants, and gameplay mechanics, making it ideal for both players and developers.",
+      summary: "A Java-based tower defense game with strategic depth, featuring wave-based combat, mana economy, and progressive difficulty across multiple levels.",
+      keyPoints: [
+        "Component-based architecture with 7-layer rendering system",
+        "Strategic mana economy for resource management",
+        "Individual tower upgrades (range, speed, damage)",
+        "3 unique enemy types with varying stats and behaviors",
+        "4 custom-designed levels with JSON-driven configuration",
+        "Pause, fast-forward, and restart game controls"
+      ]
+    },
+
+    features: {
+      gameplay: [
+        "Strategic Tower Placement: Place towers on grass tiles to defend wizard house from monster waves",
+        "Mana Economy: Earn mana by killing monsters, spend on towers (100 mana) or upgrades",
+        "Individual Tower Upgrades: Upgrade each tower's range, firing speed, or damage independently",
+        "Wave System: Progressive difficulty with multiple waves and varying monster types",
+        "Multiple Enemy Types: Gremlins (basic), Beetles (armored), Worms (fast-moving)",
+        "Game Speed Control: Pause (P) or fast-forward (F) for strategic planning"
+      ],
+      controls: [
+        "T: Toggle tower placement mode",
+        "1: Toggle range upgrade mode",
+        "2: Toggle speed upgrade mode",
+        "3: Toggle damage upgrade mode",
+        "M: Upgrade mana pool (increases cap and regeneration)",
+        "P: Pause/Unpause game",
+        "F: Toggle fast-forward (2x speed)",
+        "R: Restart game",
+        "Mouse: Left click to place towers or activate upgrades"
+      ],
+      gameMechanics: [
+        "Starting Mana: 200 (configurable via config.json)",
+        "Mana Regeneration: 2 mana per second (configurable)",
+        "Tower Base Stats: Range 96px, Firing Speed 1.5/sec, Damage 40",
+        "Tower Cost: 100 mana per tower",
+        "Upgrade System: Each tower can be individually upgraded in 3 dimensions",
+        "Win Condition: Survive all monster waves",
+        "Loss Condition: Wizard house destroyed by monster damage"
+      ],
+      architecture: [
+        "Component Pattern: UI elements extend Component base class",
+        "Layer System: 7 separate rendering layers (Background, Road, House, Tower, Monster, Fireball, EndGame)",
+        "Controller Pattern: Game logic separated into GameController, WaveController, ManaController",
+        "Configuration-Driven: All game parameters loaded from config.json",
+        "Resource Management: Centralized resource loader for sprites and game assets"
+      ]
+    },
+
+    technology: {
+      core: [
+        "Java 8: Primary programming language with lambda expressions and streams",
+        "Processing 3.3.7: Graphics library for game rendering and main loop (60 FPS)",
+        "Gradle 8.2: Build automation with Gradle wrapper for cross-platform builds",
+        "Google Guava 28.0: Utility library for collections and common patterns"
+      ],
+      testing: [
+        "JUnit 5: Unit testing framework with comprehensive test coverage",
+        "JaCoCo: Code coverage reporting tool",
+        "Test-Driven Development: Unit tests for game controllers and logic components"
+      ],
+      buildTools: [
+        "Gradle Wrapper: Ensures consistent builds across different environments",
+        "Shadow JAR Plugin: Creates executable JAR with all dependencies bundled",
+        "Application Plugin: Provides run task for easy game execution"
+      ]
+    },
+
+    architecture: {
+      structure: [
+        "App.java: Main application entry point with Processing PApplet initialization",
+        "GameScreen.java: Primary game screen coordinator managing UI and board",
+        "Board.java: Game board manager coordinating all rendering layers",
+        "GameController.java: Main game state and logic controller",
+        "WaveController.java: Wave spawning and monster management",
+        "ManaController.java: Mana economy and resource management"
+      ],
+      database: "JSON-based configuration files (config.json, level1-4.txt) for game parameters and map layouts",
+      authentication: "Not applicable - single-player desktop game",
+      api: "Component-based internal API with Layer abstraction for rendering system",
+      security: "Local file system access only, no network connections or external data transmission"
+    },
+
+    results: {
+      keyMetrics: {
+        "Game Performance": "Stable 60 FPS with Processing framework",
+        "Rendering Layers": "7 distinct layers for organized rendering",
+        "Enemy Types": "3 unique enemy types (Gremlins, Beetles, Worms)",
+        "Custom Levels": "4 playable levels with unique layouts",
+        "Tower Upgrades": "3 independent upgrade paths per tower",
+        "Build System": "Cross-platform with Gradle wrapper"
+      },
+      achievements: [
+        "Implemented sophisticated mana economy balancing resource generation and consumption",
+        "Created flexible layer-based rendering system enabling easy addition of game elements",
+        "Designed clean MVC architecture separating game logic, rendering, and UI",
+        "Developed JSON-driven configuration system for easy game tuning",
+        "Built comprehensive pathfinding system for monster movement along custom routes",
+        "Implemented tower targeting system with range-based enemy detection",
+        "Added game state management (pause, fast-forward, restart) for player control"
+      ],
+      impact: [
+        "Clean Architecture: MVC pattern enables easy extension and maintenance",
+        "Strategic Depth: Multiple upgrade paths create meaningful player choices",
+        "Replayability: 4 levels with varying difficulty and layouts",
+        "Extensibility: JSON configuration allows easy creation of new levels and game modes",
+        "Performance: Optimized rendering with layered system for smooth 60 FPS gameplay",
+        "Developer-Friendly: Well-structured codebase with component abstraction"
+      ]
+    },
+
+    technicalDetails: {
+      development: "Built using Processing framework for graphics and game loop, with component-based architecture for UI elements and controller pattern for game logic. Implemented 7-layer rendering system (BackgroundLayer, RoadLayer, WizardHouseLayer, TowerLayer, MonsterLayer, FireballLayer, EndGameLayer) for organized rendering and collision detection.",
+      testing: "Comprehensive JUnit 5 test suite covering game controllers, mana system, wave spawning, and tower mechanics. JaCoCo integration for code coverage reporting (reports generated in build/reports/jacoco/test/html/).",
+      deployment: "Packaged as executable JAR using Gradle Shadow plugin. Runs on any system with Java 8+ installed. Includes Gradle wrapper for consistent cross-platform builds without requiring Gradle installation.",
+      maintenance: "Modular architecture with separated concerns (rendering, logic, UI) enables easy bug fixes and feature additions. JSON configuration files allow gameplay tuning without code changes.",
+      documentation: "Comprehensive README with installation instructions, gameplay mechanics, architecture diagrams (Component Hierarchy, Game Flow, Data Flow), and development guide for contributors."
+    },
+
+    repository: {
+      structure: [
+        "src/main/java/WizardTD/: Main source code directory",
+        "  - App.java: Application entry point",
+        "  - Resources.java: Asset and resource loading",
+        "  - data/: Data structures (Point, Rectangle, config classes)",
+        "  - game/: Core game logic and components",
+        "    - GameScreen.java: Main game screen",
+        "    - GameMap.java: Level map parser",
+        "    - board/: Game board and layer system",
+        "      - layer/: Rendering layer implementations",
+        "      - object/: Game objects (Monster, Tower, Fireball)",
+        "    - logic/: Game controllers (Game, Mana, Wave)",
+        "    - ui/: UI components and menus",
+        "  - ui/: Shared UI component library",
+        "  - util/: Utility classes and helpers",
+        "src/main/resources/WizardTD/: Game assets (sprites, images)",
+        "src/test/: JUnit 5 test suite",
+        "build.gradle: Gradle build configuration",
+        "config.json: Game configuration and parameters",
+        "level1-4.txt: Level map files"
+      ],
+      documentation: "Comprehensive README with gameplay instructions, controls, game mechanics, configuration guide, project structure diagram, architecture flowcharts (component hierarchy, game flow, data flow), and development setup for IDE (IntelliJ, Eclipse, VS Code)",
+      codeQuality: "Clean code with component abstraction, controller pattern for logic separation, and consistent naming conventions. Test coverage via JUnit 5 and JaCoCo for maintainability.",
+      versionControl: "Git-based version control with structured commits and branches for feature development"
+    },
+
+    references: [
+      {
+        title: "Processing Framework Documentation",
+        source: "Processing Foundation",
+        url: "https://processing.org/reference/"
+      },
+      {
+        title: "Java 8 Documentation",
+        source: "Oracle",
+        url: "https://docs.oracle.com/javase/8/docs/"
+      },
+      {
+        title: "Gradle Build Tool",
+        source: "Gradle Inc.",
+        url: "https://docs.gradle.org/8.2/userguide/userguide.html"
+      },
+      {
+        title: "JUnit 5 Testing Framework",
+        source: "JUnit Team",
+        url: "https://junit.org/junit5/docs/current/user-guide/"
+      },
+      {
+        title: "Google Guava Libraries",
+        source: "Google",
+        url: "https://github.com/google/guava"
+      },
+      {
+        title: "Wizard Tower Defense Repository",
+        source: "GitHub",
+        url: "https://github.com/aryankumawat/Maze-Tank-Game"
       }
     ]
   }

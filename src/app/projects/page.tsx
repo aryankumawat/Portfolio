@@ -11,7 +11,8 @@ import {
   Globe,
   ExternalLink,
   Github,
-  Eye
+  Eye,
+  Gamepad2
 } from "lucide-react";
 import Link from "next/link";
 
@@ -103,6 +104,24 @@ const projects = [
     impact: "Delivers enterprise-grade presentation generation with 75% faster parallel QA, 60% cost optimization through smart routing, 99.5% reliability with graceful degradation, and 100% privacy with local-first deployment. Automated fact-checking, WCAG 2.1 compliance, and Flesch-Kincaid readability analysis ensure production-ready output in 3-5 minutes per deck.",
     image: "/api/placeholder/400/250",
     github: "https://github.com/aryankumawat/slidesmith",
+    live: "#",
+    featured: true,
+  },
+  {
+    id: "wizard-td",
+    title: "Wizard Tower Defense",
+    description: "A strategic tower defense game built with Java and Processing, featuring wave-based combat, progressive difficulty, and mana economy system. Defend the wizard's house from waves of monsters (gremlins, beetles, worms) by strategically placing and upgrading towers along their path.",
+    category: "Game Development",
+    icon: Gamepad2,
+    color: "from-indigo-500 to-indigo-600",
+    year: "2024",
+    status: "Completed",
+    technologies: ["Java 8", "Processing 3.3.7", "Gradle", "JUnit 5", "Google Guava"],
+    problem: "Traditional tower defense games lack depth in strategic decision-making and often have limited upgrade paths. Need for a game that combines resource management, strategic tower placement, and progressive difficulty with clean architecture and extensibility.",
+    approach: "Developed a component-based architecture using Processing framework with layered rendering system (7 layers), controller pattern for game logic, and JSON-driven configuration. Implemented mana economy system, multiple upgrade paths per tower (range/speed/damage), and wave-based progression with 3 enemy types.",
+    impact: "Created an engaging tower defense game with strategic depth through individual tower upgrades, resource management via mana economy, and progressive difficulty across 4 custom-designed levels. Clean MVC architecture enables easy extension with new monsters, towers, and mechanics.",
+    image: "/api/placeholder/400/250",
+    github: "https://github.com/aryankumawat/Maze-Tank-Game",
     live: "#",
     featured: true,
   },
