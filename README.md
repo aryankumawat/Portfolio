@@ -72,11 +72,6 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 - **Approach**: Feature engineering, ensemble ML models, time series analysis
 - **Impact**: 23% improvement in volatility prediction accuracy
 
-### Multi-Model AI Agent
-- **Technology**: Python, LLMs, Agent Systems, Concurrency
-- **Models**: Llama 3.3 70B, Phi-4 14B
-- **Features**: Task orchestration, agent specialization, ephemeral concurrency
-
 ### SlideSmith - Multi-Agent AI Slide Maker
 - **Technology**: Next.js 15, React 18, TypeScript, Ollama, Phi-4, Gemma3-4B, OpenAI, Zod, Playwright, PptxGenJS
 - **Architecture**: Revolutionary 13-agent AI system with multi-agent orchestration
