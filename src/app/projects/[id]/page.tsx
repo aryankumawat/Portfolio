@@ -2149,7 +2149,7 @@ export default function ProjectDetailPage() {
           )}
 
           {/* Technology Stack - For other projects (Web Development) */}
-          {project.technology && project.id !== "slidesmith" && (
+          {project.technology && project.id !== "slidesmith" && project.id !== "wizard-td" && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
