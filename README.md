@@ -50,6 +50,13 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 
 ## Featured Projects
 
+### SlideSmith - Multi-Agent AI Slide Maker 🚧 In Progress
+- **Technology**: Next.js 15, React 18, TypeScript, Ollama, Phi-4, Gemma3-4B, OpenAI, Zod, Playwright, PptxGenJS
+- **Architecture**: 13-agent distributed AI system (Researcher, Structurer, Slidewriter, Copy Tightener, Fact Checker, Data→Viz Planner, Media Finder, Speaker Notes Generator, Accessibility Linter, Live Widget Planner, Executive Summary, Audience Adapter, Export Agent)
+- **Performance**: 75% faster parallel processing, 60% speed improvement, 99% reliability, 100% cost reduction with local Ollama
+- **Features**: Automated fact-checking, WCAG compliance, readability analysis, semantic export engine, PDF/PPTX export
+- **GitHub**: [Repository Link](https://github.com/aryankumawat/slidesmith)
+
 ### Alopecia Areata Risk Model & Shiny App
 - **Technology**: R, Shiny, Machine Learning, Bioinformatics
 - **Dataset**: GSE68801 (122 samples: 36 controls, 86 patients, 54,675 genes)
@@ -71,13 +78,6 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 - **Technology**: Python, Scikit-learn, XGBoost, GARCH
 - **Approach**: Feature engineering, ensemble ML models, time series analysis
 - **Impact**: 23% improvement in volatility prediction accuracy
-
-### SlideSmith - Multi-Agent AI Slide Maker
-- **Technology**: Next.js 15, React 18, TypeScript, Ollama, Phi-4, Gemma3-4B, OpenAI, Zod, Playwright, PptxGenJS
-- **Architecture**: 13-agent distributed AI system (Researcher, Structurer, Slidewriter, Copy Tightener, Fact Checker, Data→Viz Planner, Media Finder, Speaker Notes Generator, Accessibility Linter, Live Widget Planner, Executive Summary, Audience Adapter, Export Agent)
-- **Performance**: 75% faster parallel processing, 60% speed improvement, 99% reliability, 100% cost reduction with local Ollama
-- **Features**: Automated fact-checking, WCAG compliance, readability analysis, semantic export engine, PDF/PPTX export
-- **GitHub**: [Repository Link](https://github.com/aryankumawat/slidesmith)
 
 ### Wizard Tower Defense
 - **Technology**: Java 8, Processing 3.3.7, Gradle 8.2, JUnit 5, Google Guava
