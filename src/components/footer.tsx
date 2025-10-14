@@ -8,7 +8,8 @@ import {
   MapPin, 
   Phone,
   Heart,
-  ArrowUp
+  ArrowUp,
+  Github
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -105,6 +106,17 @@ export function Footer() {
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="sm" className="w-full border-[#66FCF1]/30 hover:border-[#66FCF1]/40 hover:bg-[#66FCF1]/5 text-white">
+                <a 
+                  href="https://github.com/aryankumawat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <Github className="h-4 w-4" />
+                  GitHub
                 </a>
               </Button>
               <Button asChild size="sm" className="w-full bg-gradient-to-r from-[#66FCF1] to-[#45A29E] hover:from-[#66FCF1]/80 hover:to-[#45A29E]/80 text-white border-0">
