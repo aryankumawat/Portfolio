@@ -34,7 +34,8 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
   - `/projects/[id]` - Dynamic detailed project pages
 - `/awards` - Honors, certifications, and recognition
 - `/volunteering` - Community impact and volunteer work
-- `/blog` - Articles and insights (placeholder content)
+- `/blog` - Articles and insights on AI, automation, and technology
+  - `/blog/[slug]` - Individual blog post pages
 - `/contact` - Contact form with API integration
 - `/resume` - Resume viewer and download
 
@@ -78,10 +79,18 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 
 ### SlideSmith - Multi-Agent AI Slide Maker
 - **Technology**: Next.js 15, React 18, TypeScript, Ollama, Phi-4, Gemma3-4B, OpenAI, Zod, Playwright, PptxGenJS
-- **Architecture**: Revolutionary 12-agent AI system with multi-agent orchestration
+- **Architecture**: Revolutionary 13-agent AI system with multi-agent orchestration
 - **Performance**: 75% faster parallel processing, 60% speed improvement, 99% reliability, 100% cost reduction with local Ollama
-- **Features**: Automated fact-checking, WCAG compliance, readability analysis, 5 beautiful themes, live widgets, PDF/PPTX export
+- **Features**: Automated fact-checking, WCAG compliance, readability analysis, semantic export engine, PDF/PPTX export
 - **GitHub**: [Repository Link](https://github.com/aryankumawat/slidesmith)
+
+### Wizard Tower Defense
+- **Technology**: Java 8, Processing 3.3.7, Gradle 8.2, JUnit 5, Google Guava
+- **Game Type**: Strategic tower defense with wave-based combat and resource management
+- **Features**: Mana economy system, individual tower upgrades (range/speed/damage), 3 enemy types, 4 custom levels
+- **Architecture**: Component-based with 7-layer rendering system, MVC pattern, JSON-driven configuration
+- **Performance**: Stable 60 FPS gameplay with optimized collision detection and pathfinding
+- **GitHub**: [Repository Link](https://github.com/aryankumawat/Maze-Tank-Game)
 
 #### SlideSmith Project Structure
 
@@ -146,7 +155,7 @@ src/
 ```
 
 **Key Features:**
-- **12 Specialized AI Agents**: Researcher, Structurer, Slidewriter, Copy Tightener, Fact Checker, Data→Viz Planner, Media Finder, Speaker Notes Generator, Accessibility Linter, Live Widget Planner, Executive Summary, Audience Adapter
+- **13 Specialized AI Agents**: Researcher, Structurer, Slidewriter, Copy Tightener, Fact Checker, Data→Viz Planner, Media Finder, Speaker Notes Generator, Accessibility Linter, Live Widget Planner, Executive Summary, Audience Adapter, Export Agent
 - **Performance Optimizations**: Parallel processing (75% faster), smart model routing (60% improvement), intelligent caching, timeout handling (99% reliability)
 - **Quality Assurance**: Built-in fact-checking, accessibility validation, readability analysis
 - **Local-First**: Full Ollama support for privacy and 100% cost reduction
@@ -316,7 +325,19 @@ Modify `src/components/experience-timeline.tsx` to update work experience with g
 
 ### Blog Posts
 
-Blog content is currently placeholder. Integrate with a CMS like Contentful or Sanity for dynamic content.
+The blog features articles on AI, automation, and technology:
+
+- **What is n8n? A Complete Guide to Workflow Automation** (October 10, 2025)
+  - Comprehensive overview of n8n workflow automation platform
+  - Comparison with other automation tools
+  - Use cases and integration capabilities
+  
+- **ChatGPT's New AgentKit: A Competitor to n8n?** (October 8, 2025)
+  - Analysis of ChatGPT's AgentKit framework
+  - Comparison with n8n's workflow capabilities
+  - Future of AI-powered automation
+
+Blog content can be extended by integrating with a CMS like Contentful or Sanity for dynamic content management.
 
 ## Customization
 
@@ -384,8 +405,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Recent Updates
 
+- **Wizard Tower Defense Game**: Added Java-based tower defense game with strategic gameplay and MVC architecture
+- **Blog Section**: Added two featured articles on n8n automation and ChatGPT's AgentKit
+- **SlideSmith Updates**: Updated to 13-agent system with enhanced export capabilities
+- **Footer Enhancement**: Added GitHub profile link to Connect section
 - **Glass Morphism Design**: Implemented throughout the portfolio
-- **Dynamic Project Pages**: Detailed project showcases with comprehensive information
+- **Dynamic Project Pages**: Detailed project showcases with game-specific layouts
 - **Experience Timeline**: Updated with glass morphism cards
 - **Research Integration**: Latest Alopecia Areata research references
 - **TypeScript Safety**: Full type safety with zero compilation errors
