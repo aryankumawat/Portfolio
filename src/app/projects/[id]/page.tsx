@@ -1711,8 +1711,266 @@ export default function ProjectDetailPage() {
             </motion.div>
           )}
 
+          {/* Game Features - Wizard Tower Defense */}
+          {project.id === "wizard-td" && project.features && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                  <Gamepad2 className="h-7 w-7 text-white" />
+                </div>
+                Game Features
+              </h2>
+              
+              <div className="space-y-8">
+                {/* Gameplay Features */}
+                {project.features.gameplay && (
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2 pl-15">
+                      <Play className="h-5 w-5 text-green-400" />
+                      Core Gameplay
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-4 pl-15">
+                      {project.features.gameplay.map((feature, index) => {
+                        const [title, desc] = feature.split(':');
+                        return (
+                          <div key={index} className="p-4 rounded-lg bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 hover:border-green-500/40 transition-colors">
+                            <div className="flex items-start gap-3">
+                              <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                              <div>
+                                <div className="text-sm font-semibold text-green-400 mb-1">{title}</div>
+                                <div className="text-xs text-slate-400">{desc}</div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Game Mechanics */}
+                {project.features.gameMechanics && (
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2 pl-15">
+                      <Cog className="h-5 w-5 text-blue-400" />
+                      Game Mechanics & Balance
+                    </h3>
+                    <div className="grid md:grid-cols-3 gap-4 pl-15">
+                      {project.features.gameMechanics.map((mechanic, index) => {
+                        const [title, value] = mechanic.split(':');
+                        return (
+                          <div key={index} className="p-4 rounded-lg bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20">
+                            <div className="text-xs text-slate-400 mb-1">{title}</div>
+                            <div className="text-sm font-semibold text-blue-400">{value}</div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Controls */}
+                {project.features.controls && (
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2 pl-15">
+                      <kbd className="h-5 w-5 rounded bg-slate-700 text-white text-xs flex items-center justify-center px-1.5">⌨</kbd>
+                      Controls
+                    </h3>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 pl-15">
+                      {project.features.controls.map((control, index) => {
+                        const [key, action] = control.split(':');
+                        return (
+                          <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-indigo-500/40 transition-colors">
+                            <kbd className="px-3 py-1.5 rounded bg-slate-700 text-white text-sm font-bold border-2 border-slate-600 shadow-lg">
+                              {key}
+                            </kbd>
+                            <span className="text-xs text-slate-300">{action}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Architecture */}
+                {project.features.architecture && (
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2 pl-15">
+                      <Code className="h-5 w-5 text-purple-400" />
+                      Technical Architecture
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-4 pl-15">
+                      {project.features.architecture.map((item, index) => {
+                        const [title, desc] = item.split(':');
+                        return (
+                          <div key={index} className="p-4 rounded-lg bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+                            <div className="flex items-start gap-3">
+                              <div className="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
+                              <div>
+                                <div className="text-sm font-semibold text-purple-400 mb-1">{title}</div>
+                                <div className="text-xs text-slate-400">{desc}</div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Technology Stack - Wizard Tower Defense */}
+          {project.id === "wizard-td" && project.technology && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                  <Code className="h-7 w-7 text-white" />
+                </div>
+                Technology Stack
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-6 pl-15">
+                {project.technology.core && (
+                  <GlassCard className="p-6">
+                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                      <Server className="h-5 w-5 text-blue-400" />
+                      Core Technologies
+                    </h3>
+                    <ul className="space-y-3">
+                      {project.technology.core.map((tech, index) => {
+                        const [name, desc] = tech.split(':');
+                        return (
+                          <li key={index} className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                            <div>
+                              <div className="text-sm font-semibold text-blue-400">{name}</div>
+                              <div className="text-xs text-slate-400">{desc}</div>
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </GlassCard>
+                )}
+
+                {project.technology.testing && (
+                  <GlassCard className="p-6">
+                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-400" />
+                      Testing & Quality
+                    </h3>
+                    <ul className="space-y-3">
+                      {project.technology.testing.map((tech, index) => {
+                        const [name, desc] = tech.split(':');
+                        return (
+                          <li key={index} className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                            <div>
+                              <div className="text-sm font-semibold text-green-400">{name}</div>
+                              <div className="text-xs text-slate-400">{desc}</div>
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </GlassCard>
+                )}
+
+                {project.technology.buildTools && (
+                  <GlassCard className="p-6 md:col-span-2">
+                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                      <Rocket className="h-5 w-5 text-[#66FCF1]" />
+                      Build & Deployment
+                    </h3>
+                    <ul className="grid md:grid-cols-3 gap-3">
+                      {project.technology.buildTools.map((tech, index) => {
+                        const [name, desc] = tech.split(':');
+                        return (
+                          <li key={index} className="flex items-start gap-2 p-3 rounded-lg bg-white/5">
+                            <CheckCircle className="h-4 w-4 text-[#66FCF1] mt-0.5 flex-shrink-0" />
+                            <div>
+                              <div className="text-sm font-semibold text-[#66FCF1]">{name}</div>
+                              <div className="text-xs text-slate-400">{desc}</div>
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </GlassCard>
+                )}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Architecture Details - Wizard Tower Defense */}
+          {project.id === "wizard-td" && project.architecture && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                  <span className="text-2xl">🏗️</span>
+                </div>
+                Architecture & Design
+              </h2>
+              
+              <div className="space-y-6 pl-15">
+                <GlassCard className="p-6">
+                  <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <Code className="h-5 w-5 text-purple-400" />
+                    Component Structure
+                  </h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {project.architecture.structure && project.architecture.structure.map((component, index) => {
+                      const [name, desc] = component.split(':');
+                      return (
+                        <div key={index} className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
+                          <div className="text-sm font-semibold text-purple-400 mb-1">{name}</div>
+                          <div className="text-xs text-slate-400">{desc}</div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </GlassCard>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <GlassCard className="p-6">
+                    <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                      <Database className="h-5 w-5 text-cyan-400" />
+                      Configuration
+                    </h3>
+                    <p className="text-sm text-slate-300">{project.architecture.database}</p>
+                  </GlassCard>
+
+                  <GlassCard className="p-6">
+                    <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                      <Zap className="h-5 w-5 text-yellow-400" />
+                      Internal API
+                    </h3>
+                    <p className="text-sm text-slate-300">{project.architecture.api}</p>
+                  </GlassCard>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
           {/* Features - For other projects (Web Development) */}
-          {project.features && project.id !== "slidesmith" && (
+          {project.features && project.id !== "slidesmith" && project.id !== "wizard-td" && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
