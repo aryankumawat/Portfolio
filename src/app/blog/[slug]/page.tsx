@@ -221,6 +221,56 @@ The real opportunity lies in their combination: AgentKit's intelligence paired w
 
 The future of automation isn't about choosing between intelligence and reliability—it's about having both.`
   },
+  {
+    id: "meta-indisplay-glasses-innovation-breakthrough",
+    title: "Meta In-Display Glasses: The Next Frontier of Innovation",
+    excerpt: "Meta's in-display glasses are redefining the boundaries of augmented reality. By seamlessly merging the digital and physical worlds through ultra-thin, display-embedded lenses, they mark one of the most significant technological leaps since the smartphone.",
+    category: "AR & Innovation",
+    date: "22/10/2025",
+    readTime: "7 min read",
+    author: "Aryan Kumawat",
+    tags: ["Meta", "AR", "Smart Glasses", "Innovation", "Technology"],
+    featured: true,
+    content: `The innovation landscape just experienced a paradigm shift. Meta's **in-display glasses** represent a milestone in augmented reality (AR) — bringing immersive, real-time digital experiences directly into your field of vision without the need for bulky headsets or external displays.
+  
+  Unlike previous iterations of AR wearables, these glasses integrate **micro-LED projection technology** directly within transparent lenses, delivering full-color, high-contrast visuals that feel naturally blended with the real world. They aren't just an accessory — they're a bridge between reality and the metaverse.
+  
+  ## What Makes Meta's In-Display Glasses Revolutionary?
+  
+  **1. Seamless Integration of Reality and Digital Layers**  
+  Traditional AR devices rely on noticeable overlays or opaque lenses. Meta's in-display optics, however, use nano-scale waveguides to project images that appear *within* your vision, enabling a truly natural experience. From navigation prompts to translation text and holographic calls, digital elements now feel like part of your environment.
+  
+  **2. Real-Time AI Assistance**  
+  Paired with Meta's AI ecosystem, the glasses can identify objects, people, and text around you — providing contextual insights instantly. Imagine looking at a foreign sign and seeing a live translation appear or receiving real-time cues in a meeting without looking at your phone.
+  
+  **3. Ultra-Light Design & Comfort**  
+  One of the biggest challenges with wearable tech has been usability. Meta's engineering breakthrough reduces weight while maintaining performance, making these glasses indistinguishable from regular eyewear. The micro-battery system and graphene-based circuits make long usage hours practical.
+  
+  **4. Privacy-First Design**  
+  Meta emphasizes a privacy-centric approach — with visible indicators when recording or streaming and on-device data processing to minimize cloud dependency. It's a crucial step toward building public trust in AR devices.
+  
+  ## How They Redefine Innovation
+  
+  These glasses mark a new chapter in human-computer interaction. Instead of screens, we now interact through **ambient computing** — where digital content exists naturally within our perception. Tasks like checking emails, joining meetings, or exploring cities will no longer require pulling out a phone or laptop.
+  
+  **Impact on Industries:**  
+  - **Education:** Immersive, context-aware learning experiences.  
+  - **Healthcare:** Real-time patient data overlays for doctors during procedures.  
+  - **Retail:** Virtual try-ons and product insights directly through the lens.  
+  - **Navigation:** AR overlays guiding you turn by turn in real-world environments.
+  
+  ## Challenges and Future Potential
+  
+  While groundbreaking, challenges remain — including battery efficiency, heat dissipation, and ensuring crystal-clear visibility under bright sunlight. However, with Meta's investment in micro-optics and spatial computing, these limitations are rapidly being addressed.
+  
+  In the near future, these glasses could serve as the **gateway to the metaverse**, blending physical and virtual experiences so seamlessly that "screens" as we know them may become obsolete.
+  
+  ## The Bottom Line
+  
+  Meta's in-display glasses are more than a wearable device — they're a **catalyst for the post-smartphone era**. By embedding intelligence directly into what we see, Meta is pioneering a world where information becomes *invisible yet omnipresent*.
+  
+  The future of innovation is no longer about what we hold — it's about what we *see*.`
+  }
 ];
 
 interface BlogPost {
@@ -419,7 +469,12 @@ export default function BlogPostPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
-                    {new Date(post.date).toLocaleDateString()}
+                    {(() => {
+                      // Handle DD/MM/YYYY format
+                      const [day, month, year] = post.date.split('/');
+                      const date = new Date(year, month - 1, day);
+                      return date.toLocaleDateString();
+                    })()}
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="h-4 w-4" />
