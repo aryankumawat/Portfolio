@@ -297,7 +297,16 @@ export default function BlogPostPage() {
       const slug = params.slug as string;
       console.log('Blog post slug:', slug);
       
-      const postData = blogPosts.find(p => p.id === slug) || null;
+      // Sort posts by date (latest first) for consistency
+      const sortedPosts = [...blogPosts].sort((a, b) => {
+        const [dayA, monthA, yearA] = a.date.split('/');
+        const [dayB, monthB, yearB] = b.date.split('/');
+        const dateA = new Date(parseInt(yearA), parseInt(monthA) - 1, parseInt(dayA));
+        const dateB = new Date(parseInt(yearB), parseInt(monthB) - 1, parseInt(dayB));
+        return dateB.getTime() - dateA.getTime();
+      });
+      
+      const postData = sortedPosts.find(p => p.id === slug) || null;
       console.log('Blog post data:', postData);
       
       if (postData) {

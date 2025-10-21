@@ -269,8 +269,18 @@ The future of automation isn't about choosing between intelligence and reliabili
 ];
 
 export default function BlogPage() {
-  const featuredPosts = blogPosts.filter(post => post.featured);
-  const regularPosts = blogPosts.filter(post => !post.featured);
+  // Sort posts by date (latest first)
+  const sortedPosts = [...blogPosts].sort((a, b) => {
+    // Parse dates for comparison
+    const [dayA, monthA, yearA] = a.date.split('/');
+    const [dayB, monthB, yearB] = b.date.split('/');
+    const dateA = new Date(parseInt(yearA), parseInt(monthA) - 1, parseInt(dayA));
+    const dateB = new Date(parseInt(yearB), parseInt(monthB) - 1, parseInt(dayB));
+    return dateB.getTime() - dateA.getTime(); // Latest first
+  });
+  
+  const featuredPosts = sortedPosts.filter(post => post.featured);
+  const regularPosts = sortedPosts.filter(post => !post.featured);
 
   return (
     <div className="min-h-screen bg-hero noise">
