@@ -271,11 +271,20 @@ The future of automation isn't about choosing between intelligence and reliabili
 export default function BlogPage() {
   // Sort posts by date (latest first)
   const sortedPosts = [...blogPosts].sort((a, b) => {
-    // Parse dates for comparison
-    const [dayA, monthA, yearA] = a.date.split('/');
-    const [dayB, monthB, yearB] = b.date.split('/');
-    const dateA = new Date(parseInt(yearA), parseInt(monthA) - 1, parseInt(dayA));
-    const dateB = new Date(parseInt(yearB), parseInt(monthB) - 1, parseInt(dayB));
+    // Parse dates for comparison - handle both DD/MM/YYYY and YYYY-MM-DD formats
+    const parseDate = (dateStr: string) => {
+      if (dateStr.includes('/')) {
+        // DD/MM/YYYY format
+        const [day, month, year] = dateStr.split('/');
+        return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+      } else {
+        // YYYY-MM-DD format
+        return new Date(dateStr);
+      }
+    };
+    
+    const dateA = parseDate(a.date);
+    const dateB = parseDate(b.date);
     return dateB.getTime() - dateA.getTime(); // Latest first
   });
   
@@ -331,10 +340,16 @@ export default function BlogPage() {
                       <div className="flex items-center gap-1">
                         <Calendar className="h-4 w-4" />
                         {(() => {
-                          // Handle DD/MM/YYYY format
-                          const [day, month, year] = post.date.split('/');
-                          const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-                          return date.toLocaleDateString();
+                          // Handle both DD/MM/YYYY and YYYY-MM-DD formats
+                          if (post.date.includes('/')) {
+                            // DD/MM/YYYY format
+                            const [day, month, year] = post.date.split('/');
+                            const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+                            return date.toLocaleDateString();
+                          } else {
+                            // YYYY-MM-DD format
+                            return new Date(post.date).toLocaleDateString();
+                          }
                         })()}
                       </div>
                       <div className="flex items-center gap-1">
