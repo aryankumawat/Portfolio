@@ -323,7 +323,7 @@ export default function BlogPage() {
                         {(() => {
                           // Handle DD/MM/YYYY format
                           const [day, month, year] = post.date.split('/');
-                          const date = new Date(year, month - 1, day);
+                          const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
                           return date.toLocaleDateString();
                         })()}
                       </div>
