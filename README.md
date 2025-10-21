@@ -18,7 +18,7 @@ A modern, responsive personal portfolio website built with Next.js 14, showcasin
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS with custom glass morphism effects
+- **Styling**: Tailwind CSS with custom glass morphism effects.
 - **Animations**: Framer Motion
 - **UI Components**: shadcn/ui + custom GlassCard components
 - **Icons**: Lucide React
