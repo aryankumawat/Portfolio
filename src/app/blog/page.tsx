@@ -320,7 +320,12 @@ export default function BlogPage() {
                       </div>
                       <div className="flex items-center gap-1">
                         <Calendar className="h-4 w-4" />
-                        {new Date(post.date).toLocaleDateString()}
+                        {(() => {
+                          // Handle DD/MM/YYYY format
+                          const [day, month, year] = post.date.split('/');
+                          const date = new Date(year, month - 1, day);
+                          return date.toLocaleDateString();
+                        })()}
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="h-4 w-4" />
