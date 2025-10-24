@@ -12,6 +12,73 @@ import { useState, useEffect } from "react";
 // Blog post data - in a real app, this would come from a CMS or API
 const blogPosts = [
   {
+    id: "chatgpt-atlas-browser-ai-future",
+    title: "ChatGPT Atlas: The Browser That Thinks With You",
+    excerpt: "OpenAI's ChatGPT Atlas reimagines the web browser as an intelligent workspace — one that understands context, assists proactively, and turns passive browsing into active collaboration.",
+    category: "AI & Innovation",
+    date: "24/10/2025",
+    readTime: "8 min read",
+    author: "Aryan Kumawat",
+    tags: ["ChatGPT", "OpenAI", "Atlas", "AI Browser", "Innovation"],
+    featured: true,
+    content: `The future of browsing just changed forever. OpenAI's **ChatGPT Atlas** isn't just another Chrome alternative — it's a complete reinvention of how we experience the internet. By merging the intelligence of ChatGPT directly into the browser itself, Atlas turns every tab into a collaborative space where AI works *with* you, not just *for* you.
+
+Unlike traditional browsers designed for navigation, Atlas is designed for **comprehension, creation, and action**. It understands the page you're on, remembers your context, and can even perform multi-step actions through Agent Mode — from researching and summarising to filling out forms and comparing data in real time.
+
+---
+
+## What Makes ChatGPT Atlas Revolutionary?
+
+**1. Chat at the Core — Not a Plugin**  
+Atlas isn't about adding an AI sidebar to a normal browser; it's built from the ground up around ChatGPT. The assistant sits seamlessly alongside your browsing, allowing you to highlight text, ask questions, or generate summaries *without leaving the page*.
+
+**2. Agent Mode: From Answers to Actions**  
+In Agent Mode, Atlas goes beyond passive responses. It can open tabs, navigate websites, extract information, and complete multi-step tasks autonomously — all while keeping you in control. Imagine asking, "Find flights under $400 from Sydney to Tokyo next month," and watching it work through booking pages for you.
+
+**3. Contextual Memory and Continuity**  
+Atlas introduces **optional browser memory** — enabling ChatGPT to recall your past projects, preferences, or research threads. If you were comparing laptops yesterday, you can ask, "Show me the results from my last search," and pick up exactly where you left off.
+
+**4. A Familiar Yet Enhanced Experience**  
+Built on Chromium, Atlas supports your existing extensions, shortcuts, and bookmarks — but with the added power of real-time AI. You can think of it as Chrome with a brain: everything you know, just *smarter*.
+
+**5. Privacy and Transparency First**  
+OpenAI's design makes memory strictly opt-in. You can view, edit, or delete what ChatGPT remembers, and the browser clearly indicates when AI is assisting with content. The goal is empowerment, not surveillance.
+
+---
+
+## Why It's a Milestone for Innovation
+
+ChatGPT Atlas represents a philosophical shift in how we interact with the internet. The web, once a place to *search and click*, now becomes a space to *ask and act*. This marks the dawn of **conversational computing** — where your workflow is guided by natural dialogue rather than endless tabs and searches.
+
+**Impact Across Domains:**  
+- **Research & Education:** Instantly summarise papers, compare theories, and generate study notes within the same window.  
+- **Productivity & Writing:** Draft emails, generate code snippets, or rephrase content directly beside your workspace.  
+- **Shopping & Reviews:** Ask Atlas to find the best laptops under your budget, compare specs, and summarise top reviews.  
+- **Data Analysis:** Pull key metrics or summarise datasets from web dashboards with a single query.  
+
+The result? Browsing becomes less about searching — and more about *thinking*.
+
+---
+
+## Challenges and Considerations
+
+Every revolution comes with trade-offs. While Atlas brings a new era of intelligent browsing, it raises important questions:  
+- **Privacy:** Even with opt-in memory, users will need to stay aware of what data is stored and how it's used.  
+- **Dependence on AI:** The convenience could make users overly reliant on AI judgment instead of verifying sources themselves.  
+- **Early-stage Agent Mode:** As with any new automation feature, reliability and transparency will need refinement over time.
+
+Despite these hurdles, Atlas' launch demonstrates OpenAI's clear vision — to merge conversational AI, browsing, and task automation into a single fluid experience.
+
+---
+
+## The Bottom Line
+
+**ChatGPT Atlas is not just a browser — it's a companion for the modern web.** It redefines interaction by blending intelligence, context, and action into the very fabric of browsing. Whether you're researching a project, building a business, or just exploring ideas, Atlas turns the internet into a shared workspace between you and AI.
+
+This isn't the end of browsers — it's the beginning of **AI-native exploration**.  
+With Atlas, you don't just surf the web — you *collaborate* with it.`
+  },
+  {
     id: "genspark-future-ai-powered-creation",
     title: "Genspark: The Future of AI-Powered Creation",
     excerpt: "The creative tech space just got an upgrade. Genspark, a new-generation AI workspace, is redefining how ideas are built, tested, and shared — bridging the gap between imagination and execution.",
