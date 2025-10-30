@@ -12,6 +12,107 @@ import { useState, useEffect } from "react";
 // Blog post data - in a real app, this would come from a CMS or API
 const blogPosts = [
   {
+    id: "google-project-ara-modular-smartphone",
+    title: "Google Project Ara: The Ambitious Dream of a Modular Smartphone",
+    excerpt: "Imagine a phone you could upgrade like LEGO—swap the camera, add a better battery, or even change the processor. That was the promise of Google’s Project Ara, a revolutionary concept that aimed to redefine the smartphone industry.",
+    category: "Innovation",
+    date: "2025-10-31",
+    readTime: "8 min read",
+    author: "Aryan Kumawat",
+    tags: ["Google", "Project Ara", "Smartphone", "Modular Design", "Technology"],
+    featured: true,
+    content: `Imagine a phone you could upgrade like LEGO—swap the camera, add a better battery, or even change the processor. That was the promise of **Google’s Project Ara**, a bold experiment that set out to reinvent what smartphones could be.
+
+Back in 2013, while most manufacturers were focused on making devices thinner and faster, Google envisioned something radical: a **modular smartphone** where every component could be customized, upgraded, or replaced individually. It was a concept that promised sustainability, personalization, and freedom—all in one device.
+
+---
+
+## The Vision: A Phone Built Like LEGO
+
+Project Ara was designed around a simple yet powerful idea: a smartphone shouldn’t be disposable. Instead of throwing away your device every two years, why not just replace the part that’s outdated?
+
+At the heart of this design was the **“endo”**, or **endoskeleton**—a frame that held different **modules** such as the camera, battery, CPU, memory, and sensors. Each module could be attached or detached using electropermanent magnets and standardized connectors.
+
+The modular approach meant you could:
+- Upgrade your camera without changing the entire phone.
+- Add a bigger battery for trips.
+- Replace damaged parts instantly.
+- Even experiment with new modules created by third-party developers.
+
+This flexibility could have made smartphones truly personal—and drastically reduced electronic waste.
+
+---
+
+## The Engineering Challenge
+
+Google’s Advanced Technology and Projects (ATAP) team, under the leadership of Paul Eremenko, took on the enormous challenge of turning this vision into reality. The technical foundation relied on **MIPI UniPro** and **M-PHY** protocols—high-speed communication standards that would allow modules to talk seamlessly with the main system.
+
+However, modularity came with trade-offs:
+- **Space constraints** made it difficult to maintain slim designs.
+- **Signal and power distribution** across detachable modules was complex.
+- **Durability and aesthetics** suffered from the need for removable parts.
+
+Despite these hurdles, prototypes like **Spiral 1** and **Spiral 2** were showcased, and early developer kits were even released in limited numbers. The dream was alive—for a while.
+
+---
+
+## The Shift in Direction
+
+As the project evolved, Google realized that making *every* component modular was too complicated for mass production. By 2016, the plan changed: the **core phone** (screen, antennas, sensors) would remain fixed, while only select components—like the camera and storage—could be swapped.
+
+This was a compromise that diluted Ara’s original vision. It was no longer a fully modular smartphone, but rather a semi-modular one—closer to what LG’s G5 or Motorola’s Moto Mods later attempted.
+
+---
+
+## The Fall of a Revolutionary Idea
+
+On **September 2, 2016**, Google officially **shelved Project Ara**. The reasons were multifaceted:
+- **Engineering complexity** made it hard to deliver a stable consumer product.
+- **Manufacturing costs** outweighed the potential benefits.
+- **Regulatory hurdles** (like FCC certification for modular variations) complicated the launch.
+- And ultimately, **consumer demand** leaned toward sleek, integrated designs— not bulky modular experiments.
+
+Google decided to pivot toward more conventional hardware efforts, such as the **Pixel** lineup, marking the end of Ara’s ambitious run.
+
+---
+
+## Why Project Ara Still Matters
+
+Even though Project Ara never reached the market, it left an undeniable mark on the tech industry.
+
+**1. It challenged the status quo.**  
+Ara questioned the idea that innovation must come at the cost of sustainability. It highlighted the growing issue of e-waste and opened the conversation about modularity in consumer electronics.
+
+**2. It inspired others.**  
+Brands like **Fairphone** have since pursued ethical and repairable designs inspired by Ara’s philosophy.
+
+**3. It revealed the limits of modularity.**  
+Ara taught engineers and designers that modular hardware, while exciting, comes with real-world trade-offs—like structural fragility, added cost, and performance bottlenecks.
+
+**4. It predicted a future of modular ecosystems.**  
+Today, we see modularity thrive in other forms: software microservices, plug-in architectures, and even multi-agent AI systems—concepts not too far removed from Ara’s vision.
+
+---
+
+## Lessons from Project Ara
+
+For innovators, Ara offers timeless lessons:
+
+- **Vision must align with market reality.** Even the most brilliant idea can fail if it doesn’t fit consumer habits or manufacturing economics.  
+- **Simplicity sells.** While modularity sounded empowering, most users just wanted a phone that “worked” out of the box.  
+- **Experimentation drives evolution.** Every failed experiment leaves behind insights that fuel future success.
+
+---
+
+## The Bottom Line
+
+Google Project Ara may have been short-lived, but it symbolized the spirit of innovation that defines tech progress: bold, experimental, and unafraid to fail.  
+
+Its legacy endures—not in our pockets, but in the lessons it taught the tech world about design, modularity, and ambition.  
+
+In a world of uniform, sealed smartphones, Ara remains a reminder that technology should be **flexible, sustainable, and human-centered**—even if the road to that ideal is anything but simple.`
+  },
+  {
     id: "chatgpt-atlas-browser-ai-future",
     title: "ChatGPT Atlas: The Browser That Thinks With You",
     excerpt: "OpenAI's ChatGPT Atlas reimagines the web browser as an intelligent workspace — one that understands context, assists proactively, and turns passive browsing into active collaboration.",
