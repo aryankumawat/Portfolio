@@ -436,7 +436,7 @@ The future of automation isn't about choosing between intelligence and reliabili
   
 ];
 
-export default function BlogPage() {
+export default function Page() {
   // Sort posts by date (latest first)
   const sortedPosts = [...blogPosts].sort((a, b) => {
     // Parse dates for comparison - handle both DD/MM/YYYY and YYYY-MM-DD formats
