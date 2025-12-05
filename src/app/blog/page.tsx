@@ -485,64 +485,66 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {featuredPosts.map((post, index) => (
               <Reveal key={post.title} delay={0.4 + index * 0.2}>
-                <GlassCard className="h-full group">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <Badge variant="outline" className="text-xs">
-                        {post.category}
-                      </Badge>
-                      <Badge variant="default" className="text-xs bg-gradient-to-r from-[#66FCF1] to-[#45A29E]">
-                        Featured
-                      </Badge>
-                    </div>
-                    
-                    <h3 className="text-xl font-semibold text-white transition-colors">
-                      {post.title}
-                    </h3>
-                    
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">
-                      <div className="flex items-center gap-1">
-                        <User className="h-4 w-4" />
-                        {post.author}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        {(() => {
-                          // Handle both DD/MM/YYYY and YYYY-MM-DD formats
-                          if (post.date.includes('/')) {
-                            // DD/MM/YYYY format
-                            const [day, month, year] = post.date.split('/');
-                            const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-                            return date.toLocaleDateString();
-                          } else {
-                            // YYYY-MM-DD format
-                            return new Date(post.date).toLocaleDateString();
-                          }
-                        })()}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
-                        {post.readTime}
-                      </div>
-                    </div>
-                    
-                    <p className="text-slate-300/80 leading-relaxed">
-                      {post.excerpt}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {post.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="outline" className="text-xs">
-                          {tag}
+                <Link href={`/blog/${post.id}`} className="block h-full">
+                  <GlassCard className="h-full group cursor-pointer hover:border-[#66FCF1]/50 transition-all">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <Badge variant="outline" className="text-xs">
+                          {post.category}
                         </Badge>
-                      ))}
+                        <Badge variant="default" className="text-xs bg-gradient-to-r from-[#66FCF1] to-[#45A29E]">
+                          Featured
+                        </Badge>
+                      </div>
+                      
+                      <h3 className="text-xl font-semibold text-white transition-colors group-hover:text-[#66FCF1]">
+                        {post.title}
+                      </h3>
+                      
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">
+                        <div className="flex items-center gap-1">
+                          <User className="h-4 w-4" />
+                          {post.author}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-4 w-4" />
+                          {(() => {
+                            // Handle both DD/MM/YYYY and YYYY-MM-DD formats
+                            if (post.date.includes('/')) {
+                              // DD/MM/YYYY format
+                              const [day, month, year] = post.date.split('/');
+                              const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+                              return date.toLocaleDateString();
+                            } else {
+                              // YYYY-MM-DD format
+                              return new Date(post.date).toLocaleDateString();
+                            }
+                          })()}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock className="h-4 w-4" />
+                          {post.readTime}
+                        </div>
+                      </div>
+                      
+                      <p className="text-slate-300/80 leading-relaxed">
+                        {post.excerpt}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags.map((tag, tagIndex) => (
+                          <Badge key={tagIndex} variant="outline" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      
+                      <div className="text-sm text-[#66FCF1] font-medium group-hover:text-[#45A29E] transition-colors">
+                        Read more →
+                      </div>
                     </div>
-                    
-                    <Link href={`/blog/${post.id}`} className="text-sm text-[#66FCF1] font-medium hover:text-[#45A29E] transition-colors">
-                      Read more →
-                    </Link>
-                  </div>
-                </GlassCard>
+                  </GlassCard>
+                </Link>
               </Reveal>
             ))}
           </div>
