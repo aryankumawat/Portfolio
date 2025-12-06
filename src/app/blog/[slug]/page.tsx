@@ -738,6 +738,10 @@ export default function BlogPostPage() {
 
   // Function to render markdown-like content
   const renderContent = (content: string) => {
+    if (!content) {
+      return <p className="text-red-400">Content is empty</p>;
+    }
+
     const lines = content.split('\n');
     const elements: JSX.Element[] = [];
     let inList = false;
@@ -746,7 +750,7 @@ export default function BlogPostPage() {
     const flushList = () => {
       if (inList && listItems.length > 0) {
         elements.push(
-          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-4 text-slate-300">
+          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-4 text-slate-200">
             {listItems.map((item, idx) => (
               <li key={idx} className="leading-relaxed">
                 {renderBoldText(item)}
@@ -769,7 +773,7 @@ export default function BlogPostPage() {
             </strong>
           );
         }
-        return part;
+        return <span key={idx}>{part}</span>;
       });
     };
 
@@ -779,19 +783,19 @@ export default function BlogPostPage() {
       if (trimmedLine === '---') {
         flushList();
         elements.push(
-          <hr key={index} className="border-slate-600 my-6" />
+          <hr key={`hr-${index}`} className="border-slate-600 my-6" />
         );
       } else if (trimmedLine.startsWith('## ')) {
         flushList();
         elements.push(
-          <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4 border-b border-slate-600 pb-2">
+          <h2 key={`h2-${index}`} className="text-2xl font-bold text-white mt-8 mb-4 border-b border-slate-600 pb-2">
             {trimmedLine.replace('## ', '')}
           </h2>
         );
       } else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**') && trimmedLine.length > 4) {
         flushList();
         elements.push(
-          <h3 key={index} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-3">
+          <h3 key={`h3-${index}`} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-3">
             {trimmedLine.replace(/\*\*/g, '')}
           </h3>
         );
@@ -803,11 +807,11 @@ export default function BlogPostPage() {
         listItems.push(trimmedLine.replace('- ', ''));
       } else if (trimmedLine === '') {
         flushList();
-        elements.push(<div key={index} className="h-2" />);
+        elements.push(<div key={`space-${index}`} className="h-2" />);
       } else if (trimmedLine.length > 0) {
         flushList();
         elements.push(
-          <p key={index} className="text-slate-300 leading-relaxed mb-4 text-base">
+          <p key={`p-${index}`} className="text-slate-200 leading-relaxed mb-4 text-base">
             {renderBoldText(trimmedLine)}
           </p>
         );
@@ -815,7 +819,9 @@ export default function BlogPostPage() {
     });
 
     flushList(); // Flush any remaining list items
-    return elements;
+    
+    console.log('Rendered elements count:', elements.length);
+    return elements.length > 0 ? elements : <p className="text-yellow-400">No content elements rendered</p>;
   };
 
   return (
@@ -889,8 +895,12 @@ export default function BlogPostPage() {
 
                 <div className="border-t border-slate-600 pt-6">
                   <div className="max-w-none">
-                    <div className="space-y-4">
-                      {renderContent(post.content)}
+                    <div className="space-y-4 text-slate-300">
+                      {post.content ? (
+                        renderContent(post.content)
+                      ) : (
+                        <p className="text-red-400">No content available</p>
+                      )}
                     </div>
                   </div>
                 </div>
