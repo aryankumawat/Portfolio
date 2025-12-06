@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const projectId = params.id;
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const projectId = resolvedParams.id;
 
   // Metadata for SlideSmith
   if (projectId === "slidesmith") {
