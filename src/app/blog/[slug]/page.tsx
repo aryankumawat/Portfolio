@@ -776,17 +776,22 @@ export default function BlogPostPage() {
     lines.forEach((line, index) => {
       const trimmedLine = line.trim();
       
-      if (trimmedLine.startsWith('## ')) {
+      if (trimmedLine === '---') {
         flushList();
         elements.push(
-          <h2 key={index} className="text-2xl font-bold text-white mt-6 mb-4 border-b border-slate-600 pb-2">
+          <hr key={index} className="border-slate-600 my-6" />
+        );
+      } else if (trimmedLine.startsWith('## ')) {
+        flushList();
+        elements.push(
+          <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4 border-b border-slate-600 pb-2">
             {trimmedLine.replace('## ', '')}
           </h2>
         );
       } else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**') && trimmedLine.length > 4) {
         flushList();
         elements.push(
-          <h3 key={index} className="text-xl font-semibold text-[#66FCF1] mt-4 mb-3">
+          <h3 key={index} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-3">
             {trimmedLine.replace(/\*\*/g, '')}
           </h3>
         );
