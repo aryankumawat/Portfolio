@@ -899,17 +899,8 @@ export default function BlogPostPage({ params }: PageProps) {
 
                 <div className="border-t border-slate-600 pt-6">
                   <div className="max-w-none">
-                    {/* Debug: Show raw content length */}
-                    <p className="text-yellow-400 mb-4 text-sm">
-                      Content length: {post.content?.length || 0} characters
-                    </p>
-                    
-                    <div className="space-y-4 text-slate-200 prose prose-invert max-w-none">
-                      {post.content ? (
-                        <div className="whitespace-pre-wrap">{post.content}</div>
-                      ) : (
-                        <p className="text-red-400">No content available</p>
-                      )}
+                    <div className="space-y-4">
+                      {renderContent(post.content)}
                     </div>
                   </div>
                 </div>
