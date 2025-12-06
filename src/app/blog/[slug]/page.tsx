@@ -898,10 +898,69 @@ export default function BlogPostPage({ params }: PageProps) {
                 </div>
 
                 <div className="border-t border-slate-600 pt-6">
-                  <div className="max-w-none">
-                    <div className="space-y-4">
-                      {renderContent(post.content)}
-                    </div>
+                  <div className="max-w-none prose prose-invert prose-slate max-w-none">
+                    <article className="text-slate-200">
+                      {post.content.split('\n\n').map((paragraph, idx) => {
+                        const trimmed = paragraph.trim();
+                        
+                        // Skip empty paragraphs
+                        if (!trimmed) return null;
+                        
+                        // Horizontal rule
+                        if (trimmed === '---') {
+                          return <hr key={idx} className="my-8 border-slate-600" />;
+                        }
+                        
+                        // Heading
+                        if (trimmed.startsWith('## ')) {
+                          return (
+                            <h2 key={idx} className="text-3xl font-bold text-white mt-8 mb-4">
+                              {trimmed.replace('## ', '')}
+                            </h2>
+                          );
+                        }
+                        
+                        // Bold standalone line (subheading)
+                        if (trimmed.startsWith('**') && trimmed.endsWith('**') && !trimmed.includes('\n')) {
+                          return (
+                            <h3 key={idx} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-3">
+                              {trimmed.replace(/\*\*/g, '')}
+                            </h3>
+                          );
+                        }
+                        
+                        // List items
+                        if (trimmed.includes('\n- ')) {
+                          const items = trimmed.split('\n').filter(line => line.trim().startsWith('- '));
+                          return (
+                            <ul key={idx} className="list-disc list-inside space-y-2 my-4 text-slate-200">
+                              {items.map((item, i) => (
+                                <li key={i} className="leading-relaxed">
+                                  {item.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
+                                </li>
+                              ))}
+                            </ul>
+                          );
+                        }
+                        
+                        // Regular paragraph with bold text
+                        const renderWithBold = (text: string) => {
+                          const parts = text.split(/(\*\*.*?\*\*)/g);
+                          return parts.map((part, i) => {
+                            if (part.startsWith('**') && part.endsWith('**')) {
+                              return <strong key={i} className="font-bold text-white">{part.slice(2, -2)}</strong>;
+                            }
+                            return <span key={i}>{part}</span>;
+                          });
+                        };
+                        
+                        return (
+                          <p key={idx} className="text-slate-200 leading-relaxed mb-4">
+                            {renderWithBold(trimmed)}
+                          </p>
+                        );
+                      })}
+                    </article>
                   </div>
                 </div>
               </div>
