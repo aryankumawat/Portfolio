@@ -4,7 +4,7 @@ import { GlassCard } from "@/components/GlassCard";
 import { Reveal } from "@/components/Reveal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, User, Tag, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -649,15 +649,19 @@ interface BlogPost {
   content: string;
 }
 
-export default function BlogPostPage() {
-  const params = useParams();
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default function BlogPostPage({ params }: PageProps) {
+  const resolvedParams = useParams();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     try {
-      const slug = params.slug as string;
+      const slug = resolvedParams.slug as string;
       console.log('Blog post slug:', slug);
       
       // Sort posts by date (latest first) for consistency
@@ -693,7 +697,7 @@ export default function BlogPostPage() {
       setError('Failed to load blog post');
       setLoading(false);
     }
-  }, [params.slug]);
+  }, [resolvedParams.slug]);
 
   if (loading) {
     return (
