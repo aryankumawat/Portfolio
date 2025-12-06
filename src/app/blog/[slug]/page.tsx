@@ -825,7 +825,7 @@ export default function BlogPostPage({ params }: PageProps) {
     flushList(); // Flush any remaining list items
     
     console.log('Rendered elements count:', elements.length);
-    return elements.length > 0 ? elements : <p className="text-yellow-400">No content elements rendered</p>;
+    return elements.length > 0 ? <>{elements}</> : <p className="text-yellow-400">No content elements rendered</p>;
   };
 
   return (
