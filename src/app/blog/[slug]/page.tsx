@@ -663,7 +663,7 @@ export default function BlogPostPage({ params }: PageProps) {
     try {
       const slug = resolvedParams.slug as string;
       console.log('Blog post slug:', slug);
-      
+
       // Sort posts by date (latest first) for consistency
       const sortedPosts = [...blogPosts].sort((a, b) => {
         // Parse dates for comparison - handle both DD/MM/YYYY and YYYY-MM-DD formats
@@ -677,15 +677,15 @@ export default function BlogPostPage({ params }: PageProps) {
             return new Date(dateStr);
           }
         };
-        
+
         const dateA = parseDate(a.date);
         const dateB = parseDate(b.date);
         return dateB.getTime() - dateA.getTime();
       });
-      
+
       const postData = sortedPosts.find(p => p.id === slug) || null;
       console.log('Blog post data:', postData);
-      
+
       if (postData) {
         setPost(postData);
       } else {
@@ -740,93 +740,7 @@ export default function BlogPostPage({ params }: PageProps) {
     );
   }
 
-  // Function to render markdown-like content
-  const renderContent = (content: string) => {
-    if (!content) {
-      return <p className="text-red-400">Content is empty</p>;
-    }
 
-    const lines = content.split('\n');
-    const elements: JSX.Element[] = [];
-    let inList = false;
-    let listItems: string[] = [];
-
-    const flushList = () => {
-      if (inList && listItems.length > 0) {
-        elements.push(
-          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-4 text-slate-200">
-            {listItems.map((item, idx) => (
-              <li key={idx} className="leading-relaxed">
-                {renderBoldText(item)}
-              </li>
-            ))}
-          </ul>
-        );
-        listItems = [];
-        inList = false;
-      }
-    };
-
-    const renderBoldText = (text: string) => {
-      const parts = text.split(/(\*\*.*?\*\*)/g);
-      return parts.map((part, idx) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-          return (
-            <strong key={idx} className="font-bold text-white">
-              {part.replace(/\*\*/g, '')}
-            </strong>
-          );
-        }
-        return <span key={idx}>{part}</span>;
-      });
-    };
-
-    lines.forEach((line, index) => {
-      const trimmedLine = line.trim();
-      
-      if (trimmedLine === '---') {
-        flushList();
-        elements.push(
-          <hr key={`hr-${index}`} className="border-slate-600 my-6" />
-        );
-      } else if (trimmedLine.startsWith('## ')) {
-        flushList();
-        elements.push(
-          <h2 key={`h2-${index}`} className="text-2xl font-bold text-white mt-8 mb-4 border-b border-slate-600 pb-2">
-            {trimmedLine.replace('## ', '')}
-          </h2>
-        );
-      } else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**') && trimmedLine.length > 4) {
-        flushList();
-        elements.push(
-          <h3 key={`h3-${index}`} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-3">
-            {trimmedLine.replace(/\*\*/g, '')}
-          </h3>
-        );
-      } else if (trimmedLine.startsWith('- ')) {
-        if (!inList) {
-          flushList();
-          inList = true;
-        }
-        listItems.push(trimmedLine.replace('- ', ''));
-      } else if (trimmedLine === '') {
-        flushList();
-        elements.push(<div key={`space-${index}`} className="h-2" />);
-      } else if (trimmedLine.length > 0) {
-        flushList();
-        elements.push(
-          <p key={`p-${index}`} className="text-slate-200 leading-relaxed mb-4 text-base">
-            {renderBoldText(trimmedLine)}
-          </p>
-        );
-      }
-    });
-
-    flushList(); // Flush any remaining list items
-    
-    console.log('Rendered elements count:', elements.length);
-    return elements.length > 0 ? <>{elements}</> : <p className="text-yellow-400">No content elements rendered</p>;
-  };
 
   return (
     <div className="min-h-screen bg-hero noise">
@@ -854,11 +768,11 @@ export default function BlogPostPage({ params }: PageProps) {
                     Featured
                   </Badge>
                 </div>
-                
+
                 <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight">
                   {post.title}
                 </h1>
-                
+
                 <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
                   <div className="flex items-center gap-2">
                     <User className="h-4 w-4" />
@@ -884,11 +798,11 @@ export default function BlogPostPage({ params }: PageProps) {
                     {post.readTime}
                   </div>
                 </div>
-                
+
                 <p className="text-lg text-slate-300/90 leading-relaxed">
                   {post.excerpt}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-8">
                   {post.tags.map((tag, tagIndex) => (
                     <Badge key={tagIndex} variant="outline" className="text-sm">
@@ -902,48 +816,11 @@ export default function BlogPostPage({ params }: PageProps) {
                     <article className="text-slate-200">
                       {post.content.split('\n\n').map((paragraph, idx) => {
                         const trimmed = paragraph.trim();
-                        
+
                         // Skip empty paragraphs
                         if (!trimmed) return null;
-                        
-                        // Horizontal rule
-                        if (trimmed === '---') {
-                          return <hr key={idx} className="my-8 border-slate-600" />;
-                        }
-                        
-                        // Heading
-                        if (trimmed.startsWith('## ')) {
-                          return (
-                            <h2 key={idx} className="text-3xl font-bold text-white mt-8 mb-4">
-                              {trimmed.replace('## ', '')}
-                            </h2>
-                          );
-                        }
-                        
-                        // Bold standalone line (subheading)
-                        if (trimmed.startsWith('**') && trimmed.endsWith('**') && !trimmed.includes('\n')) {
-                          return (
-                            <h3 key={idx} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-3">
-                              {trimmed.replace(/\*\*/g, '')}
-                            </h3>
-                          );
-                        }
-                        
-                        // List items
-                        if (trimmed.includes('\n- ')) {
-                          const items = trimmed.split('\n').filter(line => line.trim().startsWith('- '));
-                          return (
-                            <ul key={idx} className="list-disc list-inside space-y-2 my-4 text-slate-200">
-                              {items.map((item, i) => (
-                                <li key={i} className="leading-relaxed">
-                                  {item.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
-                                </li>
-                              ))}
-                            </ul>
-                          );
-                        }
-                        
-                        // Regular paragraph with bold text
+
+                        // Helper for rendering bold text
                         const renderWithBold = (text: string) => {
                           const parts = text.split(/(\*\*.*?\*\*)/g);
                           return parts.map((part, i) => {
@@ -953,7 +830,44 @@ export default function BlogPostPage({ params }: PageProps) {
                             return <span key={i}>{part}</span>;
                           });
                         };
-                        
+
+                        // Horizontal rule
+                        if (trimmed === '---') {
+                          return <hr key={idx} className="my-8 border-slate-600" />;
+                        }
+
+                        // Heading
+                        if (trimmed.startsWith('## ')) {
+                          return (
+                            <h2 key={idx} className="text-3xl font-bold text-white mt-8 mb-4">
+                              {trimmed.replace('## ', '')}
+                            </h2>
+                          );
+                        }
+
+                        // Bold standalone line (subheading)
+                        if (trimmed.startsWith('**') && trimmed.endsWith('**') && !trimmed.includes('\n')) {
+                          return (
+                            <h3 key={idx} className="text-xl font-semibold text-[#66FCF1] mt-6 mb-3">
+                              {trimmed.replace(/\*\*/g, '')}
+                            </h3>
+                          );
+                        }
+
+                        // List items
+                        if (trimmed.includes('\n- ') || trimmed.startsWith('- ')) {
+                          const items = trimmed.split('\n').filter(line => line.trim().startsWith('- '));
+                          return (
+                            <ul key={idx} className="list-disc list-inside space-y-2 my-4 text-slate-200">
+                              {items.map((item, i) => (
+                                <li key={i} className="leading-relaxed">
+                                  {renderWithBold(item.replace('- ', ''))}
+                                </li>
+                              ))}
+                            </ul>
+                          );
+                        }
+
                         return (
                           <p key={idx} className="text-slate-200 leading-relaxed mb-4">
                             {renderWithBold(trimmed)}
