@@ -6,6 +6,111 @@ import Link from "next/link";
 
 const blogPosts = [
   {
+    id: "kiro-ai-ide-production-code",
+    title: "Kiro: The AI IDE That Turns Ideas Into Production-Ready Code",
+    excerpt: "Kiro redefines what an IDE should be — not just a place to write code, but an intelligent engineering partner that transforms natural language ideas into structured, scalable, and production-ready software.",
+    category: "AI & Innovation",
+    date: "2025-12-16",
+    readTime: "7 min read",
+    author: "Aryan Kumawat",
+    tags: ["Kiro", "AI IDE", "Amazon", "Software Engineering", "Innovation"],
+    featured: true,
+    content: `The way we write software is changing — fast. For decades, IDEs have been passive tools: editors, debuggers, and linters that waited for instructions. Kiro flips that model entirely. It’s not just an IDE with AI bolted on — it’s an AI-native development environment built to think alongside engineers.
+
+Developed with Amazon’s engineering philosophy at its core, Kiro is designed to bridge the biggest gap in software development today: the gap between ideas and implementation. Instead of starting with files and boilerplate, you start with intent — and Kiro helps turn that intent into real, maintainable code.
+
+---
+
+## What Makes Kiro Different?
+
+**1. From Prompts to Plans — Not Just Code**
+
+Most AI coding tools jump straight into generating snippets. Kiro doesn’t. It starts by understanding what you’re building and why. You can describe a feature in plain English — and Kiro responds with a structured development plan: architecture, components, edge cases, and implementation steps.
+
+It treats software like an engineering system, not a coding exercise.
+
+**2. Specs as First-Class Citizens**
+
+One of Kiro’s most powerful ideas is spec-driven development. Instead of code being the single source of truth, Kiro encourages explicit specifications — requirements, constraints, and design decisions — that evolve with the code.
+
+This means:
+
+- Fewer misunderstood requirements
+- Cleaner handoffs in teams
+- Code that actually matches the original intent
+
+In a world of fast-moving teams and AI-generated code, specs are no longer optional — and Kiro understands that.
+
+**3. An AI That Understands Your Codebase**
+
+Kiro isn’t stateless. It understands your project structure, existing files, dependencies, and conventions. When you ask it to add a feature or refactor logic, it works within your system instead of fighting it.
+
+This contextual awareness makes Kiro feel less like an assistant — and more like a senior engineer who’s already familiar with the repo.
+
+**4. Production-Ready by Design**
+
+Kiro is opinionated in the right ways. It nudges you toward:
+
+- Modular architecture
+- Clear interfaces
+- Testable components
+- Scalable patterns
+
+Instead of just making code work, it helps make code last. That’s a critical shift — especially as AI-generated code becomes more common and technical debt becomes easier to create.
+
+**5. Built for Real Engineers, Not Just Demos**
+
+Kiro isn’t trying to replace developers. It’s built for people who care about correctness, maintainability, and long-term impact. You stay in control at every step — approving plans, reviewing diffs, and guiding decisions.
+
+Think of it as pair programming with an AI that never gets tired.
+
+---
+
+## Why Kiro Matters for the Future of Software
+
+Kiro represents a deeper shift in software engineering — from typing-centric development to intent-centric development.
+
+Instead of asking:
+
+“How do I write this code?”
+
+You start asking:
+
+“What should this system do — and how should it behave?”
+
+This has massive implications:
+
+- **Startups** can prototype faster without sacrificing structure
+- **Teams** can align on specs instead of arguing over implementations
+- **Students** can learn how to think like engineers, not just how to code
+- **Large systems** become easier to evolve as intent stays documented
+
+In a world where AI can write code instantly, clarity of intent becomes the real skill. Kiro is built exactly for that reality.
+
+---
+
+## Potential Challenges
+
+No tool is perfect — especially this early.
+
+- **Learning Curve:** Spec-driven workflows may feel unfamiliar to developers used to jumping straight into code
+- **Over-reliance Risk:** Engineers must still understand the generated architecture, not blindly accept it
+- **Early Ecosystem:** As a newer platform, Kiro’s integrations and plugins will evolve over time
+
+That said, these challenges are far outweighed by the long-term value Kiro introduces.
+
+---
+
+## The Bottom Line
+
+**Kiro isn’t just another AI coding tool — it’s a new philosophy for building software.** By treating intent, structure, and specifications as first-class citizens, it helps developers move from chaotic iteration to deliberate engineering.
+
+As AI continues to change how code is written, tools like Kiro show us what comes next:
+**Less typing. More thinking. Better systems.**
+
+This isn’t the future of IDEs — it’s the future of software engineering itself.`
+  },
+  {
     id: "google-antigravity-ai-coding-platform",
     title: "Google Antigravity: The AI Coding Platform That's Redefining Software Development",
     excerpt: "When Google quietly launched Antigravity alongside Gemini 3 Pro in late 2025, most people assumed it was just another AI coding assistant. But it isn't. This is autonomous engineering at its finest—AI agents that plan, execute, test, and validate entire workflows on their own.",
@@ -628,7 +733,7 @@ The future of automation isn't about choosing between intelligence and reliabili
   
   The future of innovation is no longer about what we hold — it’s about what we *see*.`
   }
-  
+
 ];
 
 export default function Page() {
@@ -645,12 +750,12 @@ export default function Page() {
         return new Date(dateStr);
       }
     };
-    
+
     const dateA = parseDate(a.date);
     const dateB = parseDate(b.date);
     return dateB.getTime() - dateA.getTime(); // Latest first
   });
-  
+
   const featuredPosts = sortedPosts.filter(post => post.featured);
   const regularPosts = sortedPosts.filter(post => !post.featured);
 
@@ -664,7 +769,7 @@ export default function Page() {
                 Blog & Insights
               </h1>
               <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto">
-                Sharing insights on AI, automation, technology trends, 
+                Sharing insights on AI, automation, technology trends,
                 and the future of intelligent systems.
               </p>
             </div>
@@ -676,7 +781,7 @@ export default function Page() {
               Latest Article
             </h2>
           </Reveal>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {featuredPosts.map((post, index) => (
               <Reveal key={post.title} delay={0.4 + index * 0.2}>
@@ -691,11 +796,11 @@ export default function Page() {
                           Featured
                         </Badge>
                       </div>
-                      
+
                       <h3 className="text-xl font-semibold text-white transition-colors group-hover:text-[#66FCF1]">
                         {post.title}
                       </h3>
-                      
+
                       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">
                         <div className="flex items-center gap-1">
                           <User className="h-4 w-4" />
@@ -721,11 +826,11 @@ export default function Page() {
                           {post.readTime}
                         </div>
                       </div>
-                      
+
                       <p className="text-slate-300/80 leading-relaxed">
                         {post.excerpt}
                       </p>
-                      
+
                       <div className="flex flex-wrap gap-2">
                         {post.tags.map((tag, tagIndex) => (
                           <Badge key={tagIndex} variant="outline" className="text-xs">
@@ -733,7 +838,7 @@ export default function Page() {
                           </Badge>
                         ))}
                       </div>
-                      
+
                       <div className="text-sm text-[#66FCF1] font-medium group-hover:text-[#45A29E] transition-colors">
                         Read more →
                       </div>
