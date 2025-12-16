@@ -118,4 +118,4 @@ Optimized for deployment on **Vercel**:
 - **GitHub**: [aryankumawat](https://github.com/aryankumawat)
 
 ---
-*© 2025 Aryan Kumawat. Built with ❤️ and Next.js.*
+*© 2025 Aryan Kumawat. Built with Next.js.*
