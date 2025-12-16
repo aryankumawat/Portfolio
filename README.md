@@ -2,9 +2,9 @@
 
 A futuristic, interactive, and responsive portfolio website built with **Next.js 15**, showcasing expertise in **Data Science**, **AI Engineering**, and **Full-Stack Development**. The site features a **premium glass-morphism design**, immersive space-themed backgrounds, and smooth scroll animations.
 
-![Portfolio Preview](public/og-image.png)
 
-## 🚀 Features
+
+## Features
 
 - **Futuristic Design System**:
   - **Glass Morphism**: Translucent cards with backdrop blur, noise textures, and subtle border gradients.
