@@ -194,20 +194,6 @@ export default function BlogPostPage({ params }: PageProps) {
                           );
                         }
                         
-                        // List items
-                        if (trimmed.includes('\n- ')) {
-                          const items = trimmed.split('\n').filter(line => line.trim().startsWith('- '));
-                          return (
-                            <ul key={idx} className="list-disc list-inside space-y-2 my-4 text-slate-200">
-                              {items.map((item, i) => (
-                                <li key={i} className="leading-relaxed">
-                                  {item.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
-                                </li>
-                              ))}
-                            </ul>
-                          );
-                        }
-                        
                         // Regular paragraph with bold text
                         const renderWithBold = (text: string) => {
                           const parts = text.split(/(\*\*.*?\*\*)/g);
@@ -218,6 +204,33 @@ export default function BlogPostPage({ params }: PageProps) {
                             return <span key={i}>{part}</span>;
                           });
                         };
+                        
+                        // List items - handle both multi-line lists and single-line lists
+                        if (trimmed.includes('\n- ') || (trimmed.startsWith('- ') && trimmed.split('\n').length > 1)) {
+                          const items = trimmed.split('\n').filter(line => line.trim().startsWith('- '));
+                          if (items.length > 0) {
+                            return (
+                              <ul key={idx} className="list-disc list-inside space-y-2 my-4 text-slate-200">
+                                {items.map((item, i) => (
+                                  <li key={i} className="leading-relaxed">
+                                    {renderWithBold(item.replace(/^-\s+/, ''))}
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          }
+                        }
+                        
+                        // Single list item as its own paragraph
+                        if (trimmed.startsWith('- ') && !trimmed.includes('\n')) {
+                          return (
+                            <ul key={idx} className="list-disc list-inside space-y-2 my-4 text-slate-200">
+                              <li className="leading-relaxed">
+                                {renderWithBold(trimmed.replace(/^-\s+/, ''))}
+                              </li>
+                            </ul>
+                          );
+                        }
                         
                         return (
                           <p key={idx} className="text-slate-200 leading-relaxed mb-4">
