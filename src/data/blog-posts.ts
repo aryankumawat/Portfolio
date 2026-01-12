@@ -847,7 +847,7 @@ The future of search isn't about better ranking algorithms—it's about **unders
     title: "Rabbit R1: The Pocket-Sized AI Agent That Could Replace Your Apps",
     excerpt: "What if you never had to open another app again? The Rabbit R1 isn't just another AI gadget—it's a bold experiment in replacing app interfaces with natural language. One device, one conversation, infinite possibilities.",
     category: "AI & Innovation",
-    date: "2026-01-11",
+    date: "2026-01-14",
     readTime: "8 min read",
     author: "Aryan Kumawat",
     tags: ["Rabbit R1", "AI Agent", "Hardware", "Innovation", "Natural Language"],
