@@ -172,7 +172,18 @@ export default function BlogPostPage({ params }: PageProps) {
                 <div className="border-t border-slate-600 pt-6">
                   <div className="max-w-none prose prose-invert prose-slate max-w-none">
                     <article className="text-slate-200">
-                      {post.content && typeof post.content === 'string' ? post.content.split('\n\n').map((paragraph, idx) => {
+                      {(() => {
+                        if (!post.content) {
+                          console.error('Post content is missing!', post);
+                          return <p className="text-red-400">Error: Content not available</p>;
+                        }
+                        if (typeof post.content !== 'string') {
+                          console.error('Post content is not a string!', typeof post.content, post);
+                          return <p className="text-red-400">Error: Content is not a string</p>;
+                        }
+                        const paragraphs = post.content.split('\n\n');
+                        console.log('Rendering content with', paragraphs.length, 'paragraphs');
+                        return paragraphs.map((paragraph, idx) => {
                         const trimmed = paragraph.trim();
                         
                         // Skip empty paragraphs
@@ -244,7 +255,8 @@ export default function BlogPostPage({ params }: PageProps) {
                             {renderWithBold(trimmed)}
                           </p>
                         );
-                      }) : <p className="text-red-400">Error: Content not available</p>}
+                      });
+                      })()}
                     </article>
                   </div>
                 </div>
