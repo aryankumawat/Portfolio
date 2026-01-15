@@ -47,7 +47,7 @@ export default function Page() {
           {/* Featured Posts */}
           <Reveal delay={0.2}>
             <h2 className="text-3xl font-bold mb-8 text-center gradient-text">
-              Latest Article
+              Featured Articles
             </h2>
           </Reveal>
           
@@ -117,6 +117,81 @@ export default function Page() {
               </Reveal>
             ))}
           </div>
+
+          {/* Regular Posts - Only show if there are any */}
+          {regularPosts.length > 0 && (
+            <>
+              <Reveal delay={0.6}>
+                <h2 className="text-3xl font-bold mb-8 text-center gradient-text">
+                  Latest Insights
+                </h2>
+              </Reveal>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                {regularPosts.map((post, index) => (
+                  <Reveal key={post.title} delay={0.8 + index * 0.2}>
+                    <Link href={`/blog/${post.id}`} className="block h-full">
+                      <GlassCard className="h-full group cursor-pointer hover:border-[#66FCF1]/50 transition-all">
+                        <div className="space-y-4">
+                          <div className="flex items-center justify-between">
+                            <Badge variant="outline" className="text-xs">
+                              {post.category}
+                            </Badge>
+                          </div>
+                          
+                          <h3 className="text-xl font-semibold text-white transition-colors group-hover:text-[#66FCF1]">
+                            {post.title}
+                          </h3>
+                          
+                          <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">
+                            <div className="flex items-center gap-1">
+                              <User className="h-4 w-4" />
+                              {post.author}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Calendar className="h-4 w-4" />
+                              {(() => {
+                                // Handle both DD/MM/YYYY and YYYY-MM-DD formats
+                                if (post.date.includes('/')) {
+                                  // DD/MM/YYYY format
+                                  const [day, month, year] = post.date.split('/');
+                                  const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+                                  return date.toLocaleDateString();
+                                } else {
+                                  // YYYY-MM-DD format
+                                  return new Date(post.date).toLocaleDateString();
+                                }
+                              })()}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Clock className="h-4 w-4" />
+                              {post.readTime}
+                            </div>
+                          </div>
+                          
+                          <p className="text-slate-300/80 leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                          
+                          <div className="flex flex-wrap gap-2">
+                            {post.tags.map((tag, tagIndex) => (
+                              <Badge key={tagIndex} variant="outline" className="text-xs">
+                                {tag}
+                              </Badge>
+                            ))}
+                          </div>
+                          
+                          <div className="text-sm text-[#66FCF1] font-medium group-hover:text-[#45A29E] transition-colors">
+                            Read more →
+                          </div>
+                        </div>
+                      </GlassCard>
+                    </Link>
+                  </Reveal>
+                ))}
+              </div>
+            </>
+          )}
 
           {/* Coming Soon */}
           <Reveal delay={1.4}>
