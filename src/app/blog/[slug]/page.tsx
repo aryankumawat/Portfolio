@@ -45,11 +45,18 @@ export default function BlogPostPage({ params }: PageProps) {
       });
       
       const postData = sortedPosts.find(p => p.id === slug) || null;
-      console.log('Blog post data:', postData);
+      console.log('Blog post slug:', slug);
+      console.log('Blog post data:', postData ? { id: postData.id, title: postData.title, hasContent: !!postData.content, contentLength: postData.content?.length } : null);
       
       if (postData) {
+        if (!postData.content || postData.content.length === 0) {
+          console.error('Post found but content is empty!');
+          setError('Blog post content is empty');
+        } else {
         setPost(postData);
+        }
       } else {
+        console.error('Post not found. Available IDs:', sortedPosts.map(p => p.id));
         setError(`Blog post with slug "${slug}" not found`);
       }
       setLoading(false);
