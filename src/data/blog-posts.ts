@@ -1438,4 +1438,3 @@ The future of video isn't just about better cameras or editing software—it's a
 
 Welcome to the age of **AI-augmented creativity**—where anyone with a vision can create professional-quality video, and where the only limit is your imagination.`
   }
-];// Blog posts verified
