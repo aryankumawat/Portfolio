@@ -172,7 +172,7 @@ export default function BlogPostPage({ params }: PageProps) {
                 <div className="border-t border-slate-600 pt-6">
                   <div className="max-w-none prose prose-invert prose-slate max-w-none">
                     <article className="text-slate-200">
-                      {post.content.split('\n\n').map((paragraph, idx) => {
+                      {post.content && typeof post.content === 'string' ? post.content.split('\n\n').map((paragraph, idx) => {
                         const trimmed = paragraph.trim();
                         
                         // Skip empty paragraphs
@@ -244,7 +244,7 @@ export default function BlogPostPage({ params }: PageProps) {
                             {renderWithBold(trimmed)}
                           </p>
                         );
-                      })}
+                      }) : <p className="text-red-400">Error: Content not available</p>}
                     </article>
                   </div>
                 </div>
