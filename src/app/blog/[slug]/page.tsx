@@ -169,8 +169,8 @@ export default function BlogPostPage() {
                   <div className="max-w-none prose prose-invert prose-slate max-w-none">
                     <article className="text-slate-200">
                       {(() => {
-                        if (!post.content) {
-                          console.error('Post content is missing!', post);
+                        if (!post || !post.content) {
+                          console.error('Post or content is missing!', post);
                           return <p className="text-red-400">Error: Content not available</p>;
                         }
                         if (typeof post.content !== 'string') {
@@ -179,6 +179,10 @@ export default function BlogPostPage() {
                         }
                         const paragraphs = post.content.split('\n\n');
                         console.log('Rendering content with', paragraphs.length, 'paragraphs');
+                        if (paragraphs.length === 0) {
+                          console.error('No paragraphs found after split!');
+                          return <p className="text-red-400">Error: No content paragraphs found</p>;
+                        }
                         return paragraphs.map((paragraph, idx) => {
                         const trimmed = paragraph.trim();
                         
