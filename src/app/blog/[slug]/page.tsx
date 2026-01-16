@@ -10,11 +10,7 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { blogPosts, type BlogPost } from "@/data/blog-posts";
 
-interface PageProps {
-  params: Promise<{ slug: string }>;
-}
-
-export default function BlogPostPage({ params }: PageProps) {
+export default function BlogPostPage() {
   const resolvedParams = useParams();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
