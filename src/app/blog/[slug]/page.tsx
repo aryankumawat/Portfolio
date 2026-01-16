@@ -42,13 +42,18 @@ export default function BlogPostPage() {
       
       const postData = sortedPosts.find(p => p.id === slug) || null;
       console.log('Blog post slug:', slug);
-      console.log('Blog post data:', postData ? { id: postData.id, title: postData.title, hasContent: !!postData.content, contentLength: postData.content?.length } : null);
+      console.log('Total posts available:', sortedPosts.length);
+      console.log('Blog post data:', postData ? { id: postData.id, title: postData.title, hasContent: !!postData.content, contentLength: postData.content?.length, contentType: typeof postData.content } : null);
       
       if (postData) {
         if (!postData.content || postData.content.length === 0) {
-          console.error('Post found but content is empty!');
+          console.error('Post found but content is empty!', postData);
           setError('Blog post content is empty');
+        } else if (typeof postData.content !== 'string') {
+          console.error('Post content is not a string!', typeof postData.content, postData);
+          setError('Blog post content is invalid');
         } else {
+          console.log('Setting post with content length:', postData.content.length);
         setPost(postData);
         }
       } else {
