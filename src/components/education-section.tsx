@@ -17,7 +17,7 @@ const education = [
     degree: "Bachelor of Advanced Computing (Data Science + Finance)",
     institution: "The University of Sydney",
     location: "Sydney, Australia",
-    duration: "2022 - 2026",
+    duration: "2022 - current",
     description: "Penultimate-year student focusing on computational data science and financial modeling. Core coursework includes machine learning, statistical analysis, financial mathematics, and software engineering.",
     achievements: [
       "Sydney India Scholar - Merit-based scholarship for academic excellence",

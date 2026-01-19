@@ -19,7 +19,7 @@ const highlights = [
     icon: GraduationCap,
     title: "University of Sydney",
     description: "Bachelor of Advanced Computing (Data Science + Finance)",
-    badge: "2022-2026",
+    badge: "2022-current",
     color: "from-blue-500 to-blue-600",
   },
   {
